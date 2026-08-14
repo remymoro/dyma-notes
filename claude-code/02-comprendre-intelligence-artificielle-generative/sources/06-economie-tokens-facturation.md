@@ -2,6 +2,8 @@
 
 *Claude : fondations → 2. Comprendre l'intelligence artificielle générative → 6. L'économie des tokens et la facturation*
 
+![L'économie des tokens et la facturation](../assets/economie-tokens-facturation.jpg)
+
 Quand on utilise une intelligence artificielle générative dans une interface de chat grand public, le coût est souvent masqué par un abonnement mensuel fixe. Mais dès qu'on utilise le modèle via une API (interface de programmation), le fonctionnement économique devient visible : chaque requête consomme des ressources système, mesurées et facturées principalement en **tokens**.
 
 Cette leçon explique la logique économique générale : comment se construit le coût d’une requête, pourquoi deux demandes apparemment proches peuvent avoir des coûts différents, pourquoi les modèles n’ont pas tous le même prix, et pourquoi les limites d’usage ne sont pas seulement des contraintes commerciales, mais aussi des contraintes physiques.

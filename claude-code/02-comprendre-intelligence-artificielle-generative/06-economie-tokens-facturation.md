@@ -49,6 +49,10 @@ L'économie des LLM via API est régie par la consommation de tokens, où les je
 
 ## Notes
 
+Voici l'infographie récapitulative présentant le fonctionnement de l'économie des tokens et de la facturation :
+
+![L'économie des tokens et la facturation](assets/economie-tokens-facturation.jpg)
+
 ### Structure de coût d'une requête API
 ```mermaid
 flowchart TD
