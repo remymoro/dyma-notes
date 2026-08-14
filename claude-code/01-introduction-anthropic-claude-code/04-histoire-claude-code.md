@@ -60,13 +60,13 @@ timeline
 ### Le positionnement de Claude Code
 ```mermaid
 flowchart TD
-    subgraph Avant Claude Code (Outils Passifs)
+    subgraph "Avant Claude Code (Outils Passifs)"
         IDE[IDE classique<br/>Navigation & Refactoring]
         Search[Moteurs de recherche<br/>Documentation & Exemples]
         Comp[Assistants de complétion<br/>Ligne par ligne hors contexte]
     end
     
-    subgraph L'Agent de Développement (Actif)
+    subgraph "L'Agent de Développement (Actif)"
         CC[Claude Code] -->|Lit / Écrit| F[(Fichiers locaux)]
         CC -->|Exécute| T[Tests unitaires]
         CC -->|Pilote| G[Git / Commits / PR]
