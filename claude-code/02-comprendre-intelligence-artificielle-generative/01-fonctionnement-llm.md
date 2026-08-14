@@ -47,6 +47,23 @@ Un LLM ne pense pas de manière consciente : c'est un prédicteur statistique de
 
 ## Notes
 
+### Parcours d'une demande (Les 7 étapes)
+```mermaid
+flowchart TD
+    E1["Étape 1 : Recevoir le contexte<br/>(Prompt + Historique + Fichiers)"] --> E2["Étape 2 : Découper en tokens<br/>(Tokenization de la chaîne)"]
+    E2 --> E3["Étape 3 : Convertir en nombres<br/>(Embeddings - Vecteurs numériques)"]
+    E3 --> E4["Étape 4 : Encodage positionnel<br/>(Ajout de l'ordre des mots)"]
+    E4 --> E5["Étape 5 : Mécanisme d'attention<br/>(Auto-attention - Self-Attention)"]
+    E5 --> E6["Étape 6 : Distribution de probabilités<br/>(Logits et conversion Softmax)"]
+    E6 --> E7["Étape 7 : Choix du token de sortie<br/>(Sélection via Température / Sampling)"]
+    E7 -->|Ajout du token au contexte| E1
+
+    style E1 fill:#f9f,stroke:#333,stroke-width:2px
+    style E5 fill:#bbf,stroke:#333,stroke-width:2px
+    style E7 fill:#bfb,stroke:#333,stroke-width:2px
+```
+
+### Architecture Transformer : qu'est-ce que c'est ?
 Voici le schéma récapitulatif de l'architecture Transformer et de son flux de traitement :
 
 ![Architecture Transformer](assets/transformer-architecture.jpg)
