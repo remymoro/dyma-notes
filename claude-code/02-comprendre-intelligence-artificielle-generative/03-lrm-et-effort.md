@@ -57,11 +57,11 @@ Voici l'infographie récapitulant les différences fonctionnelles et d'entraîne
 ### Du LLM classique au modèle de raisonnement
 ```mermaid
 flowchart TD
-    subgraph LLM Classique (Génération Directe)
+    subgraph "LLM Classique (Génération Directe)"
         A[Prompt] -->|Inférence standard| B[Réponse immédiate / Motif simple]
     end
     
-    subgraph LRM (Délibération Computationnelle)
+    subgraph "LRM (Délibération Computationnelle)"
         C[Prompt complexe] -->|Test-time compute| D[Thinking tokens / Travail interne]
         D -->|1. Découpage| D1[Étape 1]
         D -->|2. Backtracking| D2[Étape 2]
