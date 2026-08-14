@@ -1,0 +1,45 @@
+---
+title: "Reprendre, continuer et renommer les sessions"
+description: "Retrouver, poursuivre, récapituler et renommer une session Claude Code."
+date: 2026-08-14
+draft: true
+tags:
+  - claude-code
+  - sessions
+  - commandes
+categories:
+  - "Chapitre 9"
+cours: Claude Code
+chapitre: 09-gestion-sessions-contexte
+leçon: 03-reprendre-continuer-renommer-sessions
+statut: à revoir
+etape_revision: 0
+prochaine_revision:
+---
+
+| Indices / questions clés | Notes détaillées |
+|---|---|
+| ... | ... |
+
+## Synthèse
+(2-3 phrases dans mes propres mots, écrites sans regarder la colonne "Notes")
+
+## Glossaire
+- terme : définition
+
+## Questions d'auto-évaluation
+1. ...
+
+# Reprendre, continuer et renommer les sessions
+
+**Durée : 9 minutes**
+
+**Commandes :** `/resume`, `/continue`, `/rename` et `/recap`
+
+## Notes
+
+
+## Points clés
+
+- 
+

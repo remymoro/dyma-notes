@@ -1,0 +1,43 @@
+---
+title: "Installer des skills et présentation de skills.sh"
+description: "Apprendre à installer des skills et découvrir le catalogue skills.sh."
+date: 2026-08-14
+draft: true
+tags:
+  - claude-code
+  - skills
+  - installation
+categories:
+  - "Chapitre 14"
+cours: Claude Code
+chapitre: 14-competences-skills
+leçon: 06-installer-skills-skills-sh
+statut: à revoir
+etape_revision: 0
+prochaine_revision:
+---
+
+| Indices / questions clés | Notes détaillées |
+|---|---|
+| ... | ... |
+
+## Synthèse
+(2-3 phrases dans mes propres mots, écrites sans regarder la colonne "Notes")
+
+## Glossaire
+- terme : définition
+
+## Questions d'auto-évaluation
+1. ...
+
+# Installer des skills et présentation de `skills.sh`
+
+**Durée : 17 minutes**
+
+## Notes
+
+
+## Points clés
+
+- 
+

@@ -1,0 +1,43 @@
+---
+title: "Capitaliser les retours d’expérience : transformer les corrections en mémoire durable"
+description: "Convertir les enseignements et corrections récurrents en instructions persistantes utiles."
+date: 2026-08-14
+draft: true
+tags:
+  - claude-code
+  - memoire
+  - retours-experience
+categories:
+  - "Chapitre 12"
+cours: Claude Code
+chapitre: 12-memoire-claude-md-auto-memoire
+leçon: 06-transformer-corrections-memoire-durable
+statut: à revoir
+etape_revision: 0
+prochaine_revision:
+---
+
+| Indices / questions clés | Notes détaillées |
+|---|---|
+| ... | ... |
+
+## Synthèse
+(2-3 phrases dans mes propres mots, écrites sans regarder la colonne "Notes")
+
+## Glossaire
+- terme : définition
+
+## Questions d'auto-évaluation
+1. ...
+
+# Capitaliser les retours d’expérience : transformer les corrections en mémoire durable
+
+**Durée : 8 minutes**
+
+## Notes
+
+
+## Points clés
+
+- 
+
