@@ -48,6 +48,10 @@ Constitutional AI est la signature d'Anthropic pour aligner Claude en remplaçan
 
 ## Notes
 
+Voici l'infographie récapitulative présentant l'approche Constitutional AI d'Anthropic :
+
+![La spécificité Anthropic : la Constitution IA](assets/constitution-ia-anthropic.jpg)
+
 ### La hiérarchie à 4 niveaux de la constitution (2026)
 ```mermaid
 graph TD

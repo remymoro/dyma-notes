@@ -2,6 +2,8 @@
 
 *Claude : fondations → 2. Comprendre l'intelligence artificielle générative → 5. La spécificité Anthropic : la Constitution IA*
 
+![La spécificité Anthropic : la Constitution IA](../assets/constitution-ia-anthropic.jpg)
+
 Lorsque vous utilisez Claude, il peut arriver qu’il refuse une demande, qu’il demande davantage de contexte ou qu’il réponde avec prudence. Pour un utilisateur débutant, ce comportement peut surprendre : on peut avoir l’impression que Claude a une opinion personnelle sur ce qu’il accepte ou refuse de faire.
 
 En réalité, ce comportement vient de la manière dont Claude a été entraîné. L’une des méthodes de sécurité centrales utilisées par Anthropic s’appelle **Constitutional AI** (IA constitutionnelle). Cette méthode a été présentée dans un article de recherche fondateur publié le 15 décembre 2022 (*Constitutional AI: Harmlessness from AI Feedback*), puis expliquée publiquement par Anthropic pour Claude en mai 2023. La constitution de Claude a ensuite été profondément refondue en janvier 2026.
