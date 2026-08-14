@@ -48,6 +48,10 @@ La fenêtre de contexte agit comme la mémoire RAM d'un LLM. Pour éviter sa sat
 
 ## Notes
 
+Voici l'infographie récapitulative pour bien informer le modèle et optimiser la gestion de son contexte :
+
+![Composition et gestion du contexte](assets/composition-gestion-contexte.jpg)
+
 ### Composition de la fenêtre de contexte
 ```mermaid
 flowchart TD

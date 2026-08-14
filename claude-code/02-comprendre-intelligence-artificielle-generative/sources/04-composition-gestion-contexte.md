@@ -2,6 +2,8 @@
 
 *Claude : fondations → 2. Comprendre l'intelligence artificielle générative → 4. Composition et gestion du contexte*
 
+![Composition et gestion du contexte](../assets/composition-gestion-contexte.jpg)
+
 Le texte envoyé au modèle est découpé en tokens avant d'être traité. Le découpage exact dépend du modèle : un mot fréquent peut correspondre à un seul token, tandis qu'un mot rare ou long, une URL ou du code peuvent être découpés en plusieurs unités.
 
 ---
