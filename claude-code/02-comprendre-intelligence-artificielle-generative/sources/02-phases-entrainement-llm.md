@@ -29,7 +29,9 @@ L'entraînement d'un LLM s'appuie sur quatre repères fondamentaux :
 
 ## Vue d'ensemble des grandes phases de l'entraînement
 
-L'entraînement d'un LLM se divise en plusieurs phases successives :
+L'entraînement d'un LLM se divise en plusieurs phases successives. Voici l'infographie globale résumant ce parcours de la préparation des données jusqu'à l'inférence :
+
+![Les phases d'entraînement d'un LLM](../assets/phases-entrainement-llm.jpg)
 
 | Phase | Nom technique | Rôle principal |
 |---|---|---|
