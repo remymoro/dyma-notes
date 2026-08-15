@@ -66,8 +66,8 @@ flowchart TD
     
     C ---|Lit / Écrit / Exécute| A
     C ---|Lit / Écrit / Exécute| B
-    D ---|1. Pilotage (Remote Control)| C
-    D ---|2. Exécution Directe (Cloud)| E
+    D ---|1. Pilotage Remote Control| C
+    D ---|2. Exécution Directe Cloud| E
     E ---|Clone / Pull Request| F
     
     style C fill:#e3f2fd,stroke:#2196f3
