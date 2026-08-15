@@ -51,7 +51,7 @@ Les trois modes d'exécution de Claude Code (Local, Remote Control, Cloud) déte
 flowchart TD
     subgraph "Machine Locale"
         A[Fichiers locaux]
-        B[Outils & compilateurs]
+        B[Outils et compilateurs]
         C[Processus Claude local]
     end
     
@@ -64,10 +64,11 @@ flowchart TD
         F[Clone propre de GitHub]
     end
     
-    C <-->|Lit / Écrit / Exécute| A & B
-    D <-->|1. Pilotage (Remote Control)| C
-    D <-->|2. Exécution Directe (Cloud)| E
-    E <-->|Clone / Pull Request| F
+    C ---|Lit / Écrit / Exécute| A
+    C ---|Lit / Écrit / Exécute| B
+    D ---|1. Pilotage (Remote Control)| C
+    D ---|2. Exécution Directe (Cloud)| E
+    E ---|Clone / Pull Request| F
     
     style C fill:#e3f2fd,stroke:#2196f3
     style D fill:#fff3e0,stroke:#ff9800
