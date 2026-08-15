@@ -48,6 +48,14 @@ Les performances des LLM ne dépendent pas uniquement du nombre de paramètres (
 
 ## Notes
 
+Voici l'infographie récapitulative présentant les gammes de modèles et leurs performances :
+
+![Les gammes de modèles et la performance](assets/gammes-modeles-performance.jpg)
+
+Voici le schéma explicatif de l'architecture MoE (Mixture of Experts) :
+
+![MOE (Mixture of Experts) : le principe expliqué simplement](assets/moe-mixture-of-experts.jpg)
+
 ### Arbre de décision pour la sélection du modèle
 ```mermaid
 flowchart TD

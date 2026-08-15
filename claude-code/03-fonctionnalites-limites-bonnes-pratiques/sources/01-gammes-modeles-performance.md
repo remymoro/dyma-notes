@@ -2,6 +2,8 @@
 
 *Claude : fondations → 3. Fonctionnalités, limites et bonnes pratiques → 1. Les gammes de modèles et leurs performances*
 
+![Les gammes de modèles et la performance](../assets/gammes-modeles-performance.jpg)
+
 Tous les LLM ne se valent pas. Deux modèles peuvent fonctionner selon le même principe général (recevoir un contexte, transformer ce contexte en représentations numériques, puis produire des tokens), tout en ayant des niveaux de performance très différents.
 
 Certains modèles sont rapides, peu coûteux et suffisants pour des tâches simples. D'autres sont plus lents, plus coûteux et mieux adaptés aux tâches complexes : analyse de documents longs, raisonnement multi-étapes, code, comparaison de sources, stratégie, recherche d'erreurs ou décision sous contraintes.
@@ -55,6 +57,8 @@ Deux modèles de taille similaire peuvent avoir des performances très différen
 ---
 
 ## L'architecture du modèle : Dense vs MoE
+
+![MOE (Mixture of Experts) : le principe expliqué simplement](../assets/moe-mixture-of-experts.jpg)
 
 - **Modèles denses** : La quasi-totalité des paramètres est mobilisée pour traiter chaque token. C'est robuste mais coûteux et lent à exécuter.
 - **Modèles MoE (Mixture of Experts)** : Le modèle contient plusieurs sous-parties spécialisées (les "experts"). Pour chaque entrée, le système n'active qu'une fraction de ces experts. Cela permet d'augmenter la capacité totale du modèle tout en limitant le coût de calcul à l'inférence.
