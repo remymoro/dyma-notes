@@ -1,6 +1,6 @@
 ---
 title: "Fonctionnement d’un LLM"
-description: "Comprendre les principes de fonctionnement d’un grand modèle de langage."
+description: "Comprendre le fonctionnement interne des grands modèles de langage : tokenization, embeddings, attention et génération."
 date: 2026-08-14
 draft: true
 tags:
@@ -18,60 +18,118 @@ prochaine_revision: 2026-08-15
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Qu'est-ce qu'un LLM et comment fonctionne-t-il ? | *Large Language Model* : modèle statistique entraîné à traiter et générer du langage. Il reçoit un contexte, le convertit en nombres, calcule des relations, puis prédit la suite token par token. |
-| Qu'est-ce qu'un Token et la Tokenization ? | **Token** : Unité de base de texte (mot, partie de mot, ponctuation).<br>**Tokenization** : Découpage du texte en tokens représentés par des **identifiants** (numéros uniques). |
-| Quelle différence entre Identifiant et Embedding ? | **Identifiant** : Nombre servant à *reconnaître* le token (ex: 9021).<br>**Embedding** : Liste de nombres (vecteur) beaucoup plus riche servant à *manipuler mathématiquement* le sens et comparer sa proximité avec d'autres mots. |
-| À quoi sert l'auto-attention (Self-attention) ? | Permet à chaque token de "regarder" les autres tokens du même contexte pour adapter sa représentation interne selon les mots qui l'entourent (ex: distinguer *"avocat"* fruit vs juridique). |
-| Comment marche l'attention avec Query, Key, Value ? | **Query (Q)** : Ce que le modèle cherche à comprendre.<br>**Key (K)** : Les étiquettes d'informations du contexte.<br>**Value (V)** : Le contenu informatif récupéré si Query correspond à Key. |
-| Pourquoi un LLM n'est pas une base de données ? | Une base de données stocke des données exactes sous forme de tables. Un LLM **compresse des régularités statistiques** ; il n'a pas de copie conforme et peut donc générer des réponses plausibles mais fausses (**hallucinations**). |
+| Qu'est-ce qu'un LLM et comment fonctionne-t-il ? | *Large Language Model* : modèle statistique entraîné à prédire la suite d'un texte token par token à partir d'un contexte. |
+| Qu'est-ce qu'un Token et la Tokenization ? | **Token** : Unité minimale de texte (~4 caractères).<br>**Tokenization** : Découpage du texte brut en identifiants numériques. |
+| Quelle différence entre Identifiant et Embedding ? | **Identifiant** : Numéro unique servant de référence à un token.<br>**Embedding** : Vecteur numérique capturant le sens sémantique et les relations. |
+| À quoi sert l'auto-attention (Self-attention) ? | Permet à chaque token de peser l'importance des autres tokens du contexte pour lever les ambiguïtés sémantiques. |
+| Comment marche l'attention (Query, Key, Value) ? | **Query (Q)** : Ce que le mot cherche.<br>**Key (K)** : L'étiquette de chaque mot du contexte.<br>**Value (V)** : L'information transmise si Q et K correspondent. |
+| Pourquoi un LLM n'est pas une base de données ? | Un LLM compresse des relations statistiques. Sans données exactes injectées dans son contexte, il risque d'halluciner. |
 
 ## Synthèse
-Un LLM ne pense pas de manière consciente : c'est un prédicteur statistique de tokens. Il transforme le texte d'entrée en tokens puis en vecteurs (embeddings), y ajoute la position, calcule les relations de sens via le mécanisme d'attention du Transformer, et génère le mot suivant le plus probable couche après couche. Pour garantir l'exactitude des informations, il faut lui fournir les données brutes directement dans son contexte.
+Un LLM ne pense pas de manière consciente : c'est un prédicteur statistique de tokens. Il découpe le texte d'entrée en tokens, les convertit en vecteurs d'embeddings enrichis d'un encodage positionnel, calcule les relations de sens via le mécanisme d'attention du Transformer, puis génère le mot suivant le plus probable via Softmax et Sampling.
 
 ## Glossaire
-- **Embedding** : Traduction mathématique d'un token sous forme de liste de nombres (vecteur).
-- **Logits** : Scores bruts calculés par le modèle pour chaque token avant conversion en probabilités.
-- **Positional encoding** : Encodage de position ajouté aux embeddings pour que le modèle comprenne l'ordre des mots.
-- **Sampling & Temperature** : Méthode et paramètre de sélection du token suivant influençant le degré de variabilité (créativité/stabilité) de la réponse.
-- **Softmax** : Fonction mathématique convertissant les logits en distribution de probabilités (somme égale à 100%).
-- **Token** : Morceau de texte minimal manipulé par le modèle (environ 4 caractères en moyenne).
+- **Embedding** : Vectorisation mathématique représentant la signification d'un token dans un espace multidimensionnel.
+- **Logits** : Scores numériques bruts générés par le modèle pour chaque token du vocabulaire avant conversion probabiliste.
+- **Positional Encoding** : Technique injectant l'information de position et d'ordre des mots dans les vecteurs d'embeddings.
+- **Softmax** : Fonction mathématique convertissant les logits bruts en une distribution de probabilités dont la somme vaut 100%.
 
 ## Questions d'auto-évaluation
-1. Pourquoi un mot rare ou long comme *"internationalisation"* est-il découpé en plusieurs tokens ?
-2. Quelle est la différence entre l'attention et l'auto-attention (self-attention) ?
-3. Quel est l'impact d'une température très élevée (ex: 1.5) sur la génération d'une réponse ?
+1. Pourquoi le mot *"internationalisation"* est-il découpé en plusieurs tokens distincts par le tokenizer ?
+2. Quelle est la différence fondamentale entre l'identifiant d'un token et son vecteur d'embedding ?
+3. Quel rôle la température joue-t-elle dans le choix final du token lors du sampling ?
+4. Pourquoi les hallucinations se produisent-elles et comment les éviter ?
 
 # Fonctionnement d’un LLM
 
-**Durée : 21 minutes**
+## Objectif de la leçon
+Comprendre le cycle de traitement de l'information au sein d'un modèle Transformer, de la saisie utilisateur jusqu'à la génération du token final.
 
-## Notes
+---
 
-### Parcours d'une demande (Les 7 étapes)
-```mermaid
-flowchart TD
-    E1["Étape 1 : Recevoir le contexte<br/>(Prompt + Historique + Fichiers)"] --> E2["Étape 2 : Découper en tokens<br/>(Tokenization de la chaîne)"]
-    E2 --> E3["Étape 3 : Convertir en nombres<br/>(Embeddings - Vecteurs numériques)"]
-    E3 --> E4["Étape 4 : Encodage positionnel<br/>(Ajout de l'ordre des mots)"]
-    E4 --> E5["Étape 5 : Mécanisme d'attention<br/>(Auto-attention - Self-Attention)"]
-    E5 --> E6["Étape 6 : Distribution de probabilités<br/>(Logits et conversion Softmax)"]
-    E6 --> E7["Étape 7 : Choix du token de sortie<br/>(Sélection via Température / Sampling)"]
-    E7 -->|Ajout du token au contexte| E1
+# 1. Le Pipeline de Traitement des LLMs
 
-    style E1 fill:#f9f,stroke:#333,stroke-width:2px
-    style E5 fill:#bbf,stroke:#333,stroke-width:2px
-    style E7 fill:#bfb,stroke:#333,stroke-width:2px
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      PIPELINE DE GÉNÉRATION LLM                         │
+│                                                                         │
+│  [Prompt Brut] ──> [Tokenization] ──> [Embeddings + Position]           │
+│                                                     │                   │
+│  [Token Sortie] <── [Softmax / Temp] <── [Attention (Q, K, V)] ◄──────┘ │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Architecture Transformer : qu'est-ce que c'est ?
-Voici le schéma récapitulatif de l'architecture Transformer et de son flux de traitement :
+---
 
-![Architecture Transformer](assets/transformer-architecture.jpg)
+# 2. Mécanisme d'Attention (Query, Key, Value)
 
-## Points clés
+L'auto-attention permet de relier les mots entre eux selon le contexte :
 
-- Un LLM découpe le texte en **tokens** puis les convertit en **embeddings** (vecteurs numériques).
-- L'ordre des mots est conservé grâce au **Positional Encoding**.
-- Le **Transformer** utilise l'**attention** (et le système Query/Key/Value) pour calculer l'importance relative de chaque mot du contexte.
-- La génération se fait pas à pas en convertissant les **logits** en probabilités (**softmax**) puis en effectuant un **sampling** influencé par la **temperature**.
-- Le LLM n'étant ni une base de données ni un moteur de recherche, il compresse des régularités et peut halluciner. Il faut lui fournir les données dont on souhaite être sûr.
+```text
+  Query (Ce qu'on cherche)   ──────┐
+                                   ├──> Score d'Attention ──> Value Retenue
+  Key (Ce qui est présent)   ──────┘
+```
+
+---
+
+# Résumé & Schéma global
+
+```text
+                    MÉCANIQUE DU TRANSFORMER
+                               │
+      ┌────────────────────────┼────────────────────────┐
+      ▼                        ▼                        ▼
+  Input Tokenized         Self-Attention            Probabilités
+(Mots → Identifiants)   (Contexte & Sens)       (Logits → Softmax)
+```
+
+# Tableau des étapes
+
+| Étape | Action |
+|---|---|
+| **1. Tokenization** | Découpage du texte en morceaux minimaux (tokens). |
+| **2. Embedding** | Conversion des tokens en vecteurs numériques sémantiques. |
+| **3. Attention** | Pondération de l'importance de chaque mot du contexte (Q, K, V). |
+| **4. Sampling** | Sélection du token de sortie selon la température et les probabilités. |
+
+# Les 5 points les plus importants
+
+1. **Un LLM prédit des tokens**, pas des mots ou des concepts abstraits conscients.
+2. **La tokenization découpe les mots** en sous-unités d'environ 4 caractères.
+3. **Les embeddings traduisent les mots en géométrie** dans un espace vectoriel.
+4. **Le mécanisme d'attention** détermine l'importance relative de chaque mot du contexte.
+5. **Un LLM n'est pas une base de données** : il compresse des probabilités et peut halluciner.
+
+---
+
+# Carte mentale
+
+```text
+Fonctionnement d'un LLM
+│
+├── Entrées & Représentation
+│   ├── Tokenization (ID)
+│   └── Embeddings & Position
+│
+├── Cœur du Transformer
+│   ├── Auto-attention
+│   └── Système Query / Key / Value
+│
+└── Génération
+    ├── Logits & Softmax
+    └── Température & Sampling
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Token              → ~4 caractères / morceau de mot
+Embedding          → Vecteur numérique sémantique
+Self-Attention     → Lien de sens entre les mots du contexte
+Softmax / Sampling → Conversion des scores en token final
+```
+
+> **Phrase à retenir** : Un LLM est un prédicteur statistique de tokens extrêmement sophistiqué, pas une base de données de vérités factuelles.

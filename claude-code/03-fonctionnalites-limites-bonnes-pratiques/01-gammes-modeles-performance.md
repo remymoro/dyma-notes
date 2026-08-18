@@ -1,6 +1,6 @@
 ---
 title: "Les gammes de modèles et leurs performances"
-description: "Découvrir les différentes gammes de modèles et comparer leurs performances."
+description: "Découvrir les gammes de modèles (Haiku, Sonnet, Opus), leurs compromis Vitesse/Coût/Qualité et l'architecture MoE."
 date: 2026-08-15
 draft: true
 tags:
@@ -19,64 +19,121 @@ prochaine_revision: 2026-08-16
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Que sont les paramètres (weights) ? | Valeurs numériques internes ajustées pendant l'entraînement. Les connaissances du modèle sont **distribuées** à travers ces poids, et non stockées dans une base de données de faits isolés. |
-| Quel est le compromis Taille / Vitesse / Coût ? | - **Légers** : Très rapides, très économiques, pour tâches basiques (classement, extraction courte).<br>- **Intermédiaires** : Bon compromis vitesse/coût pour résumés, plans d'action.<br>- **Puissants** : Lents, coûteux, pour analyses juridiques/financières et code complexe. |
-| Qu'est-ce qu'une architecture MoE ? | *Mixture of Experts* : Modèle composé d'experts spécialisés. Pour chaque token, seule une fraction d'experts est activée, optimisant la puissance sans faire exploser le coût computationnel. |
-| Quel est le rôle du post-training ? | Ajustement fin (SFT + Alignement) qui enseigne au modèle le suivi strict des contraintes multiples, le respect des formats complexes (JSON) et adapte le ton (prudence, neutralité). |
-| Qu'est-ce qu'un modèle d'embedding ? | Modèle non conversationnel conçu pour transformer du texte en vecteurs (représentation numérique) afin d'alimenter les moteurs de recherche sémantique ou les systèmes **RAG**. |
-| Comment choisir son modèle ? | Arbitrer selon la complexité et le niveau de risque de la tâche : utiliser un modèle léger pour les tâches massives ou répétitives simples ; réserver les modèles de raisonnement (LRM) pour les logiques multi-étapes et audits. |
+| Que sont les paramètres (weights) ? | Valeurs numériques ajustées en apprentissage. Connaissances **distribuées** mathématiquement. |
+| Quel est le compromis Taille/Vitesse/Coût ? | **Légers** (Haiku) : Vitesse & faible coût.<br>**Équilibrés** (Sonnet) : Polyvalence dev.<br>**Puissants** (Opus) : Raisonnement lourd. |
+| Qu'est-ce qu'une architecture MoE ? | *Mixture of Experts* : Activation dynamique d'un sous-ensemble d'experts par token pour optimiser le calcul. |
+| Quel est le rôle des modèles d'embedding ? | Modèles non conversationnels convertissant du texte en vecteurs pour les moteurs RAG. |
+| Comment choisir son modèle ? | Sélectionner selon le risque et la complexité : Haiku (tâches simples/massives), Sonnet (code/agent), Opus (refactoring lourd). |
 
 ## Synthèse
-Les performances des LLM ne dépendent pas uniquement du nombre de paramètres (poids distribués), mais aussi de la qualité de l'entraînement et de l'architecture. Le choix du modèle en entreprise repose sur un arbitrage strict entre la qualité requise, la latence et le coût, en orientant les tâches simples et massives vers des modèles légers (ou architectures MoE économiques) et en réservant les modèles puissants et de raisonnement (LRM) aux audits complexes et tâches de programmation sensibles.
+Le choix d'un modèle d'IA repose sur un arbitrage strict entre la qualité requise, la latence acceptable et le coût par million de tokens. La gamme Anthropic s'échelonne de Haiku (rapide et économique) à Opus (raisonnement complexe), en passant par Sonnet (l'étalon-or pour le développement et Claude Code).
 
 ## Glossaire
-- **Dense (Modèle)** : Architecture de modèle où la quasi-totalité des paramètres est mobilisée et calculée pour chaque token généré.
-- **Embedding** : Vecteur de nombres réels représentant la signification sémantique d'un texte, d'une image ou d'un document.
-- **MoE (Mixture of Experts)** : Architecture de mélange d'experts activant dynamiquement une sous-partie du modèle pour chaque token traité.
-- **Paramètre (Weight)** : Poids numérique ajusté pendant la phase d'apprentissage d'un réseau de neurones, dictant les relations statistiques entre les tokens.
-- **Raisonnement multi-étapes** : Capacité d'un modèle à enchaîner plusieurs opérations logiques successives pour résoudre un problème complexe.
-- **Test-time compute** : Temps et ressources de calcul supplémentaires mobilisés à l'inférence par un modèle de raisonnement pour valider ses étapes logiques.
+- **Dense** : Architecture où 100% des paramètres sont sollicités à chaque token généré.
+- **MoE (Mixture of Experts)** : Architecture n'activant qu'une fraction des paramètres (experts) par token.
+- **Paramètre (Weight)** : Coefficient numérique ajusté en entraînement stockant les connaissances du modèle.
+- **RAG (Retrieval-Augmented Generation)** : Système associant un modèle d'embedding et un LLM pour la recherche documentaire.
 
 ## Questions d'auto-évaluation
-1. Pourquoi un modèle avec un grand nombre de paramètres n'est-il pas systématiquement le plus performant pour une tâche donnée ?
-2. Quelle différence de fonctionnement majeur y a-t-il entre un modèle de conversation classique et un modèle d'embedding ?
-3. Comment l'architecture MoE parvient-elle à réduire la facture de calcul par requête ?
+1. Pourquoi un modèle avec moins de paramètres mais un entraînement plus propre peut-il surpasser un modèle plus volumineux ?
+2. Quel est l'avantage principal de l'architecture MoE pour les fournisseurs d'API ?
+3. Pourquoi Claude Sonnet est-il le modèle recommandé par défaut pour Claude Code ?
+4. Quelle est la fonction propre d'un modèle d'embedding par rapport à un LLM conversationnel ?
 
 # Les gammes de modèles et leurs performances
 
-**Durée : 18 minutes**
+## Objectif de la leçon
+Comprendre l'arbitrage Qualité-Vitesse-Coût et savoir sélectionner le modèle adapté au cas d'usage technique.
 
-## Notes
+---
 
-Voici l'infographie récapitulative présentant les gammes de modèles et leurs performances :
+# 1. Le Compromis Vitesse / Coût / Qualité
 
-![Les gammes de modèles et la performance](assets/gammes-modeles-performance.jpg)
-
-Voici le schéma explicatif de l'architecture MoE (Mixture of Experts) :
-
-![MOE (Mixture of Experts) : le principe expliqué simplement](assets/moe-mixture-of-experts.jpg)
-
-### Arbre de décision pour la sélection du modèle
-```mermaid
-flowchart TD
-    A["Début : Quelle est la tâche ?"] --> B{"Est-elle simple & répétitive ?"}
-    B -->|Oui| C["Modèle Léger (ex: Claude Haiku)<br/>Rapide, économique"]
-    B -->|Non| D{"Nécessite une analyse critique ou multi-documents ?"}
-    D -->|Non / Usage standard| E["Modèle Intermédiaire<br/>ex: Résumé, plan d'action"]
-    D -->|Oui / Complexe ou Risqué| F{"Tâche logique, mathématique ou code complexe ?"}
-    F -->|Oui| G["Modèle de Raisonnement (LRM)<br/>ex: o1 / DeepSeek-R1"]
-    F -->|Non| H["Modèle Puissant classique (ex: Claude Sonnet / Opus)<br/>Grande précision, contextes longs"]
-    
-    style C fill:#c8e6c9,stroke:#388e3c
-    style E fill:#fff9c4,stroke:#fbc02d
-    style H fill:#ffe0b2,stroke:#f57c00
-    style G fill:#ffcdd2,stroke:#d32f2f
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      TRIANGLE D'ARBITRAGE DES MODÈLES                   │
+│                                                                         │
+│  [Haiku]  ──> Ultra-Rapide & Économique (Extraction, tri, classification)│
+│  [Sonnet] ──> Modèle Étalon-Or (Développement, agents, refactoring)    │
+│  [Opus]   ──> Raisonnement Supérieur (Problèmes mathématiques/architecture)│
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- Les **connaissances** d'un LLM ne sont pas stockées dans une base de données, mais sont **distribuées mathématiquement** à travers ses paramètres (weights).
-- Le compromis **Qualité-Vitesse-Coût** oriente la sélection du modèle.
-- L'architecture **MoE** (Mixture of Experts) active uniquement des sous-parties du modèle par token pour contrôler le coût.
-- Les **données d'entraînement** de haute qualité (nettoyées et diversifiées) sont plus importantes qu'un grand nombre de paramètres bruts.
-- Les **modèles de raisonnement** sont performants pour les tâches multi-étapes ou sous contraintes, mais induisent une **latence plus élevée** (test-time compute).
+# 2. Arbre de Décision pour la Sélection
+
+```text
+               Tâche à accomplir
+                       │
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+Tâche simple & répétitive?     Besoin de code / logique?
+   │                              │
+   ├──> OUI : Haiku               ├──> OUI : Sonnet / LRM
+   └──> NON : Voir complexe       └──> NON : Opus (Analyse doc)
+```
+
+---
+
+# Résumé & Schéma global
+
+```text
+                       GAMME DE MODÈLES ANTHROPIC
+                                   │
+       ┌───────────────────────────┼───────────────────────────┐
+       ▼                           ▼                           ▼
+   Claude Haiku              Claude Sonnet               Claude Opus
+(Rapidité / Coût)         (Code / Équilibre)          (Complexité max)
+```
+
+# Tableau récapitulatif de la gamme
+
+| Modèle | Spécialité | Cas d'usage idéal |
+|---|---|---|
+| **Claude Haiku** | Vitesse extrême, faible coût | Tri de logs, extraction de données, requêtes légères. |
+| **Claude Sonnet** | Équilibre parfait, agentique | Programmation, édition de fichiers, Claude Code CLI. |
+| **Claude Opus** | Raisonnement lourd, nuances | Architecture logicielle, réécriture complexe, audits. |
+
+# Les 5 points les plus importants
+
+1. **Les connaissances sont distribuées dans les poids**, pas stockées sous forme de tables.
+2. **Claude Sonnet est le modèle de référence** pour l'agentique et le code.
+3. **Claude Haiku permet d'automatiser** des tâches massives à très faible coût.
+4. **L'architecture MoE n'active que les experts nécessaires**, réduisant la latence.
+5. **Le choix du modèle doit être guidé** par l'arbitrage Vitesse / Coût / Précision.
+
+---
+
+# Carte mentale
+
+```text
+Gammes de Modèles & Performance
+│
+├── Gamme Anthropic
+│   ├── Haiku (Rapide / Économique)
+│   ├── Sonnet (Équilibré / Code CLI)
+│   └── Opus (Raisonnement lourd)
+│
+├── Architectures
+│   ├── Modèles Denses (100% calcul)
+│   └── MoE (Activation dynamique par token)
+│
+└── Critères de Sélection
+    ├── Complexité de la tâche
+    ├── Exigence de latence
+    └── Budget tokens
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Haiku  → Vitesse & Économie (Tâches simples)
+Sonnet → Standard de développement (Claude Code)
+Opus   → Raisonnement & Architecture complexe
+MoE    → Activation sélective des paramètres par token
+```
+
+> **Phrase à retenir** : Ne payez pas pour de l'intelligence inutile : utilisez Haiku pour le tri et Sonnet/Opus pour le code critique.

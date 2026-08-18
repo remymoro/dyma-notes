@@ -1,6 +1,6 @@
 ---
 title: "Qu'est-ce qu'un outil ?"
-description: "Comprendre le concept d'outil (tool use / function calling) dans les LLM."
+description: "Comprendre le concept d'outil (tool use / function calling) et le cycle de communication entre le LLM et le système hôte."
 date: 2026-08-15
 draft: true
 tags:
@@ -20,56 +20,124 @@ prochaine_revision: 2026-08-16
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Qu'est-ce qu'un outil ? | Capacité externe (API, script, base de données) qu'un LLM peut appeler pour réaliser des actions hors de ses connaissances internes. |
-| Comment est décrit un outil ? | Par un **nom**, une **description** (pour que le modèle comprenne son rôle) et un **schéma de paramètres** (JSON Schema définissant le format attendu). |
-| Comment se déroule l'appel d'outil ? | 1. Le modèle génère un **tool call** avec des arguments.<br>2. L'application exécute l'action côté serveur.<br>3. Le résultat est renvoyé en entrée de l'IA (tool response). |
-| Quels sont les types d'outils courants ? | Recherche web, requêtes SQL (base de données), calculatrices, outils système (Slack, e-mail) et interpréteurs de code (Python). |
-| Quels sont les enjeux de sécurité ? | Nécessité d'encadrer les permissions d'action, de valider la sécurité des données reçues et d'auditer les résultats renvoyés au modèle. |
-| En quoi est-ce une transition vers l'agent ? | L'usage d'outils fait passer le modèle d'un rôle d'assistant conversationnel passif à un système actif capable de modifier son environnement ou de chercher des faits. |
+| Qu'est-ce qu'un outil ? | Passerelle externe (API, script, base de données) permettant au LLM d'agir hors de sa mémoire passive. |
+| Comment est décrit un outil ? | Par un **nom**, une **description** (pourquoi l'utiliser) et un **JSON Schema** (arguments requis). |
+| Qui exécute le code d'un outil ? | Le **système hôte** (l'application CLI/serveur), jamais le modèle lui-même. |
+| Quel est le cycle de vie d'un appel ? | 1. Prompt ──> 2. Tool Call (IA) ──> 3. Execution (Hôte) ──> 4. Tool Result ──> 5. Réponse (IA). |
+| Enjeux de sécurité ? | Encadrer les droits d'écriture, valider les schémas et exiger des autorisations sur les actions sensibles. |
 
 ## Synthèse
-Un outil (ou *function calling*) connecte un LLM à des actions ou des sources de données extérieures. Le modèle ne lance pas lui-même l'outil ; il émet une demande structurée contenant des arguments précis, que le système hôte exécute avant de lui renvoyer le résultat. Bien que puissants pour contourner la limite de temps (*cutoff*) ou effectuer des calculs fiables, les outils exigent un contrôle strict des permissions et une analyse critique des données récupérées.
+Un outil (ou *function calling*) permet à un LLM de dépasser le cadre d'un simple générateur de texte en sollicitant des services externes (fichiers, bases de données, recherches web). Le modèle n'exécute pas le code lui-même : il émet une intention d'appel en JSON que l'application hôte exécute avant de lui restituer le résultat.
 
 ## Glossaire
-- **Appel d'outil (Tool Call)** : Demande structurée émise par le LLM contenant le nom de l'outil et les arguments requis pour son exécution.
-- **Function Calling** : Capacité native d'un LLM à structurer une sortie sous forme d'arguments d'API ou de fonctions de code.
-- **JSON Schema** : Format standardisé décrivant la structure des données attendues par l'outil pour que le modèle puisse s'y conformer.
-- **Réponse d'outil (Tool Response)** : Résultat d'exécution de l'outil renvoyé par l'application pour enrichir le contexte d'entrée du LLM.
-- **Système hôte** : Application ou serveur exécutant le code d'intégration du modèle et gérant l'appel physique des outils.
+- **Function Calling** : Capacité d'un LLM à formuler une réponse sous forme d'arguments d'appel de fonction structurés.
+- **JSON Schema** : Format décrivant le nom et le type des paramètres d'entrée exigés par un outil.
+- **Système Hôte** : Application locale ou serveur qui exécute l'outil demandé par le modèle.
+- **Tool Call / Response** : Paire de messages comprenant l'intention d'appel émise par l'IA et la réponse brute retournée par l'outil.
 
 ## Questions d'auto-évaluation
-1. Qui exécute réellement le code d'un outil (comme une recherche web ou l'envoi d'un e-mail) : le LLM lui-même ou l'application hôte ?
-2. Pourquoi la description textuelle d'un outil dans l'API est-elle cruciale pour sa bonne utilisation par l'IA ?
-3. Citez un risque de sécurité majeur si l'on donne à un modèle un accès direct en écriture à une base de données sans contrôle intermédiaire.
+1. Pourquoi la description textuelle d'un outil est-elle indispensable pour que le modèle choisisse de l'invoquer au bon moment ?
+2. Quel est le rôle exact du système hôte lors de l'exécution d'un outil ?
+3. Pourquoi l'utilisation d'un outil de calculatrice améliore-t-elle la fiabilité des opérations mathématiques d'un LLM ?
+4. Quels risques de sécurité existent si un outil permet de modifier arbitrairement des fichiers système ?
 
 # Qu'est-ce qu'un outil ?
 
-**Durée : 13 minutes**
+## Objectif de la leçon
+Comprendre le principe du *function calling*, l'échange de messages entre le LLM et l'application hôte, et les garanties de sécurité associées.
 
-## Notes
+---
 
-### Flux d'exécution d'un appel d'outil (Tool Use)
-```mermaid
-sequenceDiagram
-    participant U as Utilisateur
-    participant M as Modèle (LLM)
-    participant A as Application / Système hôte
-    participant O as Outil Externe (ex: Web)
-    
-    U->>M: Pose une question sur l'actualité
-    Note over M: Identifie le besoin d'infos récentes
-    M-->>A: Demande d'appel d'outil (Tool Call + Arguments)
-    A->>O: Exécute l'action avec les arguments
-    O-->>A: Renvoie les résultats bruts
-    A->>M: Injecte les résultats dans le contexte (Tool Response)
-    Note over M: Analyse les données reçues
-    M-->>U: Rédige la réponse finale sourcée
+# 1. Le Cycle d'Exécution d'un Outil (Tool Use)
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      CYCLE D'APPEL D'UN OUTIL                           │
+│                                                                         │
+│  [1. Utilisateur] ──> Question ──> [2. LLM]                             │
+│                                       │ (Demande un Tool Call JSON)     │
+│                                       ▼                                 │
+│  [5. Réponse]    <── Réponse <── [3. Hôte / CLI] ──> [4. Outil Externe] │
+│                                  (Exécute le script/API)                │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- Les LLM n'ont **pas d'accès direct** à Internet ou aux fichiers par défaut ; ils ont besoin d'outils intermédiaires.
-- L'IA utilise les descriptions des outils pour décider **quand** et **comment** les appeler.
-- Le cycle de vie d'un outil : **Appel d'outil (modèle) -> Exécution (système hôte) -> Réponse d'outil (injectée au contexte) -> Réponse finale (modèle)**.
-- Les outils fiabilisent le modèle (calculatrices pour les mathématiques, RAG pour l'information récente).
-- **Sécurité** : Les actions sensibles (écritures, suppressions, envois de messages) doivent être gouvernées par des logs et des validations humaines.
+# 2. Anatomie de la Déclaration d'un Outil (JSON Schema)
+
+```json
+{
+  "name": "lire_fichier",
+  "description": "Lit le contenu d'un fichier du projet à partir de son chemin.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "chemin": { "type": "string", "description": "Chemin absolu ou relatif" }
+    },
+    "required": ["chemin"]
+  }
+}
+```
+
+---
+
+# Résumé & Schéma global
+
+```text
+                     CONNEXION DU MODEL AU MONDE RÉEL
+                                    │
+       ┌────────────────────────────┼────────────────────────────┐
+       ▼                            ▼                            ▼
+  Description                  Tool Call                    Tool Result
+(Rôle & Arguments)          (Intention de l'IA)          (Données système)
+```
+
+# Tableau récapitulatif des rôles
+
+| Acteur | Rôle dans l'appel d'outil |
+|---|---|
+| **Le LLM** | Détecte le besoin, choisit l'outil et prépare la structure JSON. |
+| **Le Système Hôte** | Vérifie les permissions, exécute l'action physique et capture la sortie. |
+| **L'Outil Externe** | API Web, base de données ou commande terminal exécutant l'instruction. |
+
+# Les 5 points les plus importants
+
+1. **Le LLM n'exécute pas d'outils directement** : il émet une intention sous forme de structure JSON.
+2. **C'est le système hôte (l'application CLI/IDE)** qui exécute physiquement la commande.
+3. **La description de l'outil est essentielle** pour orienter la décision du modèle.
+4. **Le résultat de l'outil est réinjecté dans le contexte** sous forme de `Tool Response`.
+5. **Les actions destructrices nécessitent une validation** humaine explicite.
+
+---
+
+# Carte mentale
+
+```text
+Qu'est-ce qu'un outil ?
+│
+├── Concept & Définition
+│   ├── Dépasser le texte pur
+│   └── Accès aux données réelles (Web, BDD, Fichiers)
+│
+├── Mécanique (Function Calling)
+│   ├── JSON Schema & Parameters
+│   └── Séquence : Intent → Execute → Result
+│
+└── Sécurité & Exécution
+    ├── Rôle du système hôte
+    └── Contrôle des permissions
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Function Calling → Capacité du LLM à formuler un appel d'outil JSON
+Tool Call        → Intention émise par le modèle avec arguments
+Tool Response    → Résultat de l'action renvoyé dans le contexte
+Système hôte     → Programme qui exécute l'outil (ex: Claude Code)
+```
+
+> **Phrase à retenir** : Les outils transforment l'IA d'un conseiller bavard en un agent capable d'interagir avec les fichiers et l'environnement réel.

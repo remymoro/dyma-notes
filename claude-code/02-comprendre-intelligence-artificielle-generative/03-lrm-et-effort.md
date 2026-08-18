@@ -1,6 +1,6 @@
 ---
 title: "Les LRM et l'effort"
-description: "Comprendre les modèles de raisonnement (LRM) et le contrôle de l'effort de calcul."
+description: "Comprendre les modèles de raisonnement (LRM), le test-time compute et le contrôle de l'effort de calcul."
 date: 2026-08-14
 draft: true
 tags:
@@ -20,64 +20,118 @@ prochaine_revision: 2026-08-15
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Qu'est-ce qu'un LRM ? | *Large Reasoning Model* : LLM optimisé (via RL) pour résoudre des tâches complexes par étapes de délibération computationnelle. |
-| Qu'est-ce que le test-time compute ? | Calcul utilisé **au moment de la réponse** (inférence). Permet d'allouer plus de temps de réflexion aux tâches difficiles. |
-| Comment contrôler le raisonnement ? | 1. **Thinking budget** : Nombre max de tokens alloués à la réflexion.<br>2. **Reasoning effort** : Niveau d'effort demandé (Low, Medium, High) influençant le temps et le coût. |
-| Que fait le modèle avec plus de réflexion ? | **Découpage** du problème, **vérification** des contrentes, **backtracking** (retour en arrière après erreur), et **recherche d'infos** via outils. |
-| Quelle différence entre ORM et PRM ? | **ORM** (*Outcome*) : Récompense uniquement le résultat final (récompense sparse/pauvre).<br>**PRM** (*Process*) : Récompense chaque étape intermédiaire (plus riche et plus adapté au raisonnement). |
-| Qu'est-ce que la distillation de raisonnement ? | Entraîner un modèle étudiant léger (*student*) sur les traces de raisonnement d'un modèle enseignant puissant (*teacher*) pour réduire les coûts. |
+| Qu'est-ce qu'un LRM ? | *Large Reasoning Model* : LLM optimisé pour exécuter des étapes de délibération logique (*thinking tokens*). |
+| Qu'est-ce que le test-time compute ? | Calcul alloué **pendant l'inférence** pour permettre au modèle de réfléchir avant de répondre. |
+| Comment contrôler le raisonnement ? | **Thinking budget** (tokens max de réflexion) et **Reasoning effort** (Low, Medium, High). |
+| Que fait le modèle pendant sa réflexion ? | Découpage du problème, vérification des contraintes, **backtracking** et auto-correction. |
+| Quelle différence entre ORM et PRM ? | **ORM** : Récompense uniquement le résultat final.<br>**PRM** : Récompense la qualité de chaque étape logique intermédiaire. |
+| Qu'est-ce que la distillation ? | Transfert des traces de raisonnement d'un modèle expert (Teacher) vers un petit modèle (Student). |
 
 ## Synthèse
-Les modèles de raisonnement (LRM) se distinguent des LLM classiques par l'allocation de calcul à l'inférence (*test-time compute*), générant des tokens de réflexion (*thinking tokens*) invisibles pour structurer la résolution (découpage, backtracking, auto-correction). Entraînés par renforcement via des modèles de récompense de processus (PRM), leurs capacités peuvent être distillées dans des modèles plus petits pour des tâches ciblées, bien que ces derniers restent moins fiables sur les cas rares.
+Les modèles de raisonnement (LRM) s'appuient sur le *test-time compute* pour générer des tokens de réflexion internes avant de répondre. Entraînés par apprentissage par renforcement avec des modèles de récompense de processus (PRM), ils décomposent les problèmes complexes, appliquent du *backtracking* en cas d'erreur et s'auto-corrigeants.
 
 ## Glossaire
-- **Backtracking (Retour en arrière)** : Capacité de l'agent à abandonner une piste logique erronée pour recommencer sur une autre voie.
-- **Distillation** : Transfert de connaissances d'un grand modèle (*teacher*) vers un modèle plus petit (*student*).
-- **ORM (Outcome Reward Model)** : Évaluation et récompense de l'exactitude de la réponse finale uniquement.
-- **PRM (Process Reward Model)** : Évaluation et récompense de la validité de chaque étape intermédiaire de raisonnement.
-- **Reasoning effort** : Paramètre qualitatif (Low/Medium/High) définissant l'intensité du raisonnement.
-- **Test-time compute** : Temps et ressources de calcul alloués au modèle lors de l'inférence pour formuler sa réponse.
-- **Thinking budget** : Quantité maximale de tokens de raisonnement autorisée pour une réponse.
+- **Backtracking** : Capacité du modèle à abandonner une piste logique infructueuse et revenir à une étape antérieure.
+- **LRM (Large Reasoning Model)** : Modèle de langage spécialisé dans la délibération et le raisonnement pas-à-pas.
+- **PRM (Process Reward Model)** : Système d'évaluation récompensant chaque étape intermédiaire valide d'un raisonnement.
+- **Test-time compute** : Temps et puissance de calcul consacrés à la réflexion au moment d'exécuter la requête.
 
 ## Questions d'auto-évaluation
-1. Pourquoi la distillation ne remplace-t-elle pas complètement l'usage d'un grand modèle ?
-2. Quelle est la principale limite d'un Outcome Reward Model (ORM) sur une tâche de logique complexe ?
-3. En quoi consiste l'analogie de la *Dual Process Theory* appliquée aux LLM ?
+1. Pourquoi un LRM est-il plus adapté qu'un LLM classique pour résoudre des bugs complexes sur une base de code ?
+2. Quelle est la différence majeure entre un Process Reward Model (PRM) et un Outcome Reward Model (ORM) ?
+3. Quel risque existe-t-il lorsqu'on utilise un modèle dont les capacités de raisonnement ont été distillées ?
+4. Quel paramètre permet de brider la consommation de tokens lors des étapes de réflexion d'un LRM ?
 
 # Les LRM et l'effort
 
-**Durée : 20 minutes**
+## Objectif de la leçon
+Comprendre le fonctionnement des modèles de raisonnement (LRM), le concept de test-time compute et le contrôle de l'effort de réflexion.
 
-## Notes
+---
 
-Voici l'infographie récapitulant les différences fonctionnelles et d'entraînement entre un LLM classique et un modèle de raisonnement (LRM) :
+# 1. LLM Classique vs LRM
 
-![Du LLM classique au modèle de raisonnement (LRM)](assets/lrm-classique-vs-raisonnement-3.jpg)
-
-### Du LLM classique au modèle de raisonnement
-```mermaid
-flowchart TD
-    subgraph "LLM Classique (Génération Directe)"
-        A[Prompt] -->|Inférence standard| B[Réponse immédiate / Motif simple]
-    end
-    
-    subgraph "LRM (Délibération Computationnelle)"
-        C[Prompt complexe] -->|Test-time compute| D[Thinking tokens / Travail interne]
-        D -->|1. Découpage| D1[Étape 1]
-        D -->|2. Backtracking| D2[Étape 2]
-        D -->|3. Auto-correction| D3[Étape 3]
-        D1 & D2 & D3 -->|Sélection| E[Réponse finale optimisée]
-    end
-    
-    style B fill:#ffe5b4,stroke:#333
-    style E fill:#bfb,stroke:#333
-    style D fill:#bbf,stroke:#333
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      MODÈLE CLASSIQUE vs RAISONNEMENT                   │
+│                                                                         │
+│  [LLM Classique] : Prompt ──> Réponse immédiate (Instinctif)            │
+│                                                                         │
+│  [LRM]           : Prompt ──> [Thinking Tokens] ──> Réponse finale      │
+│                                (Découpage,                              │
+│                                 Backtracking,                           │
+│                                 Vérification)                           │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- Un LRM utilise du **test-time compute** pour réfléchir avant de répondre.
-- Les **thinking tokens** permettent de décomposer les problèmes et de s'auto-corriger.
-- On contrôle ce calcul via le **thinking budget** ou le **reasoning effort**.
-- L'entraînement repose sur des récompenses de processus (**PRM**) plutôt que de résultat (**ORM**).
-- La **distillation** de raisonnement permet d'équiper de petits modèles à moindre coût pour des tâches répétitives.
+# 2. Le Contrôle de l'Effort (Budget & Reasoning Effort)
+
+On ajuste le temps de réflexion selon la complexité du problème :
+
+* **Reasoning Effort** : `Low` (réponses rapides), `Medium` (équilibré), `High` (analyse approfondie).
+* **Thinking Budget** : Plafond maximal de tokens accordés au travail interne de délibération.
+
+---
+
+# Résumé & Schéma global
+
+```text
+                     MÉCANIQUE DU RAISONNEMENT (LRM)
+                                   │
+       ┌───────────────────────────┼───────────────────────────┐
+       ▼                           ▼                           ▼
+Test-time compute            Process Rewards (PRM)       Thinking Budget
+(Temps de réflexion)         (Évaluation par étape)      (Contrôle du coût)
+```
+
+# Tableau récapitulatif
+
+| Concept | Rôle |
+|---|---|
+| **Thinking Tokens** | Tokens internes invisibles servant de brouillon logique. |
+| **PRM** | Récompense chaque étape de calcul valide pendant l'entraînement. |
+| **Backtracking** | Capacité à revenir en arrière en cas de fausse piste. |
+| **Distillation** | Compression de compétences de raisonnement dans de petits modèles. |
+
+# Les 5 points les plus importants
+
+1. **Les LRM utilisent le test-time compute** pour réfléchir pendant l'inférence.
+2. **Les thinking tokens sont un brouillon interne** servant à la résolution complexe.
+3. **Le backtracking permet au modèle de corriger** ses propres erreurs logiques.
+4. **Les PRM récompensent la méthode**, contrairement aux ORM qui ne regardent que le résultat.
+5. **Le budget de réflexion (thinking budget)** contrôle l'équilibre entre coût et précision.
+
+---
+
+# Carte mentale
+
+```text
+Les LRM & L'Effort
+│
+├── Mécanique interne
+│   ├── Test-time compute
+│   └── Thinking tokens (brouillon)
+│
+├── Entraînement
+│   ├── PRM (Récompense par étape)
+│   └── Backtracking & Auto-correction
+│
+└── Contrôle & Optimisation
+    ├── Thinking budget
+    └── Distillation (Teacher → Student)
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+LRM               → Réfléchit avant de répondre (Thinking tokens)
+PRM               → Évalue chaque étape du raisonnement
+Backtracking      → Fait machine arrière si blocage
+Reasoning effort  → Reglage de l'intensité de réflexion
+```
+
+> **Phrase à retenir** : Les LRM transforment le temps de calcul en intelligence en permettant au modèle d'utiliser un brouillon logique avant de donner sa réponse finale.

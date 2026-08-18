@@ -1,6 +1,6 @@
 ---
 title: "Tour d’horizon des produits Anthropic"
-description: "Présentation des principaux produits proposés par Anthropic."
+description: "Présentation des 5 produits principaux d'Anthropic, de l'écosystème d'intégrations et de la pyramide d'architecture."
 date: 2026-08-14
 draft: true
 tags:
@@ -18,111 +18,154 @@ prochaine_revision: 2026-08-15
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Différence produit / intégration / compétence / connecteur ? | **Produit** : Où je travaille (ex: Claude, Claude Code).<br>**Intégration** : Dans quelle interface tierce j'utilise Claude (ex: Slack, Chrome).<br>**Compétence (Skill)** : Quelle méthode spécialisée j'active.<br>**Connecteur** : À quelles données/apps externes Claude est relié. |
-| Quels sont les 5 produits principaux d'Anthropic ? | Claude (généraliste), Claude Code (dev), Claude Cowork (tâches longues/agentiques), Claude Design (visuels), Claude Security (cybersécurité). |
-| Qu'est-ce qu'un Plugin ? | Un pack métier installable (regroupant skills, connecteurs, workflows). |
-| À quoi sert Claude Platform ? | C'est la plateforme développeur (API, SDK) pour intégrer Claude dans ses propres systèmes. |
-| Que signifient GA, Public beta et Research preview ? | **GA** : Stable/Disponibilité générale.<br>**Public beta** : Évolutif.<br>**Research preview** : Expérimental/Limité. |
-| Pourquoi cette distinction compte ? (Risques & Gouvernance) | Utiliser le bon outil évite les risques (ex: limiter Claude for Chrome pour la sécu web). Permet une meilleure gouvernance (qui a accès à quoi, qui installe un plugin ou connecteur). |
+| Différence produit / intégration / compétence / connecteur ? | **Produit** : Surface de travail (Claude, Claude Code).<br>**Intégration** : Interface tierce d'utilisation (Slack, Chrome).<br>**Compétence (Skill)** : Méthode spécialisée.<br>**Connecteur** : Lien aux données/services (MCP). |
+| Quels sont les 5 produits principaux d'Anthropic ? | 1. Claude (Généraliste)<br>2. Claude Code (Développement CLI)<br>3. Claude Cowork (Agentique long)<br>4. Claude Design (Création visuelle)<br>5. Claude Security (Cybersécurité). |
+| Qu'est-ce qu'un Plugin ? | Un package installable regroupant compétences, connecteurs et workflows pour un métier donné. |
+| À quoi sert Claude Platform ? | Plateforme développeur (API, SDKs) pour intégrer les modèles dans des applications sur mesure. |
+| Que signifient GA, Public beta et Research preview ? | **GA** : Généralement disponible/stable.<br>**Public beta** : Accessible mais sujet aux évolutions.<br>**Research preview** : Expérimental et restreint. |
+| Pourquoi cette distinction compte ? | Assurer la gouvernance des données et limiter les risques de sécurité selon les permissions accordées aux connecteurs. |
 
 ## Synthèse
-L'écosystème Anthropic se déploie sur plusieurs niveaux : des modèles (Opus, Sonnet, Haiku) qui motorisent cinq produits principaux (Claude, Code, Cowork, Design, Security). Ces produits peuvent s'intégrer dans des outils tiers (Chrome, MS 365, Slack) et être enrichis via un répertoire de Compétences (Skills), Connecteurs et Plugins métiers. Enfin, la Claude Platform et les solutions verticales permettent d'intégrer l'IA dans n'importe quel système en respectant gouvernance et sécurité.
+L'écosystème d'Anthropic est structuré en plusieurs strates : les modèles (Opus, Sonnet, Haiku) alimentent cinq produits principaux (Claude, Code, Cowork, Design, Security). Ces produits s'intègrent dans des environnements tiers (IDE, Slack, Chrome) et s'étendent grâce au répertoire de compétences (Skills), de connecteurs (MCP) et de plugins métiers.
 
 ## Glossaire
-- **API** : Interface permettant à un logiciel d'utiliser les capacités d'un autre logiciel.
-- **Connecteur** : Lien permettant à Claude d'accéder à des données ou applications externes (souvent via MCP).
-- **IDE** : Environnement de développement intégré (ex: VS Code).
-- **MCP (Model Context Protocol)** : Protocole standardisé pour connecter un modèle à des outils, données et services.
-- **Plugin** : Pack installable regroupant plusieurs compétences et connecteurs pour un workflow ou métier précis.
-- **Skill (Compétence)** : Méthode de travail spécialisée, préparée à l'avance et réutilisable.
-- **Solutions verticales** : Offres adaptées à des secteurs spécifiques (Légal, Finance, Sécurité) avec des règles et connecteurs métiers.
+- **MCP (Model Context Protocol)** : Protocole ouvert développé par Anthropic permettant de connecter les modèles aux outils et bases de données locales/cloud.
+- **Skill (Compétence)** : Instruction technique ou méthode réutilisable enseignée à l'agent.
+- **Plugin** : Bundle complet combinant plusieurs Skills et Connecteurs métiers prêts à l'emploi.
+- **GA (General Availability)** : Statut de maturité d'un logiciel indiquant sa stabilité pour une utilisation en production.
 
 ## Questions d'auto-évaluation
-1. Si je dois réaliser un livrable complexe en manipulant plusieurs fichiers locaux de manière autonome, quel produit Anthropic dois-je utiliser ?
-2. Quelle est la différence fondamentale entre une *Skill* et un *Plugin* ?
-3. Quel produit utiliseriez-vous pour détecter des failles dans une grande base de code d'entreprise ?
-4. Pourquoi doit-on être particulièrement vigilant (gouvernance/permissions) avant d'activer un Connecteur ?
+1. Si un ingénieur souhaite automatiser des refactorisations sur un projet local sans interface graphique, quel produit Anthropic est adapté ?
+2. Quelle est la différence essentielle entre un *Connecteur* et un *Skill* ?
+3. Pourquoi l'activation d'un plugin nécessite-t-elle une évaluation de gouvernance préalable en entreprise ?
+4. Quels sont les 3 modèles fondamentaux qui motorisent les produits Anthropic ?
 
 # Tour d’horizon des produits Anthropic
 
-**Durée : 20 minutes**
+## Objectif de la leçon
+Identifier les 5 produits majeurs d'Anthropic, comprendre l'écosystème d'extensions (Skills, Connecteurs, Plugins) et savoir choisir l'outil adapté au besoin.
 
-## Notes
+---
 
-### Les 5 produits principaux d'Anthropic
-```mermaid
-flowchart LR
-    A[Les 5 Produits] --> B(Claude)
-    A --> C(Claude Code)
-    A --> D(Claude Cowork)
-    A --> E(Claude Design)
-    A --> F(Claude Security)
-    
-    B -.-> B1[Généraliste : discuter, rédiger, analyser]
-    C -.-> C1[Développement : coder, corriger, refactorer]
-    D -.-> D1[Agentique : déléguer tâche longue/complexe]
-    E -.-> E1[Création visuelle : maquettes, prototypes]
-    F -.-> F1[Cybersécurité : scanner, détecter failles]
-    
-    style B fill:#f9f,stroke:#333
-    style C fill:#bbf,stroke:#333
-    style D fill:#bfb,stroke:#333
-    style E fill:#fbf,stroke:#333
-    style F fill:#fbb,stroke:#333
+# 1. Les 5 Produits Principaux
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                     LES 5 PRODUITS ANTHROPIC                            │
+│                                                                         │
+│  1. CLAUDE        : Chat généraliste, rédaction, analyse doc            │
+│  2. CLAUDE CODE   : Agent CLI autonome pour développeurs                │
+│  3. CLAUDE COWORK : Exécution agentique longue sur workflows complexes  │
+│  4. CLAUDE DESIGN : Prototypage visuel et UI/UX                         │
+│  5. CLAUDE SECU   : Audit de sécurité et détection de failles         │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### L'Écosystème d'intégration (Le Répertoire)
-```mermaid
-flowchart LR
-    Claude((🤖 CLAUDE))
-    
-    subgraph Plugin [📦 PLUGIN : Caisse à outils métier]
-        direction TB
-        S1[🛠️ SKILL : Méthode]
-        C1[🔌 CONNECTEUR : Accès BDD/Web]
-        A[🤖 SOUS-AGENTS]
-    end
-    
-    S2[🛠️ SKILL : Méthode<br/>Ex: Appliquer une structure]
-    C2[🔌 CONNECTEUR : Accès<br/>Ex: Lire Google Drive]
-    
-    Claude ====>|Embarque le tout| Plugin
-    Claude -->|Utilisé isolément| S2
-    Claude -->|Utilisé isolément| C2
-    
-    style Plugin fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,stroke-dasharray: 5 5
-    style S1 fill:#e8f5e9,stroke:#2e7d32
-    style C1 fill:#e3f2fd,stroke:#1565c0
-    style S2 fill:#e8f5e9,stroke:#2e7d32
-    style C2 fill:#e3f2fd,stroke:#1565c0
-    style A fill:#fff3e0,stroke:#e65100
-    style Claude fill:#ffcc80,stroke:#e65100,stroke-width:3px
+---
+
+# 2. Le Répertoire d'Extensions (Skills, Connecteurs, Plugins)
+
+L'écosystème repose sur des briques modulaires installables :
+
+* **Skills (Compétences)** : Instructions méthodologiques (ex: structure de fiche, conventions de code).
+* **Connecteurs (MCP)** : Passerelles vers des outils externes (ex: GitHub, PostgreSQL, Google Drive).
+* **Plugins** : Bundles métiers regroupant Skills + Connecteurs + Workflows.
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        ANATOMIE D'UN PLUGIN                             │
+│                                                                         │
+│   ┌─────────────────────────────────────────────────────────────────┐   │
+│   │  PLUGIN MÉTIER                                                  │   │
+│   │  ├── SKILL : Règles de refactorisation                          │   │
+│   │  ├── CONNECTEUR : Accès API GitHub                              │   │
+│   │  └── WORKFLOW : Boucle de validation automatisée                │   │
+│   └─────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### La Pyramide à 6 Niveaux
-```mermaid
-flowchart BT
-    L1[1. Le Cœur<br/>Claude, Opus, Sonnet, Haiku]
-    L2[2. Les Produits Principaux<br/>Claude, Code, Cowork, Design, Security]
-    L3[3. Les Intégrations d'Interface<br/>Chrome, MS 365, Xcode, Slack]
-    L4[4. Le Répertoire<br/>Compétences, Connecteurs, Plugins]
-    L5[5. La Plateforme Développeur<br/>Claude Platform, AWS]
-    L6[6. Les Solutions Verticales<br/>Legal, Security, Finance, etc.]
-    
-    L1 --> L2 --> L3 --> L4 --> L5 --> L6
-    
-    style L1 fill:#ffe5b4,stroke:#333
-    style L2 fill:#ffd180,stroke:#333
-    style L3 fill:#ffab40,stroke:#333
-    style L4 fill:#ff9100,stroke:#333
-    style L5 fill:#ff6d00,stroke:#333
-    style L6 fill:#dd2c00,stroke:#333,color:#fff
+---
+
+# 3. La Pyramide d'Architecture à 6 Niveaux
+
+```text
+               ┌────────────────────────────────────────┐
+               │ 6. Solutions Verticales (Finance/Legal)│
+               ├────────────────────────────────────────┤
+               │ 5. Claude Platform (API / SDK)         │
+               ├────────────────────────────────────────┤
+               │ 4. Le Répertoire (Skills/Connecteurs)   │
+               ├────────────────────────────────────────┤
+               │ 3. Les Intégrations (Chrome, Slack...)  │
+               ├────────────────────────────────────────┤
+               │ 2. Les 5 Produits (Claude, Code...)    │
+               ├────────────────────────────────────────┤
+               │ 1. Les Modèles (Opus, Sonnet, Haiku)   │
+               └────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- Anthropic propose un écosystème en couches : modèles de base (le moteur), produits principaux (surfaces), intégrations tierces, et un répertoire d'extensions.
-- Il y a 5 produits distincts : **Claude**, **Claude Code**, **Claude Cowork**, **Claude Design**, et **Claude Security**.
-- Le répertoire contient 3 grandes familles : **Skills** (méthodes), **Connecteurs** (données) et **Plugins** (workflows).
-- La distinction est vitale pour la **gouvernance et la sécurité** : chaque intégration (API, MCP, Slack, Chrome) expose les données différemment et nécessite des droits spécifiques.
-- **Règle d'or** (les 6 questions) : Où est-ce que je travaille ? Dans quelle interface externe ? Avec quel moteur ? Avec quelles compétences ? Avec quelles connexions ? Avec quelles permissions ?
+# Résumé & Schéma global
+
+```text
+                     GAMME PRODUITS ANTHROPIC
+                                │
+      ┌─────────────────────────┼─────────────────────────┐
+      ▼                         ▼                         ▼
+  Modèles                  Produits                   Extensions
+(Opus/Sonnet/Haiku)   (Claude, Code, Cowork...)   (Skills, MCP, Plugins)
+```
+
+# Tableau des produits
+
+| Produit | Usage Principal | Cible |
+|---|---|---|
+| **Claude** | Discussion, rédaction, synthèse | Tout public / Enterprise |
+| **Claude Code** | Agent CLI, modification de code | Développeurs |
+| **Claude Cowork** | Tâches agentiques multi-étapes | Équipes opérationnelles |
+| **Claude Design** | Prototypage visuel | Designers / Product Managers |
+| **Claude Security** | Audit de code & vulnérabilités | Équipes Cybersécurité |
+
+# Les 5 points les plus importants
+
+1. **Anthropic ne se résume pas à un chatbot web** : la gamme compte 5 produits distincts.
+2. **Claude Code est dédié aux développeurs** via une interface terminal interactive.
+3. **Le protocole MCP** est le standard de connexion aux données et outils tiers.
+4. **Un Plugin réunit Skills, Connecteurs et Workflows** dans une solution clé en main.
+5. **La gouvernance exige de contrôler** les permissions accordées aux connecteurs.
+
+---
+
+# Carte mentale
+
+```text
+Produits Anthropic
+│
+├── Modèles de base
+│   ├── Opus (Raisonnement lourd)
+│   ├── Sonnet (Équilibre / Code)
+│   └── Haiku (Vitesse / Coût)
+│
+├── Produits
+│   ├── Claude / Claude Code
+│   └── Cowork / Design / Security
+│
+└── Extensibilité
+    ├── Skills (Méthodes)
+    ├── Connecteurs (MCP)
+    └── Plugins (Bundles)
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Claude Code      → Agent CLI Dev
+MCP              → Standard de connexion données
+Skill vs Plugin  → Skill = Méthode | Plugin = Pack complet
+Opus/Sonnet/Haiku → Les 3 moteurs IA
+```
+
+> **Phrase à retenir** : Les modèles fournissent l'intelligence, les produits la surface de travail, et les extensions MCP l'accès au monde réel.

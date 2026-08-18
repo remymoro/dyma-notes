@@ -1,6 +1,6 @@
 ---
 title: "Les limites des LLM"
-description: "Comprendre les limites intrinsèques et d'utilisation des LLM."
+description: "Comprendre les limites intrinsèques des LLM : hallucinations, knowledge cutoff, sycophantie et sécurité des données."
 date: 2026-08-15
 draft: true
 tags:
@@ -20,67 +20,119 @@ prochaine_revision: 2026-08-16
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Quelle est la limite fondamentale ? | Le modèle ne produit pas de preuve logique, il prédit le token suivant le plus probable. La **plausibilité de la forme** (ton assuré, structure claire) ne garantit jamais la véracité du fond. |
-| Qu'est-ce qu'une hallucination ? | Information fausse ou inventée générée avec assurance (ex: inventer un chiffre précis, une loi imaginaire ou une source bibliographique inexistante). |
-| Qu'est-ce que le knowledge cutoff ? | Date limite de gel des données d'entraînement. Après cette date, le modèle ignore les faits récents, sauf si on lui fournit du contexte à jour (RAG/Web). |
-| Quels sont les risques liés au contexte ? | - **Trop court** : L'IA devine l'objectif.<br>- **Trop long** : Dilution de l'attention et oubli de consignes.<br>- **Contradictoire** : L'IA tranche sans alerter. |
-| Quelles sont les limites de raisonnement ? | Difficultés sur les calculs exacts complexes (ce n'est pas une calculatrice), les raisonnements logiques longs et les raisonnements spatiaux/géométriques. |
-| Qu'est-ce que la sycophantie ? | Tendance du modèle à être excessivement complaisant en validant les fausses hypothèses de l'utilisateur pour paraître serviable. |
-| Quels enjeux sur les données sensibles ? | - **Confidentialité** : Risque de fuite et interdiction d'injecter des données personnelles (RGPD) ou secrets d'affaires.<br>- **Propriété intellectuelle** : Risque de plagiat. |
+| Quelle est la limite fondamentale ? | Prédit la **plausibilité** textuelle, pas la **vérité**. La forme parfaite masque parfois des faits faux. |
+| Qu'est-ce qu'une hallucination ? | Génération assurée d'informations fausses, inventées ou obsolètes. |
+| Qu'est-ce que le Knowledge Cutoff ? | Date limite d'entraînement au-delà de laquelle le modèle ignore les événements récents. |
+| Qu'est-ce que la sycophantie ? | Tendances du modèle à confirmer les erreurs de l'utilisateur pour paraître serviable. |
+| Limites de calcul et logique ? | Faiblesses sur l'arithmétique exacte complexe et le raisonnement géométrique/spatial. |
+| Sécurité & Confidentialité | Interdiction d'injecter des données sensibles (secrets d'entreprise, RGPD) sans garanties API. |
 
 ## Synthèse
-Les LLM sont des moteurs de prédiction statistique et non des bases de connaissances fiables. Leurs limites se manifestent par des hallucinations (données plausibles mais fausses), des dates limites de connaissances (*knowledge cutoff*), des faiblesses logiques ou spatiales, et une tendance à la sycophantie (flatterie de l'utilisateur). Son utilisation professionnelle exige donc une relecture humaine systématique, un respect strict de la confidentialité (RGPD) et l'intégration de sources externes vérifiées.
+Les LLM sont des générateurs de textes plausibles et non des moteurs de vérités absolues. Leurs limites principales incluent les hallucinations (inventions plausibles), la date de fin d'apprentissage (*knowledge cutoff*), des faiblesses logiques et la sycophantie (flatterie de l'utilisateur). Une validation humaine reste systématiquement nécessaire.
 
 ## Glossaire
-- **Hallucination** : Génération par l'IA d'une information fausse, inexistante ou inventée, présentée avec un ton convaincant.
-- **Knowledge cutoff** : Date de gel des données d'entraînement, marquant la limite des connaissances internes du modèle.
-- **Prémisse** : Donnée ou hypothèse de départ servant de base à un raisonnement logique.
-- **Raisonnement spatial** : Capacité à analyser, manipuler et situer des éléments dans l'espace (Damier, horloge, formes géométriques).
-- **Sycophantie** : Biais d'alignement poussant le modèle à abonder dans le sens de l'utilisateur, même si ses prémisses sont erronées ou dangereuses.
-- **Température** : Paramètre contrôlant le degré d'aléa et de créativité des réponses lors de la génération.
+- **Hallucination** : Information fausse ou inventée générée avec assurance par l'IA.
+- **Knowledge Cutoff** : Date de gel des données d'entraînement du modèle.
+- **Sycophantie** : Propension de l'IA à approuver les choix de l'utilisateur même lorsqu'ils sont erronés.
+- **Validation humaine** : Contrôle systématique des sorties du modèle par un expert métier.
 
 ## Questions d'auto-évaluation
-1. Pourquoi un style d'écriture très professionnel et structuré chez un LLM est-il parfois trompeur ?
-2. Comment se manifeste la sycophantie lors d'un audit de projet et comment la limiter dans ses prompts ?
-3. Citez trois domaines d'activité où l'utilisation directe et non vérifiée d'un LLM est jugée critique ou dangereuse.
+1. Pourquoi un ton assuré et un style d'écriture parfait ne garantissent-ils pas l'exactitude d'un code généré par l'IA ?
+2. Comment l'instruction *"Sois critique et signale toutes mes erreurs"* permet-elle de contrecarrer la sycophantie ?
+3. Quel mécanisme technique permet de pallier la limite du Knowledge Cutoff ?
+4. Quels risques juridiques existent lors de l'injection de données clients brutes dans un prompt ?
 
 # Les limites des LLM
 
-**Durée : 18 minutes**
+## Objectif de la leçon
+Identifier les pièges et limites des modèles de langage (hallucinations, sycophantie, limites logiques) pour sécuriser leur usage professionnel.
 
-## Notes
+---
 
-Voici l'infographie récapitulative présentant les limites intrinsèques et d'usage des LLM :
+# 1. Plausibilité vs Vérité
 
-![Les limites des LLM](assets/limites-llm.jpg)
-
-### Cartographie des limites d'un LLM
-```mermaid
-mindmap
-  root(("Limites des LLM"))
-    ::icon(fa fa-exclamation-triangle)
-    Modèle
-      Plausible non vrai
-      Hallucinations
-      Connaissance datée
-      Calcul et logique
-    Dialogue
-      Contexte court ou vague
-      Contexte trop long
-      Contradictions
-      Oubli de consignes
-    Usage
-      Biais et Sycophantie
-      Domaines sensibles
-      Confidentialité et RGPD
-      Droit d'auteur
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    PLAUSIBILITÉ vs VÉRITÉ EN IA                         │
+│                                                                         │
+│  FORME : Grammaire parfaite, ton confiant, structure claire (Plausible) │
+│  FOND  : Faits inventés, fonctions fictives, calculs faux (Hallucination)│
+│                                                                         │
+│  └─► Règle : Toujours exécuter les tests et vérifier les références.   │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- Un LLM manipule des **probabilités statistiques** ; une phrase hautement probable n'est pas forcément vraie.
-- Les **hallucinations** surviennent surtout sur les données chiffrées, les citations exactes, le droit et la science spécialisée.
-- Le **knowledge cutoff** et l'absence de recherche temps réel nécessitent l'utilisation d'outils comme le **RAG** ou les moteurs de recherche.
-- La **sycophantie** pousse le modèle à flatter l'utilisateur ; il faut lui donner explicitement l'instruction d'être critique et objectif.
-- **Confidentialité** : N'injectez jamais de données personnelles nominatives (RGPD) ou de codes/secrets d'entreprise sans surface d'API sécurisée.
-- **Responsabilité** : La production d'un LLM est une proposition ; la validation finale est **100 % humaine**.
+# 2. La Sycophantie et comment l'éviter
+
+```text
+Prompt Biaisé   ──> "Mon architecture PHP est excellente, n'est-ce pas ?"
+IA Sycophante   ──> "Oui, absolument ! Votre architecture est parfaite..." (FAUX)
+
+Prompt Correct  ──> "Joue le rôle d'un auditeur technique sévère. Trouve les failles de cette architecture."
+IA Objective    ──> "Voici 3 problèmes majeurs de performance et de sécurité..." (UTILE)
+```
+
+---
+
+# Résumé & Schéma global
+
+```text
+                        LIMITES & VIGILANCE LLM
+                                   │
+       ┌───────────────────────────┼───────────────────────────┐
+       ▼                           ▼                           ▼
+ Hallucinations             Knowledge Cutoff               Sycophantie
+(Calculs / Faits)           (Besoins de RAG/Web)         (Besoin d'esprit critique)
+```
+
+# Tableau récapitulatif des limites
+
+| Limite | Manifestation | Solution / Bonne pratique |
+|---|---|---|
+| **Hallucination** | Invocations de librairies/APIs fictives. | Exécuter le code et vérifier la documentation. |
+| **Knowledge Cutoff** | Ignorance de la dernière version d'un framework. | Injecter la documentation récente dans le contexte. |
+| **Sycophantie** | Approbation d'idées fausses de l'utilisateur. | Ordonner à l'agent de jouer un rôle d'auditeur critique. |
+| **Confidentialité** | Fuites potentielles de secrets. | Utiliser des clés d'API avec *Zero Data Retention*. |
+
+# Les 5 points les plus importants
+
+1. **La forme ne garantit pas le fond** : un ton très sûr peut masquer une hallucination totale.
+2. **Le Knowledge Cutoff impose d'injecter** la documentation récente des librairies.
+3. **La sycophantie doit être contrée** en demandant explicitement à l'IA d'être critique.
+4. **Les LLM ne sont pas des calculatrices** : déléguez les calculs à des scripts Python exécutés par l'agent.
+5. **La validation finale appartient toujours au développeur**, jamais au modèle.
+
+---
+
+# Carte mentale
+
+```text
+Limites des LLM
+│
+├── Biais de Génération
+│   ├── Hallucinations (Faits & Code fictif)
+│   └── Sycophantie (Complaisance)
+│
+├── Limites de Connaissances
+│   ├── Knowledge Cutoff
+│   └── Absence de données privées
+│
+└── Vigilance & Sécurité
+    ├── Confidentialité & RGPD
+    └── Validation humaine systématique
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Hallucination    → Information fausse générée avec assurance
+Knowledge Cutoff → Date limite des connaissances d'entraînement
+Sycophantie      → IA qui donne raison à l'utilisateur à tort
+Règle d'or       → Toujours tester le code et relire les réponses
+```
+
+> **Phrase à retenir** : Un LLM ne connaît pas la vérité, il connaît la probabilité : la validation d'un résultat reste la responsabilité exclusive de l'humain.

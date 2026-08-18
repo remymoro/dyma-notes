@@ -1,6 +1,6 @@
 ---
 title: "Installation et présentation de l’application Desktop"
-description: "Installer et découvrir l’application de bureau Claude."
+description: "Installer et découvrir l'application de bureau Claude : onglets Chat, Cowork, Code, diffs visuels et gestion multi-sessions."
 date: 2026-08-15
 draft: true
 tags:
@@ -19,58 +19,120 @@ prochaine_revision: 2026-08-16
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Quels sont les 3 onglets principaux ? | - **Chat** : Dialogue standard (comme sur le web).<br>- **Cowork** : Tâches asynchrones autonomes dans le cloud.<br>- **Code** : Interface graphique interactive pour Claude Code. |
-| Comment l'obtenir et sur quels OS ? | Disponible officiellement pour macOS (Intel/M1) et Windows (x64/ARM64). **Non disponible sur Linux** (CLI obligatoire sur Linux). |
-| Quels sont les 3 modes de session ? | - **Session locale** : Travail sur la machine locale (requiert Git).<br>- **Session distante** : Travail exécuté sur le cloud d'Anthropic.<br>- **SSH** : Manipulation graphique d'un serveur distant. |
-| Quel est l'intérêt de la relecture de diffs ? | Permet de visualiser en couleur les ajouts/retraits et de valider ou rejeter individuellement chaque fichier modifié avant application. |
-| Pourquoi utiliser plusieurs sessions ? | Permet d'isoler les contextes (ex: 1 session par ticket ou par bug) pour éviter les fuites de contexte et garder des prompts denses et précis. |
-| Desktop vs CLI ? | Même intelligence sous-jacente (mêmes configs et MCP). Le CLI est adapté au terminal (scripts/vitesse) ; le Desktop offre le confort visuel. |
+| Quels sont les 3 onglets principaux ? | **Chat** (conversation), **Cowork** (tâches asynchrones cloud), **Code** (interface graphique Claude Code). |
+| Quels OS sont pris en charge ? | **macOS** et **Windows**. **Non disponible sur Linux** (CLI obligatoire sur Linux). |
+| Quels sont les 3 modes de session ? | **Locale** (dépôt PC + Git), **Distante** (Cloud Anthropic), **SSH** (serveur/VM). |
+| Intérêt des diffs graphiques ? | Validation visuelle ligne à ligne en couleur (vert/rouge) avant d'appliquer les modifications. |
+| Pourquoi utiliser plusieurs sessions ? | Isolation des contextes (1 session = 1 ticket) pour éviter la saturation de la fenêtre d'attention. |
 
 ## Synthèse
-L'application Desktop Claude unifie le chat conversationnel classique, le travail asynchrone (Cowork) et l'intégration graphique de Claude Code (Code). Disponible pour Windows et macOS (mais exclue sous Linux), elle enrichit l'usage développeur grâce à la relecture claire de diffs, la gestion d'onglets multi-sessions et la liaison simple de répertoires locaux ou distants via SSH. Elle repose sur le même moteur que le CLI, mais offre un confort visuel accru.
+L'application Desktop Claude unifie la discussion classique (Chat), le travail asynchrone (Cowork) et l'agentique (Code). Disponible sous Windows et macOS (mais pas sous Linux), elle offre un confort visuel précieux pour relire les diffs de code, isoler des sessions par onglets et se connecter à des machines distantes via SSH.
 
 ## Glossaire
-- **Claude Cowork** : Fonctionnalité permettant de lancer des agents asynchrones dans l'infrastructure cloud pour des tâches en arrière-plan.
-- **Diff graphique** : Outil visuel de comparaison de fichiers affichant les lignes supprimées et ajoutées dans une interface stylisée.
-- **Session locale** : Environnement de travail de l'agent opérant sur le système de fichiers physique de l'ordinateur de l'utilisateur.
-- **Session distante** : Exécution de l'agent au sein d'une sandbox sécurisée hébergée sur l'infrastructure d'Anthropic.
+- **Claude Cowork** : Module d'exécution d'agents asynchrones dans le cloud pour traiter des tâches de fond.
+- **Diff Graphique** : Comparateur visuel affichant clairement les suppressions et ajouts de code dans l'UI Desktop.
+- **Session Locale** : Exécution de l'agent directement sur le système de fichiers et le dépôt Git de votre machine.
+- **Session SSH** : Exécution distante contrôlée graphiquement depuis l'application Desktop vers un serveur distant.
 
 ## Questions d'auto-évaluation
-1. Si vous travaillez sur une machine tournant sous Ubuntu, comment devez-vous utiliser Claude Code ?
-2. Quelle est la condition indispensable pour que l'onglet Code fonctionne en session locale sur une machine Windows ?
-3. En quoi la gestion multi-session de l'application Desktop améliore-t-elle l'efficacité de l'attention (fenêtre de contexte) par rapport à un fil de chat unique ?
+1. Si vous travaillez sur une distribution Linux (ex: Ubuntu), quelle interface devez-vous utiliser pour faire tourner Claude Code ?
+2. Quel est l'avantage de la vue en diffs graphiques de l'application Desktop par rapport aux logs textuels du CLI ?
+3. Pourquoi recommande-t-on d'ouvrir un onglet séparé par ticket de développement dans l'application Desktop ?
+4. L'application Desktop et le CLI partagent-ils les mêmes configurations et serveurs MCP ?
 
 # Installation et présentation de l’application Desktop
 
-**Durée : 9 minutes**
+## Objectif de la leçon
+Installer l'application Claude Desktop, prendre en main les 3 onglets (Chat, Cowork, Code) et valider graphiquement les modifications de code.
 
-## Notes
+---
 
-### Organisation de l'application Desktop Claude
-```mermaid
-mindmap
-  root((Claude Desktop))
-    Chat
-      Conversation standard
-      Analyse doc unitaire
-    Cowork
-      Agent cloud asynchrone
-      Tâches en arrière-plan
-    Code
-      Claude Code visuel
-      Diffs de fichiers
-      Terminal et éditeur intégrés
-      Sessions
-        Locale (PC physique / Git requis)
-        Distante (Cloud Anthropic)
-        SSH (Serveurs / VM)
+# 1. Structure de l'Application Desktop
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                       INTERFACE CLAUDE DESKTOP                          │
+│                                                                         │
+│  [ONGLET CHAT]   ──> Conversation classique, analyse documentaire        │
+│  [ONGLET COWORK] ──> Exécution d'agents asynchrones en arrière-plan     │
+│  [ONGLET CODE]   ──> Claude Code visuel, diffs graphiques, terminal     │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- **Claude Desktop** est réservé aux environnements Windows et macOS ; **Linux** doit s'appuyer sur la version **CLI**.
-- L'authentification au compte se fait lors du premier démarrage et requiert un abonnement éligible pour l'onglet **Code**.
-- L'onglet **Code** intègre un **éditeur et un terminal** pour observer pas à pas les commandes exécutées par l'agent.
-- La **relecture visuelle des diffs** permet une validation ligne par ligne (boutons *Accept / Reject*).
-- Divisez vos développements en **onglets multiples** afin d'éviter la pollution de contexte d'une tâche à l'autre.
-- Le CLI et l'application Desktop partagent les mêmes fichiers de configurations, skills et MCP.
+# 2. Modes de Connexion dans l'Onglet Code
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        MODES DE SESSION CODE                            │
+│                                                                         │
+│  1. SESSION LOCALE ──> Manipule directement le dossier Git de votre PC  │
+│  2. SESSION CLOUD  ──> Machine virtuelle isolée hébergée par Anthropic  │
+│  3. SESSION SSH    ──> Connexion distante à un serveur / VM dédié       │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+# Résumé & Schéma global
+
+```text
+                     CLAUDE DESKTOP APPLICATION
+                                 │
+     ┌───────────────────────────┼───────────────────────────┐
+     ▼                           ▼                           ▼
+  Chat & Docs                Cowork Cloud                 Claude Code
+(Usage classique)         (Agents asynchrones)       (Diffs visuels / SSH)
+```
+
+# Tableau récapitulatif par système
+
+| OS | Application Desktop | Version CLI |
+|---|---|---|
+| **macOS (Intel/Apple Silicon)** | ✅ Disponible | ✅ Disponible |
+| **Windows (x64/ARM64)** | ✅ Disponible | ✅ Disponible |
+| **Linux (Ubuntu, Debian, Fedora)** | ❌ Indisponible | ✅ Disponible (CLI natif) |
+
+# Les 5 points les plus importants
+
+1. **Claude Desktop n'est pas disponible sur Linux** : utilisez la version CLI natif.
+2. **L'onglet Code apporte le confort graphique** de la relecture de diffs ligne par ligne.
+3. **Le mode Cowork exécute des agents asynchrones** dans le cloud sans bloquer votre écran.
+4. **La gestion multi-onglets isole le contexte** et évite la pollution de mémoire entre tickets.
+5. **Le CLI et le Desktop partagent les mêmes réglages**, les mêmes skills et les mêmes MCP.
+
+---
+
+# Carte mentale
+
+```text
+Claude Desktop
+│
+├── Onglets Principaux
+│   ├── Chat (Discussions & Docs)
+│   ├── Cowork (Tâches Cloud)
+│   └── Code (Interface Agentique)
+│
+├── Modes de Session Code
+│   ├── Session Locale (Git PC)
+│   ├── Session Distante (Cloud Sandbox)
+│   └── SSH (Serveurs distants)
+│
+└── Avantages Ergonomiques
+    ├── Diffs visuels en couleur
+    └── Isolation par onglets
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Desktop OS    → Windows et macOS uniquement (Linux = CLI)
+Onglet Code   → Claude Code visuel avec révision des diffs
+Multi-onglets → 1 onglet par ticket pour garder un contexte pur
+Partage config→ Mêmes MCP et skills que le CLI local
+```
+
+> **Phrase à retenir** : Utilisez l'application Desktop pour le confort visuel de la relecture des diffs de code, et gardez le CLI pour la vitesse en terminal.

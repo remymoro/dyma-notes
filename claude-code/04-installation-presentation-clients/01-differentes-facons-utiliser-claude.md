@@ -1,6 +1,6 @@
 ---
 title: "Les différentes façons d’utiliser Claude"
-description: "Découvrir les différentes interfaces et méthodes disponibles pour utiliser Claude."
+description: "Découvrir les 6 surfaces d'utilisation de Claude : autocomplétion, chat, édition inline, CLI local, IDE agentique et agents Cloud."
 date: 2026-08-15
 draft: true
 tags:
@@ -20,57 +20,123 @@ prochaine_revision: 2026-08-16
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Autocomplétion (Ghost text) | Rôle d'accélérateur de frappe locale. Propose la suite textuelle grisée d'une ligne ou d'une fonction, sans vision d'architecture ni validation par tests. |
-| Chat dans l'éditeur | Permet de poser des questions interactives sur du code sélectionné ou de demander des explications, créant un contexte propice à la première forme de raisonnement. |
-| Édition assistée (Inline) | Modification de blocs de code ciblés avec affichage d'un diff visuel de comparaison (avant/après) directement intégré dans le fichier pour relecture humaine. |
-| Agent de code local (CLI) | Programme autonome en terminal (ex: Claude Code) recevant un objectif global, capable d'explorer, de modifier des fichiers et de lancer des commandes de tests. |
-| IDE agentique | Environnement pensé autour de l'IA (ex: Cursor, Google Antigravity) où l'agent gère les tâches, le terminal et un navigateur intégré de manière intégrée. |
-| Agent Cloud | Agent de code s'exécutant dans un bac à sable conteneurisé distant. Protège la machine physique locale de tout effet de bord destructeur ou malveillant. |
-| Surfaces de Claude Code | S'utilise en terminal (CLI), via des extensions d'IDE (VS Code, JetBrains), sur l'application de bureau, le web, en contrôle à distance ou en CI/CD. |
+| Autocomplétion (Ghost text) | Saisie prédictive locale accélérant la frappe sans vision globale. |
+| Chat dans l'éditeur | Échange interactif sur du code sélectionné pour explication ou refactoring. |
+| Édition assistée (Inline) | Génération de diffs visuels (avant/après) applicables en un clic dans le fichier. |
+| Agent de code local (CLI) | Programme autonome (Claude Code) poursuivant un objectif global via le terminal. |
+| IDE agentique | Éditeur centré agent (Cursor, Antigravity) intégrant IA, terminal et fichiers. |
+| Agent Cloud | Exécution conteneurisée isolée créant directement des Pull Requests. |
 
 ## Synthèse
-L'intégration des LLM dans le développement progresse d'une assistance de frappe locale (autocomplétion) vers une délégation d'objectifs (agents). L'assistant (chat/édition) résout des requêtes unitaires sous contrôle humain direct, tandis que l'agent (local ou cloud) pilote une boucle autonome associant modification de fichiers et exécution de commandes de test. Le choix de la surface (CLI, IDE, Cloud) dépend de la complexité de la tâche, du besoin d'isolation et du niveau de contrôle souhaité.
+L'intégration de Claude dans le workflow développeur offre plusieurs niveaux d'autonomie : de la simple suggestion de frappe (autocomplétion) au pilotage de tâches complexes multi-fichiers (agents locaux CLI ou cloud). Le choix de l'interface dépend de l'objectif, du niveau de contrôle humain requis et du besoin d'isolation de l'environnement d'exécution.
 
 ## Glossaire
-- **Autocomplétion (Ghost text)** : Texte proposé en grisé suggérant la suite statistique directe d'une instruction en cours de saisie.
-- **Bac à sable (Sandbox)** : Environnement virtuel isolé (ex: conteneur cloud) protégeant la machine locale des effets secondaires des commandes exécutées par l'agent.
-- **Claude Code** : Outil d'Anthropic en ligne de commande locale agissant comme un agent de développement interactif doté d'outils de lecture/écriture et de terminal.
-- **Diff** : Représentation visuelle des différences (ajouts en vert, retraits en rouge) entre deux versions d'un même fichier de code.
-- **IDE Agentique** : Éditeur de code (comme Cursor) structuré nativement autour des interactions agentiques, plutôt que de simples extensions.
+- **Autocomplétion (Ghost Text)** : Saisie prédictive affichant des suggestions de lignes en grisé.
+- **Diff Inline** : Visualisation intégrée comparant les modifications proposées ligne à ligne (vert/rouge).
+- **IDE Agentique** : Environnement de développement conçu nativement autour du travail d'agents IA.
+- **Sandbox Cloud** : Environnement virtuel isolé protégeant la machine locale des effets de bord.
 
 ## Questions d'auto-évaluation
-1. Quelle est la différence fondamentale entre un *assistant* de code classique et un *agent* de code ?
-2. Quels risques liés à la sécurité informatique courre-t-on en utilisant un agent local en CLI par rapport à un agent cloud isolé ?
-3. Dans quels types de tâches l'autocomplétion (ghost text) reste-t-elle l'outil le plus productif et le moins intrusif pour un développeur ?
+1. Quelle est la différence de posture entre utiliser le chat d'un IDE et confier une tâche à un agent CLI comme Claude Code ?
+2. Pourquoi le diff inline est-il le mode privilégié pour les refactorisations ciblées sous contrôle humain ?
+3. Quel avantage majeur l'exécution d'un agent en Sandbox Cloud apporte-t-elle sur le plan de la sécurité système ?
+4. Dans quel cas l'autocomplétion simple reste-t-elle l'outil le plus rapide et le moins intrusif ?
 
 # Les différentes façons d’utiliser Claude
 
-**Durée : 14 minutes**
+## Objectif de la leçon
+Cartographier les 6 niveaux d'intégration de l'IA dans le développement et choisir l'interface optimale (Chat, Inline, CLI, Cloud).
 
-## Notes
+---
 
-### Progression de l'autonomie et de la complexité
-```mermaid
-graph TD
-    A[1. Autocomplétion<br/>Local / Ghost text] --> B[2. Chat dans l'éditeur<br/>Explications / Refactoring local]
-    B --> C[3. Édition assistée<br/>Modifications en diff inline]
-    C --> D[4. Agent Local (CLI)<br/>Boucle autonome avec terminal]
-    D --> E[5. IDE Agentique<br/>Agent-first / Tâches multiples]
-    E --> F[6. Agent Cloud<br/>Isolation en Sandbox / PR automatique]
+# 1. Échelle de Maturation & Autonomie des Outils IA
 
-    style A fill:#f9f9f9,stroke:#ddd
-    style B fill:#e3f2fd,stroke:#2196f3
-    style C fill:#e1f5fe,stroke:#03a9f4
-    style D fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
-    style E fill:#fff3e0,stroke:#ff9800,stroke-width:2px
-    style F fill:#ffebee,stroke:#f44336,stroke-width:2px
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      L'ÉCHELLE DU DÉVELOPPEMENT ASSISTÉ                 │
+│                                                                         │
+│  [1. Autocomplétion]  ──> Suggestion ligne à ligne en grisé            │
+│  [2. Chat IDE]        ──> Question / réponse sur code sélectionné       │
+│  [3. Inline Diff]     ──> Modification ciblée sous contrôle visuel      │
+│  [4. Agent CLI Local] ──> Boucle autonome multi-fichiers + terminal     │
+│  [5. IDE Agentique]   ──> Interface pensée "Agent-First"                │
+│  [6. Agent Cloud]     ──> Exécution isolée en Sandbox VM (Pull Request) │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- **L'autocomplétion** accélère la frappe mais ne valide ni la logique sémantique, ni la réussite des tests.
-- **Le chat et l'édition assistée** maintiennent l'humain dans le contrôle direct de chaque ligne de modification (diff visuel).
-- **L'agent de code** (CLI ou IDE) poursuit un **objectif global** en modifiant plusieurs fichiers et en vérifiant son travail par commandes système.
-- **Claude Code** s'utilise principalement en ligne de commande (CLI) pour exécuter des builds, des linters et des commits de manière fluide.
-- **Les agents Cloud** offrent une **isolation totale** et évitent les effets de bord destructeurs locaux, mais exigent des environnements configurés et reproductibles.
-- **IDE Agentiques** (Cursor, Antigravity) placent l'IA au cœur du workflow (gestion intégrée des fichiers, terminal et visualisations).
+# 2. Assistant vs Agent
+
+```text
+ASSISTANT (Chat / Inline)  ──> Répond à des questions précises, propose du code.
+                                 L'humain doit copier, coller et tester.
+
+AGENT (CLI / Cloud)        ──> Reçoit un objectif global (ex: "Fix la faille").
+                                 Il lit, édite, lance les tests et s'auto-corrige.
+```
+
+---
+
+# Résumé & Schéma global
+
+```text
+                   SURFACES D'UTILISATION DE CLAUDE
+                                  │
+       ┌──────────────────────────┼──────────────────────────┐
+       ▼                          ▼                          ▼
+ Outils Locaux (IDE)        Agent CLI (Claude Code)    Environnements Cloud
+(Ghost text, Chat, Diff)   (Terminal & Outils locaux) (Sandbox & GitHub PR)
+```
+
+# Tableau récapitulatif des surfaces
+
+| Interface | Degré d'autonomie | Cas d'usage idéal |
+|---|---|---|
+| **Autocomplétion** | Très faible | Frappe rapide, structures répétitives. |
+| **Chat / Inline** | Faible à moyen | Explication de bug, refactoring court. |
+| **Claude Code CLI** | Élevé | Refactoring lourd, création de features, tests. |
+| **Agent Cloud** | Maximum | Tâches de fond isolées sans polluer la machine locale. |
+
+# Les 5 points les plus importants
+
+1. **L'autocomplétion accélère la frappe** mais ne vérifie pas la logique du projet.
+2. **L'édition Inline offre un contrôle visuel direct** (diff) sur chaque modification.
+3. **Claude Code CLI s'exécute directement dans le terminal** pour lire, éditer et tester.
+4. **L'agent poursuit un objectif global** de manière autonome en s'auto-corrigeant.
+5. **Les agents Cloud isolent l'exécution** dans un bac à sable conteneurisé.
+
+---
+
+# Carte mentale
+
+```text
+Façons d'utiliser Claude
+│
+├── Assistances Ponctuelles
+│   ├── Autocomplétion (Ghost text)
+│   ├── Chat dans l'IDE
+│   └── Édition assistée (Diff inline)
+│
+├── Agents Autonomes
+│   ├── Agent Local CLI (Claude Code)
+│   ├── IDE Agentique (Cursor / Antigravity)
+│   └── Agent Cloud (Sandbox / GitHub)
+│
+└── Criteres de Choix
+    ├── Niveau de contrôle humain
+    └── Besoin d'isolation système
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Ghost Text  → Autocomplétion de frappe en grisé
+Inline Diff → Affichage visuel avant/après modification
+Claude Code → Agent CLI autonome agissant sur le projet et terminal
+Agent Cloud → Exécution distante en Sandbox sécurisée
+```
+
+> **Phrase à retenir** : Passez du statut d'utilisateur de Chatbot à celui de pilote d'agent en confiant des objectifs globaux à Claude Code dans votre terminal.

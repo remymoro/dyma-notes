@@ -1,6 +1,6 @@
 ---
 title: "Qu'est-ce qu'un agent ?"
-description: "Comprendre le concept de système agentique basé sur un modèle de langage."
+description: "Comprendre le concept de système agentique : boucle d'exécution autonomie, gestion des permissions et contrôle humain."
 date: 2026-08-15
 draft: true
 tags:
@@ -20,50 +20,116 @@ prochaine_revision: 2026-08-16
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Quelle est la différence LLM vs Agent ? | Un LLM produit du texte de manière passive. Un **agent** organise et exécute une séquence d'actions autonomes pour atteindre un objectif global. |
-| Comment fonctionne la boucle agentique ? | Cycle en 6 étapes : Comprendre l'objectif $\rightarrow$ Planifier $\rightarrow$ Choisir une action $\rightarrow$ Appeler un outil $\rightarrow$ Observer le résultat $\rightarrow$ Décider de continuer ou s'arrêter. |
-| Comment gérer les permissions ? | Séparer strictement les droits : Lecture (faible risque) $\rightarrow$ Écriture (modéré) $\rightarrow$ Modification (élevé) $\rightarrow$ Suppression et Envoi/Publication (critiques). |
-| Qu'est-ce que le mode Review-then-execute ? | *Relire puis exécuter* : L'agent prépare l'action (e-mail, virement), mais attend une confirmation physique et manuelle de l'utilisateur humain. |
-| Différence entre Agent et RPA ? | - **RPA (Automatisation)** : Règles fixes de type *Si/Alors*, prévisible et déterministe.<br>- **Agent** : Logique floue, s'adapte au contexte linguistique, moins prévisible. |
-| Quels sont les risques agentiques ? | Mauvais choix d'outils, arguments incorrects, boucles infinies de requêtes (exigeant un critère d'arrêt) et injections de prompts indirectes. |
+| Quelle est la différence LLM vs Agent ? | Le LLM est un **moteur de décision**. L'**agent** orchestre une suite d'actions autonomes en boucle pour atteindre un objectif. |
+| Comment fonctionne la boucle agentique ? | **Comprendre ──> Planifier ──> Agir (Outils) ──> Observer ──> Corriger / Valider**. |
+| Comment gérer les permissions ? | Gradation des risques : Lecture (libre) ──> Écriture (contrôlée) ──> Publication/Suppression (Human-in-the-loop). |
+| Qu'est-ce que le mode Human-in-the-loop ? | Validation humaine explicite obligatoire avant l'exécution d'actions irréversibles ou sensibles. |
+| Différence entre Agent et RPA ? | **RPA** : Règles fixes déterministes.<br>**Agent** : Raisonnement souple en langage naturel sous incertitude. |
 
 ## Synthèse
-Un agent s'appuie sur le LLM comme moteur de décision pour accomplir des tâches complexes en boucle fermée (observation, décision, action). Contrairement aux automatisations classiques (RPA) rigides et déterministes, l'agent gère l'ambiguïté du langage. Cependant, cette flexibilité introduit de nouveaux risques (boucles infinies, mauvaise utilisation d'outils) qui imposent d'encadrer l'agent par des permissions d'écriture et de suppression sous contrôle humain (*human-in-the-loop*).
+Un agent s'appuie sur le LLM comme cerveau décisionnel pour résoudre des objectifs complexes en boucle fermée (observation, décision, action). Contrairement aux scripts RPA rigides, l'agent s'adapte au contexte mais nécessite des critères d'arrêt stricts et une validation humaine (*human-in-the-loop*) sur les actions sensibles.
 
 ## Glossaire
-- **Boucle agentique** : Processus itératif par lequel un agent planifie, exécute des actions via des outils et s'auto-corrige jusqu'à l'atteinte de son but.
-- **Critère d'arrêt** : Condition de sécurité limitant le nombre de boucles ou de tokens alloués à un agent pour éviter les coûts infinis.
-- **Déterministe** : Propriété d'un système qui produit exactement les mêmes sorties pour les mêmes entrées (comme les automatisations RPA).
-- **Human-in-the-loop (Humain dans la boucle)** : Modèle de conception intégrant une validation humaine obligatoire à des étapes clés d'un workflow autonome.
-- **RPA (Robotic Process Automation)** : Automatisation robotisée de processus basée sur des règles métiers strictes et prévisibles.
+- **Boucle Agentique** : Processus itératif (Plan ──> Action ──> Observation ──> Décision) visant à atteindre un but fixé.
+- **Critère d'Arrêt** : Garde-fou technique interrompant la boucle de l'agent si l'objectif n'est pas atteint après un quota.
+- **Human-in-the-loop** : Intégration d'un point de validation humaine avant la finalisation d'une action critique.
+- **RPA** : Automatisation robotisée déterministe basée sur des règles *Si/Alors* strictes.
 
 ## Questions d'auto-évaluation
-1. Pourquoi une boucle agentique nécessite-t-elle obligatoirement la définition d'un *critère d'arrêt* ?
-2. Quelle est la différence majeure entre un agent de Niveau 2 (Lecteur) et un agent de Niveau 5 (Exécuteur) ?
-3. Dans quel cas de figure professionnel est-il préférable d'utiliser une automatisation classique (RPA) plutôt qu'un agent autonome ?
+1. Pourquoi un agent a-t-il besoin de lire les retours d'outils (`Tool Response`) pour ajuster sa planification ?
+2. Quelle est la différence de fonctionnement entre une automatisation RPA classique et un agent basé sur un LLM ?
+3. Pourquoi le mode *Human-in-the-loop* est-il indispensable lors de la gestion de modifications en production ?
+4. Quels risques financiers une boucle agentique mal encadrée présente-t-elle ?
 
 # Qu'est-ce qu'un agent ?
 
-**Durée : 12 minutes**
+## Objectif de la leçon
+Découvrir l'architecture d'un agent autonome, comprendre la boucle d'exécution et savoir intégrer les mécanismes de sécurité et de contrôle humain.
 
-## Notes
+---
 
-### Cycle de la boucle agentique
-```mermaid
-flowchart TD
-    Obj["1. Objectif global"] --> Plan["2. Planification (Découpage en étapes)"]
-    Plan --> Action["3. Choix & Appel d'outil (Tool Call)"]
-    Action --> Obs["4. Observation (Retour d'outil / Tool Response)"]
-    Obs --> Dec{5. Continuer ?}
-    Dec -->|Oui| Plan
-    Dec -->|Non| Out["6. Réponse finale / Livrable"]
+# 1. Anatomie de la Boucle Agentique
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        LA BOUCLE AGENTIQUE                              │
+│                                                                         │
+│  [1. Objectif] ──> [2. Planification] ──> [3. Action (Tool Call)]      │
+│         ▲                                          │                    │
+│         │                                          ▼                    │
+│  [6. Validation] <── [5. Décision] <── [4. Observation (Tool Result)]  │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- Un agent combine un **LLM**, des **outils**, une **boucle d'action**, des **permissions** et un **contrôle humain**.
-- La boucle agentique : **Comprendre -> Planifier -> Choisir -> Appeler -> Observer -> Décider**.
-- Les actions irréversibles (suppression, envoi, publication) exigent le mode **Review-then-execute** (*human-in-the-loop*).
-- Si la tâche est simple, stable et répétitive, l'**automatisation classique (RPA)** est plus fiable et économique qu'un agent.
-- Les agents sont exposés aux **injections de prompts indirectes** lorsqu'ils lisent des documents externes non sécurisés.
-- Définir des **critères d'arrêt** stricts évite les dérives financières de boucle infinie.
+# 2. Gradation des Permissions & Contrôle Humain
+
+```text
+Lecture Seule      ──> Auto-approuvé (Faible risque : lire fichiers, status)
+Écriture Locale    ──> Soumis à approbation (Risque moyen : modifier code)
+Action Destructive ──> Validation Humaine Obliatoire (Risque élevé : push, delete, deploy)
+```
+
+---
+
+# Résumé & Schéma global
+
+```text
+                      SYSTÈME AGENTIQUE COMPLET
+                                  │
+       ┌──────────────────────────┼──────────────────────────┐
+       ▼                          ▼                          ▼
+Cerveau (LLM)               Mains (Outils)            Garde-fous (Humain)
+(Planification/Décision)   (Commandes CLI/APIs)       (Permissions & Quotas)
+```
+
+# Tableau comparatif : Agent vs RPA
+
+| Critère | Automatisation RPA | Agent LLM |
+|---|---|---|
+| **Règles** | Strictes & Déterministes (*If/Else*) | Souples & Adaptatives (Langage naturel) |
+| **Gestion des erreurs** | Plante sur un imprévu | Tente une stratégie alternative |
+| **Cas d'usage idéal** | Processus fixes identiques | Problèmes complexes et ouverts |
+
+# Les 5 points les plus importants
+
+1. **L'agent n'est pas qu'un LLM** : c'est un système unissant modèle, outils et boucle d'action.
+2. **La boucle agentique est itérative** : elle s'auto-corrige en fonction des retours d'outils.
+3. **Le principe du Human-in-the-loop** exige une confirmation humaine sur les actions critiques.
+4. **Des critères d'arrêt sont obligatoires** pour prémunir contre les boucles infinies de tokens.
+5. **Le RPA reste préférable pour les processus déterministes** fixes à faible coût.
+
+---
+
+# Carte mentale
+
+```text
+Qu'est-ce qu'un agent ?
+│
+├── Briques Fondamentales
+│   ├── Moteur (LLM & Planification)
+│   ├── Bras (Outils & Function Calling)
+│   └── Mémoire (Contexte & État)
+│
+├── La Boucle Agentique
+│   ├── Plan ──> Action ──> Observation
+│   └── Décision de poursuite ou d'arrêt
+│
+└── Sécurité & Gouvernance
+    ├── Human-in-the-loop
+    └── Critères d'arrêt & Budget
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Boucle Agentique → Planification ──> Action ──> Observation ──> Correction
+Human-in-the-loop→ Validation humaine obligatoire sur actions critiques
+Critère d'arrêt  → Limite maximale de boucles/tokens
+Agent vs RPA     → Agent = Adaptabilité linguistique | RPA = Rigueur déterministe
+```
+
+> **Phrase à retenir** : Un agent associe l'intelligence d'un LLM à la capacité d'action des outils, encadré par la vigilance constante de l'humain dans la boucle.

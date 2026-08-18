@@ -1,6 +1,6 @@
 ---
 title: "Composition et gestion du contexte"
-description: "Comprendre la composition et la gestion de la fenêtre de contexte."
+description: "Comprendre la composition, la gestion et l'optimisation de la fenêtre de contexte d'un LLM."
 date: 2026-08-14
 draft: true
 tags:
@@ -19,76 +19,122 @@ prochaine_revision: 2026-08-15
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Qu'est-ce que la fenêtre de contexte ? | Quantité maximale de tokens (entrée et sortie) qu'un modèle traite à un moment donné. Fonctionne comme une **mémoire de travail temporaire** (RAM). |
-| Qu'inclut la fenêtre de contexte ? | Les instructions du prompt, l'historique de la session, les documents fournis, les retours d'outils et la réponse en cours de génération. |
-| Qu'est-ce que le taux utile ? | Ratio mesurant l'occupation réelle de la fenêtre en cumulant l'entrée et la marge de sortie prévue : $\frac{\text{Entrée} + \text{Sortie prévue}}{\text{Capacité}}$. |
-| Quels sont les risques de saturation (>85%) ? | Lenteur, hausse des coûts, **dilution de l'attention** (le modèle trouve moins bien l'information importante) ou erreur de limite dépassée. |
-| Comment compresser le contexte ? | - **Résumé** (synthèse d'historique).<br>- **Extraction** (garder uniquement les contraintes).<br>- **Suppression** (tronquer l'ancien).<br>- **RAG** (chercher les passages clés). |
-| Pourquoi une grande fenêtre ne suffit pas ? | Elle augmente la capacité de stockage mais ne garantit pas la **récupération** (retrouver l'info dans la masse) ni le **raisonnement** logique. |
+| Qu'est-ce que la fenêtre de contexte ? | Limite maximale de tokens (entrée et sortie) traitée lors d'un appel. Mémoire RAM temporaire. |
+| Qu'inclut la fenêtre de contexte ? | Prompts, historique complet, fichiers attachés, retours d'outils et marge de réponse. |
+| Qu'est-ce que le taux utile ? | Ratio de remplissage prenant en compte les données injectées plus la marge de sortie prévue. |
+| Quels sont les risques de saturation (>85%) ? | Lenteur, hausse des coûts, erreurs et **dilution de l'attention** (perte d'informations clés). |
+| Comment compresser le contexte ? | Résumés d'historique, extraction de contraintes, RAG et suppression de données inutiles. |
+| Pourquoi une grande fenêtre ne suffit pas ? | Une grande capacité n'empêche pas le bruit et ne garantit pas la qualité de récupération sémantique. |
 
 ## Synthèse
-La fenêtre de contexte agit comme la mémoire RAM d'un LLM. Pour éviter sa saturation (qui provoque dilution de l'attention, lenteur et surcoût), il est crucial de surveiller le taux de remplissage utile (incluant la marge pour la réponse) et d'appliquer des techniques de compression (RAG, résumés d'historique, extraction de contraintes). Placer la consigne de travail après les documents longs reste une règle d'or pour focaliser l'attention du modèle.
+La fenêtre de contexte agit comme la mémoire de travail (RAM) d'un LLM. Pour éviter sa saturation (qui provoque la dilution de l'attention, de la latence et un surcoût), il est essentiel de contrôler son taux utile et d'appliquer des stratégies de compression (RAG, compaction, résumés).
 
 ## Glossaire
-- **Compaction** : Stratégie visant à synthétiser et condenser l'historique d'une conversation sous forme de variables ou d'états d'avancement pour économiser les tokens.
-- **Fenêtre de contexte** : Limite physique du modèle mesurée en tokens, encadrant tout ce qu'il peut "lire" et "écrire" lors d'une seule exécution.
-- **RAG (Retrieval-Augmented Generation)** : Technique consistant à n'injecter dans le prompt que les segments de documents sémantiquement proches de la question de l'utilisateur.
-- **Saturation** : État où la fenêtre de contexte est trop encombrée de données ou de bruit, nuisant aux performances de l'attention et de la génération.
-- **Taux utile** : Indicateur de remplissage prenant en compte les données d'entrée plus le volume estimé de la réponse finale.
-- **Tokenisation** : Processus de découpage du texte brut en jetons (tokens) numériques compréhensibles par le réseau de neurones.
+- **Compaction** : Stratégie visant à résumer l'historique d'une session pour libérer des tokens dans le contexte.
+- **Fenêtre de contexte** : Capacité maximale en tokens qu'un modèle peut lire et écrire en une seule fois.
+- **RAG (Retrieval-Augmented Generation)** : Technique d'injection dynamique des seuls passages de documents pertinents.
+- **Taux utile** : Indicateur mesurant le remplissage réel du contexte en incluant la réponse estimée.
 
 ## Questions d'auto-évaluation
-1. Pourquoi est-il risqué de pousser le taux de remplissage utile d'un contexte au-delà de 85 % ?
-2. Quelle est la différence entre la capacité de stockage d'un contexte et la capacité de récupération (retrieval) du modèle ?
-3. Pourquoi conseille-t-on de placer la consigne de travail à la toute fin d'un prompt contenant de longs documents ?
+1. Pourquoi chaque nouveau message dans une conversation réinjecte-t-il la totalité de l'historique précédent ?
+2. Quel phénomène physique se produit lorsque le taux utile du contexte dépasse 85% ?
+3. Pourquoi conseille-t-on de toujours placer les consignes de travail à la toute fin d'un prompt contenant de grands fichiers ?
+4. Quelle est la différence entre la capacité brute de la fenêtre et la précision de récupération (retrieval) ?
 
 # Composition et gestion du contexte
 
-**Durée : 13 minutes**
+## Objectif de la leçon
+Comprendre la composition de la fenêtre de contexte, mesurer son taux de remplissage utile et maîtriser les techniques d'optimisation.
 
-## Notes
+---
 
-Voici l'infographie récapitulative pour bien informer le modèle et optimiser la gestion de son contexte :
+# 1. Anatomie de la Fenêtre de Contexte
 
-![Composition et gestion du contexte](assets/composition-gestion-contexte.jpg)
-
-### Composition de la fenêtre de contexte
-```mermaid
-flowchart TD
-    subgraph "Fenêtre de Contexte (Mémoire RAM temporaire)"
-        direction TB
-        Input["📥 ENTRÉE<br/>(Prompt + Consignes + Fichiers)"]
-        History["💬 HISTORIQUE<br/>(Messages précédents)"]
-        Outils["🔌 OUTILS<br/>(Résultats d'exécution)"]
-        Output["📤 SORTIE<br/>(Marge réservée pour la réponse)"]
-        
-        Input --> History --> Outils --> Output
-    end
-    
-    style Input fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
-    style History fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
-    style Outils fill:#fff3e0,stroke:#ff9800,stroke-width:2px
-    style Output fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    COMPOSITION DU CONTEXTE (RAM)                        │
+│                                                                         │
+│  ┌───────────────────────────────────────────────────────────────────┐  │
+│  │ 1. SYSTEM PROMPT  : Consignes & rôles de base                     │  │
+│  │ 2. HISTORIQUE     : Échanges passés de la session                 │  │
+│  │ 3. DOCUMENTS      : Code source, fichiers joints, retours MCP     │  │
+│  │ 4. PROMPT ACTUEL  : Question / instruction finale                 │  │
+│  │ 5. MARGE SORTIE   : Espace réservé à la réponse (ex: 4000 tokens) │  │
+│  └───────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Évaluation de la densité du contexte (Taux utile)
-```mermaid
-flowchart LR
-    A["Taux utile"] --> B["< 40% : Confortable<br/>(Risque faible)"]
-    A --> C["40% à 70% : Significatif<br/>(Éviter le superflu)"]
-    A --> D["70% à 85% : Dense<br/>(Coût, latence, dilution)"]
-    A --> E["> 85% : Saturation<br/>(Perte d'éléments, manque de place)"]
-    
-    style B fill:#c8e6c9,stroke:#388e3c
-    style C fill:#fff9c4,stroke:#fbc02d
-    style D fill:#ffe0b2,stroke:#f57c00
-    style E fill:#ffcdd2,stroke:#d32f2f
+---
+
+# 2. Les Niveaux de Remplissage (Taux Utile)
+
+```text
+[ < 40%  ] ──> Zone de Confort (Attention maximale, réponse rapide)
+[ 40-70% ] ──> Densité Neutre (Surveiller l'accumulation de code)
+[ 70-85% ] ──> Zone Dense (Risque de baisse de précision et hausse de coût)
+[  > 85% ] ──> Saturation (Dilution d'attention, risque de rejet)
 ```
 
-## Points clés
+---
 
-- La fenêtre de contexte n'est pas une bibliothèque à long terme, c'est une **mémoire de travail temporaire**.
-- Chaque message dans un chat renvoie **tout l'historique** dans le modèle, consommant rapidement la fenêtre.
-- Le **taux utile** doit toujours inclure la marge réservée pour la réponse finale ($\text{Entrée} + \text{Sortie} \le \text{Capacité}$).
-- Une grande fenêtre augmente le **bruit** ; il faut compresser (résumé, RAG, extraction) pour maintenir la précision de l'**attention**.
-- **Bonne pratique** : Placer la consigne de travail **après** les documents longs.
+# Résumé & Schéma global
+
+```text
+                     GESTION DU CONTEXTE LLM
+                                │
+      ┌─────────────────────────┼─────────────────────────┐
+      ▼                         ▼                         ▼
+   Mesure                    Bruit                     Solutions
+(Taux Utile < 85%)     (Dilution d'attention)   (Compaction, RAG, /compact)
+```
+
+# Tableau des stratégies de compression
+
+| Technique | Description |
+|---|---|
+| **Compaction** | Résumer l'historique conversationnel en conservant les faits essentiels. |
+| **RAG** | Ne charger dans le contexte que les fragments de fichiers nécessaires. |
+| **Positionnement** | Placer la consigne critique tout à la fin du prompt pour maximiser l'attention. |
+
+# Les 5 points les plus importants
+
+1. **La fenêtre de contexte est une mémoire RAM temporaire**, pas un stockage permanent.
+2. **Tout l'historique est réenvoyé à chaque prompt**, consommant progressivement le quota.
+3. **Le taux utile inclut la marge réservée à la réponse** ($\text{Entrée} + \text{Sortie} \le \text{Limite}$).
+4. **La saturation (>85%) dilue l'attention** du modèle et augmente la latence.
+5. **Placer les consignes à la fin du prompt** garantit un meilleur suivi des instructions.
+
+---
+
+# Carte mentale
+
+```text
+Composition & Contexte
+│
+├── Composition
+│   ├── System prompt & Historique
+│   ├── Fichiers & Retours d'outils
+│   └── Marge de sortie réservée
+│
+├── Risques de saturation
+│   ├── Lenteur & Coût
+│   └── Dilution de l'attention
+│
+└── Stratégies d'optimisation
+    ├── Compaction / Résumé
+    ├── RAG (Injection ciblée)
+    └── Positionnement à la fin
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Fenêtre de contexte → Mémoire RAM temporaire en tokens
+Taux utile          → (Entrée + Marge Sortie) / Capacité totale
+Dilution            → Perte de précision si contexte trop encombré
+Compaction          → Résumé d'historique pour libérer du contexte
+```
+
+> **Phrase à retenir** : Plus la fenêtre de contexte est encombrée de bruit, moins l'attention du modèle est précise sur vos consignes essentielles.

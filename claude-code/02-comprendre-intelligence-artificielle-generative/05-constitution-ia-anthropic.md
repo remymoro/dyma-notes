@@ -1,6 +1,6 @@
 ---
 title: "La spécificité Anthropic : la Constitution IA"
-description: "Découvrir l’approche constitutionnelle développée par Anthropic."
+description: "Découvrir l'approche constitutionnelle développée par Anthropic (Constitutional AI, RLAIF et la hiérarchie à 4 niveaux)."
 date: 2026-08-14
 draft: true
 tags:
@@ -19,74 +19,121 @@ prochaine_revision: 2026-08-15
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Qu'est-ce que Constitutional AI ? | Méthode d'alignement entraînant le modèle à évaluer et corriger ses propres réponses à partir de principes écrits (la constitution). |
-| Quelles sont les limites du RLHF ? | Exposition des annotateurs à la violence, **sycophantie** (flatterie), valeurs culturelles cachées et complexité à passer à l'échelle (*scalability*). |
-| Comment s'articulent les deux phases ? | 1. **Critique et Révision** (SFT) : Le modèle s'auto-corrige par rapport à un principe.<br>2. **Apprentissage par Renforcement** (RLAIF) : Un modèle tiers évalue les réponses selon la constitution. |
-| Quelle est la hiérarchie à 4 niveaux (2026) ? | **Niveau 1** : Sûreté (risques critiques, armes, cyberarmes).<br>**Niveau 2** : Éthique (honnêteté, non-manipulation).<br>**Niveau 3** : Conformité (consignes de l'opérateur).<br>**Niveau 4** : Utilité (aide à l'utilisateur). |
-| Qui sont les "principals" (acteurs) ? | Les acteurs légitimes dont Claude doit arbitrer les intérêts : l'opérateur (API), l'utilisateur final et Anthropic (sécurité générale). |
-| Hard constraints vs comportements ajustables ? | **Hard constraints** : Limites absolues non négociables (ex: CSAM, armes).<br>**Comportements instructibles** : Comportements par défaut modifiables (ton, langue). |
+| Qu'est-ce que Constitutional AI ? | Méthode d'alignement entraînant le modèle à évaluer et corriger ses propres réponses via des principes écrits. |
+| Quelles sont les limites du RLHF classique ? | Exposition des annotateurs humains, **sycophantie** (flatterie), valeurs cachées et limites d'échelle. |
+| Comment s'articulent les deux phases ? | 1. **Critique et Révision** (SFT constitutionnel).<br>2. **Apprentissage par Renforcement** (RLAIF). |
+| Quelle est la hiérarchie à 4 niveaux ? | **1. Sûreté** (Absolue) ──> **2. Éthique** ──> **3. Conformité** ──> **4. Utilité** (Subordonnée). |
+| Hard constraints vs règles ajustables ? | **Hard constraints** : Limites absolues (cyberarmes, CSAM).<br>**Règles ajustables** : Ton, style, format. |
 
 ## Synthèse
-Constitutional AI est la signature d'Anthropic pour aligner Claude en remplaçant l'évaluation humaine directe par des retours d'IA (RLAIF) basés sur une constitution écrite. Restructurée en 2026 autour d'une hiérarchie à quatre niveaux (sûreté, éthique, conformité, utilité), cette approche cherche à limiter la sycophantie et à rendre les valeurs explicites, tout en distinguant des contraintes physiques absolues (les hard constraints) de règles métier ajustables.
+Constitutional AI est la méthode d'alignement propriétaire d'Anthropic. Elle remplace la modération humaine directe par un apprentissage par renforcement basé sur l'IA (RLAIF) guidé par une constitution écrite. La version 2026 établit une hiérarchie stricte à 4 niveaux (Sûreté > Éthique > Conformité > Utilité), éliminant la sycophantie et rendant les refus prévisibles et transparents.
 
 ## Glossaire
-- **Amélioration de Pareto** : Concept indiquant qu'un modèle devient plus sûr sans pour autant dégrader sa capacité à se rendre utile.
-- **Constitutional AI** : Approche d'alignement basée sur le respect de principes écrits fondamentaux, visant à réduire le besoin d'intervention humaine dans la modération.
-- **CSAM (Child Sexual Abuse Material)** : Contenus d'abus sexuels sur mineurs, représentant une contrainte d'interdiction absolue dans le modèle.
-- **Jailbreak** : Technique de manipulation de prompts cherchant à forcer le modèle à ignorer ses règles éthiques ou constitutionnelles.
-- **RLAIF (Reinforcement Learning from AI Feedback)** : Apprentissage par renforcement où le signal de préférence est donné par un modèle d'IA évaluant la constitution.
-- **Sycophantie** : Propension du modèle d'IA à flatter l'utilisateur en allant dans son sens, même si ses affirmations sont fausses ou dangereuses.
+- **Constitutional AI** : Méthode d'alignement guidée par des principes explicites d'auto-correction.
+- **RLAIF (Reinforcement Learning from AI Feedback)** : Apprentissage par renforcement utilisant un modèle d'IA pour attribuer les récompenses d'alignement.
+- **Sycophantie** : Tendance négative d'un modèle d'IA à être trop d'accord avec l'utilisateur, même s'il a tort.
+- **Hard constraints** : Interdictions absolues non contournables inscrites dans le noyau de sécurité du modèle.
 
 ## Questions d'auto-évaluation
-1. Pourquoi le RLHF favorise-t-il parfois la *sycophantie* chez les LLM, et comment Constitutional AI corrige-t-elle cela ?
-2. Quelle est la différence majeure entre le Niveau 1 (Sûreté) et le Niveau 4 (Utilité) dans la hiérarchie de la constitution de 2026 ?
-3. Comment Claude traite-t-il les documents externes fournis par l'utilisateur pour éviter les injections de prompts ?
+1. Pourquoi l'utilisation de principes constitutionnels explicites rend-elle Claude plus prévisible pour les entreprises ?
+2. Quel niveau de la hiérarchie constitutionnelle prime en cas de conflit entre la demande de l'utilisateur et la sécurité ?
+3. Comment la méthode RLAIF évite-t-elle l'épuisement des annotateurs humains du RLHF traditionnel ?
 
 # La spécificité Anthropic : la Constitution IA
 
-**Durée : 23 minutes**
+## Objectif de la leçon
+Découvrir les principes majeurs de la Constitutional AI d'Anthropic et comprendre la hiérarchie à 4 niveaux qui régit les décisions et refus de Claude.
 
-## Notes
+---
 
-Voici l'infographie récapitulative présentant l'approche Constitutional AI d'Anthropic :
+# 1. Le Pipeline Constitutional AI (RLAIF)
 
-![La spécificité Anthropic : la Constitution IA](assets/constitution-ia-anthropic.jpg)
-
-### La hiérarchie à 4 niveaux de la constitution (2026)
-```mermaid
-graph TD
-    N1["Niveau 1 : La Sûreté (Priorité absolue)"] --> N2["Niveau 2 : L'Éthique"]
-    N2 --> N3["Niveau 3 : La Conformité"]
-    N3 --> N4["Niveau 4 : L'Utilité (Subordonnée au reste)"]
-    
-    style N1 fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
-    style N2 fill:#ffe0b2,stroke:#f57c00,stroke-width:2px
-    style N3 fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
-    style N4 fill:#c8e6c9,stroke:#388e3c,stroke-width:2px
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    PIPELINE CONSTITUTIONAL AI                           │
+│                                                                         │
+│  [Prompt Sensible] ──> [Réponse brute] ──> [Critique vs Constitution]   │
+│                                                     │                   │
+│  [Modèle Aligné (RLAIF)] <── [Réponse révisée] ◄────┘                   │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Le pipeline Constitutional AI
-```mermaid
-flowchart TD
-    subgraph "Phase 1 : Critique & Révision (SFT)"
-        A[Prompt Sensible] --> B[Réponse brute]
-        B --> C[Critique via la Constitution]
-        C --> D[Réponse révisée et propre]
-    end
-    
-    subgraph "Phase 2 : Apprentissage par renforcement (RLAIF)"
-        E[Générations multiples] --> F[Évaluation par un modèle tiers]
-        F --> G[Modèle de préférences constitutionnelles]
-        G --> H[Modèle final optimisé]
-    end
-    
-    D --> E
+---
+
+# 2. La Hiérarchie Constitutionnelle à 4 Niveaux
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      HIÉRARCHIE DE DÉCISION (2026)                      │
+│                                                                         │
+│  NIVEAU 1 : SÛRETÉ    ──> Protection absolue (Cyberarmes, CSAM)        │
+│  NIVEAU 2 : ÉTHIQUE   ──> Honnêteté & Non-manipulation                   │
+│  NIVEAU 3 : CONFORMITÉ──> Consignes de l'opérateur (API / Enterprise)   │
+│  NIVEAU 4 : UTILITÉ   ──> Aide à l'utilisateur (Subordonnée aux 1-3)  │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- La constitution de Claude est un texte de principes de référence, mis à jour en **janvier 2026** (licence CC0).
-- Contrairement au RLHF, Constitutional AI s'appuie sur le **RLAIF** (le modèle évalue ses propres sorties à l'aide de la constitution).
-- La constitution classe les devoirs de Claude en **4 niveaux** (Sûreté > Éthique > Conformité > Utilité).
-- Les **hard constraints** (armes de destruction massive, CSAM, cyberarmes) sont absolues et non négociables pour l'utilisateur et l'opérateur.
-- Face à un refus négocié sur un sujet sensible, l'utilisateur a intérêt à **fournir un contexte légitime d'usage** au lieu de tenter un jailbreak.
+# Résumé & Schéma global
+
+```text
+                  ALIGNEMENT PAR CONSTITUTION (RLAIF)
+                                  │
+       ┌──────────────────────────┼──────────────────────────┐
+       ▼                          ▼                          ▼
+Principes Écrits           Auto-Correction            Hiérarchie 4 Niveaux
+(Constitution claire)      (Critique avant réponse)   (Sûreté > Utilité)
+```
+
+# Tableau récapitulatif
+
+| Niveau | Domaine | Priorité |
+|---|---|---|
+| **Niveau 1** | Sûreté globale (Armes, Cyberattaques) | Priorité Absolue |
+| **Niveau 2** | Éthique & Vérité (Anti-sycophantie) | Forte |
+| **Niveau 3** | Conformité métier (Règles entreprise) | Moyenne |
+| **Niveau 4** | Utilité directe (Aide utilisateur) | Subordonnée |
+
+# Les 5 points les plus importants
+
+1. **Constitutional AI utilise le RLAIF** pour évaluer les réponses sans dépendre du RLHF humain continu.
+2. **Le modèle s'auto-critique** et se réécrit par rapport à des principes constitutionnels explicites.
+3. **La hiérarchie à 4 niveaux** place la Sûreté et l'Éthique au-dessus de l'Utilité utilisateur.
+4. **La sycophantie est activement combattue** pour éviter que l'IA ne valide des erreurs par flatterie.
+5. **Les hard constraints sont absolues** et garantissent la sécurité en environnement Enterprise.
+
+---
+
+# Carte mentale
+
+```text
+Constitution IA Anthropic
+│
+├── Méthodologie
+│   ├── RLAIF (AI Feedback)
+│   └── Auto-critique & Révision
+│
+├── Hiérarchie des Devoirs
+│   ├── 1. Sûreté (Absolue)
+│   ├── 2. Éthique & Vérité
+│   ├── 3. Conformité Métier
+│   └── 4. Utilité Utilisateur
+│
+└── Bénéfices Enterprise
+    ├── Transparence des refus
+    └── Prévention de la sycophantie
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Constitutional AI → Alignement guidé par principes écrits
+RLAIF             → Apprentissage par renforcement basé sur l'IA
+Hiérarchie 1 à 4  → Sûreté > Éthique > Conformité > Utilité
+Anti-sycophantie  → Ne pas dire oui à l'utilisateur s'il se trompe
+```
+
+> **Phrase à retenir** : Claude ne cherche pas à plaire à tout prix à l'utilisateur : sa constitution place la sécurité et l'honnêteté scientifique avant l'obéissance aveugle.

@@ -1,6 +1,6 @@
 ---
 title: "Installation et présentation du CLI"
-description: "Installer et prendre en main l’interface en ligne de commande de Claude Code."
+description: "Installer, configurer et prendre en main l'interface en ligne de commande (CLI) de Claude Code."
 date: 2026-08-15
 draft: true
 tags:
@@ -19,61 +19,123 @@ prochaine_revision: 2026-08-16
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| Comment installer nativement Claude Code ? | - **macOS/Linux/WSL** : `curl -fsSL https://claude.ai/install.sh | bash`<br>- **Windows PS** : `irm https://claude.ai/install.ps1 | iex`<br>- **Windows CMD** : `curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd` |
-| Quelles sont les autres méthodes d'installation ? | - **npm** (globale) : `npm install -g @anthropic-ai/claude-code` (requiert Node.js 18+).<br>- **Homebrew** (macOS) : `brew install --cask claude-code`.<br>- **WinGet** (Windows) : `winget install Anthropic.ClaudeCode`. |
-| Différence Shell vs Session ? | - **Commandes Shell** : Lancées depuis le terminal système normal (ex: `claude doctor`).<br>- **Commandes de session** : Lancées dans Claude Code, préfixées par un slash (ex: `/login`). |
-| Quelles sont les commandes shell clés ? | - `claude` : session vierge.<br>- `claude "consigne"` : lance une tâche.<br>- `claude -p` : une seule question et quitte (mode passif).<br>- `claude -c` : continuer le chat récent. |
-| Quelles sont les commandes de session clés ? | - `/help` : documentation interne.<br>- `/clear` : efface le contexte courant.<br>- `/login` : change de compte d'accès.<br>- `/exit` (ou Ctrl+D) : quitte. |
-| Comment maintenir le CLI à jour ? | - Terminal système : `claude update` (mise à jour auto si install native).<br>- Session interactive : `/upgrade` et `/release-notes` (notes de version). |
+| Comment installer nativement Claude Code ? | - **macOS/Linux/WSL** : `curl -fsSL https://claude.ai/install.sh \| bash`<br>- **Windows PS** : `irm https://claude.ai/install.ps1 \| iex` |
+| Quelles sont les autres méthodes d'installation ? | **npm** (`npm install -g @anthropic-ai/claude-code`), **Homebrew** (`brew install --cask claude-code`) ou **WinGet**. |
+| Différence Commandes Shell vs Commandes Slash ? | **Shell** : Lancées dans le terminal (ex: `claude doctor`).<br>**Slash** : Lancées en session interactive (ex: `/clear`, `/login`). |
+| Quelles sont les commandes Shell clés ? | `claude` (session), `claude -p` (prompt passif ponctuel), `claude -c` (continuer la session), `claude doctor` (diagnostic). |
+| Comment maintenir le CLI à jour ? | `claude update` en terminal ou `/upgrade` en session interactive. |
 
 ## Synthèse
-L'installation de Claude Code s'effectue idéalement via l'installateur natif (curl/irm) pour bénéficier des mises à jour automatiques. Une fois installé et authentifié dans le navigateur, Claude Code se pilote soit à l'aide de commandes shell en terminal (ex: `claude -p` pour une question ponctuelle) soit par des commandes internes de session (ex: `/clear` pour vider le contexte, ou `/release-notes` pour suivre l'évolution). La commande `claude doctor` est recommandée en cas de dysfonctionnement réseau ou d'accès API.
+L'installation de Claude Code s'effectue idéalement via l'installateur natif (curl/irm) pour bénéficier des mises à jour automatiques. Une fois authentifié via le navigateur, l'outil s'utilise soit par des commandes Shell (ex: `claude doctor`, `claude -p`), soit par des commandes slash interactives en session (ex: `/clear`, `/login`).
 
 ## Glossaire
-- **CLI (Command Line Interface)** : Interface textuelle en ligne de commande permettant à l'utilisateur de piloter des programmes informatiques.
-- **Claude doctor** : Commande système de diagnostic effectuant un test de santé de l'installation (connexions, comptes et dépendances).
-- **Ghost text (Texte fantôme)** : Suggestion de code semi-transparente affichée dans un terminal ou éditeur, acceptée par pression sur la touche Tab.
-- **Installation native** : Installation directe du programme binaire autonome sans dépendre de gestionnaires tiers (npm, Homebrew, Winget).
-- **WSL (Windows Subsystem for Linux)** : Outil de Microsoft permettant d'exécuter un environnement Linux complet et natif directement sous Windows.
+- **CLI (Command Line Interface)** : Interface textuelle en ligne de commande pour piloter l'agent.
+- **Claude Doctor** : Commande de diagnostic testant la santé de l'installation, le réseau et les clés API.
+- **Installation Native** : Déploiement d'un binaire autonome sans dépendance Node.js ni gestionnaire externe.
+- **Prompt Passif (`claude -p`)** : Exécution d'une requête unique en ligne de commande se terminant immédiatement.
 
 ## Questions d'auto-évaluation
-1. Pourquoi est-il déconseillé d'exécuter `sudo npm install -g @anthropic-ai/claude-code` pour l'installation ?
-2. Quelle est la différence d'usage concret entre `claude "tâche"` et `claude -p "tâche"` ?
-3. Où doit-on taper la commande `/login` pour changer de compte : dans le terminal Linux habituel ou dans le terminal interactif de Claude Code ?
+1. Pourquoi est-il déconseillé d'utiliser `sudo npm install -g` lors de l'installation de Claude Code ?
+2. Quelle est la différence d'usage entre `claude "tâche"` et `claude -p "tâche"` ?
+3. Quelle commande permet de réinitialiser le contexte sans quitter l'interface interactive ?
+4. Quel outil système devez-vous exécuter en cas de blocage d'authentification ou de réseau ?
 
 # Installation et présentation du CLI
 
-**Durée : 16 minutes**
+## Objectif de la leçon
+Installer correctement Claude Code sur son système d'exploitation et maîtriser les deux modes de commandes (Shell et Slash).
 
-## Notes
+---
 
-### Structure des commandes Claude Code
-```mermaid
-flowchart TD
-    A[Commandes de Claude Code] --> B[Commandes Shell / Terminal Système]
-    A --> C[Commandes de Session / Dans le Chat]
-    
-    B --> B1["claude (Session standard)"]
-    B --> B2["claude 'tâche' (Lancer un objectif)"]
-    B --> B3["claude -p 'prompt' (Question ponctuelle & sortie)"]
-    B --> B4["claude doctor (Diagnostic réseau / auth)"]
-    B --> B5["claude update (Mise à jour du binaire)"]
-    
-    C --> C1["/help (Afficher l'aide)"]
-    C --> C2["/clear (Effacer l'historique de session)"]
-    C --> C3["/login (Changer d'utilisateur)"]
-    C --> C4["/release-notes (Consulter le changelog)"]
-    C --> C5["/exit (Quitter la session)"]
-    
-    style B fill:#e3f2fd,stroke:#2196f3
-    style C fill:#fff3e0,stroke:#ff9800
+# 1. Les Méthodes d'Installation
+
+```text
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    MÉTHODES D'INSTALLATION DE CLAUDE CODE               │
+│                                                                         │
+│  [NATIVE (RECOMMANDÉE)] ──> curl -fsSL https://claude.ai/install.sh | bash│
+│                             (Mises à jour automatiques transparentes)   │
+│                                                                         │
+│  [GESTIONNAIRES]       ──> npm install -g @anthropic-ai/claude-code     │
+│                             brew install --cask claude-code             │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Points clés
+---
 
-- **L'installation native** est recommandée car elle se met à jour automatiquement, contrairement aux gestionnaires de paquets.
-- Ne pas lancer npm en mode administrateur (`sudo`) pour éviter de corrompre les permissions d'exécution.
-- **Authentification** : Réalisée via une mire sécurisée de navigateur web au premier lancement, puis enregistrée localement.
-- Utilisez `claude doctor` en premier recours pour débugger les problèmes d'intégration réseau.
-- Pour une conversation fluide, utilisez `claude -c` afin de reprendre le fil de la session précédente dans ce répertoire.
-- Raccourcis de session utiles : **Flèche Haut** (historique des entrées), **Tab** (autocomplétion des commandes `/`), **Shift+Tab** (modes de permissions).
+# 2. Distinction : Commandes Shell vs Commandes Slash
+
+```text
+TERMINAL SYSTÈME (Bash / Zsh)             SESSION INTERACTIVE CLAUDE CODE
+┌──────────────────────────────┐          ┌──────────────────────────────┐
+│  $ claude                    │          │  > /clear                    │
+│  $ claude -p "Explique..."   │ ───────► │  > /login                    │
+│  $ claude doctor             │          │  > /release-notes            │
+└──────────────────────────────┘          └──────────────────────────────┘
+```
+
+---
+
+# Résumé & Schéma global
+
+```text
+                       UTILISATION DE CLAUDE CODE CLI
+                                     │
+       ┌─────────────────────────────┼─────────────────────────────┐
+       ▼                             ▼                             ▼
+   Installation                 Commandes Shell            Commandes Slash
+(Natifs curl / npm)          (claude -p, doctor, -c)      (/clear, /help, /exit)
+```
+
+# Tableau des commandes essentielles
+
+| Commande | Environnement | Rôle |
+|---|---|---|
+| `claude` | Terminal Shell | Ouvre une session interactive vierge. |
+| `claude -p "question"` | Terminal Shell | Mode passif : répond et quitte immédiatement. |
+| `claude doctor` | Terminal Shell | Lance un diagnostic de santé (réseau, authentification). |
+| `/clear` | Session Slash | Efface le contexte actuel de la session. |
+| `/exit` | Session Slash | Quitte la session (équivalent Ctrl+D). |
+
+# Les 5 points les plus importants
+
+1. **L'installation native (curl/irm)** garantit les mises à jour automatiques transparentes.
+2. **Ne lancez jamais `sudo npm install`** pour éviter d'endommager les permissions du système.
+3. **`claude doctor` est l'outil n°1 de diagnostic** en cas de problème de réseau ou d'API.
+4. **`claude -p` permet d'exécuter des requêtes ponctuelles** directement depuis des scripts Bash.
+5. **Les commandes préfixées par `/`** (comme `/clear`) s'utilisent uniquement en session interactive.
+
+---
+
+# Carte mentale
+
+```text
+Installation & CLI Claude Code
+│
+├── Installation
+│   ├── Native (curl / irm) - Recommandée
+│   └── Gestionnaires (npm / Homebrew / WinGet)
+│
+├── Mode Shell (Terminal)
+│   ├── claude (Session standard)
+│   ├── claude -p (Prompt rapide)
+│   └── claude doctor (Diagnostic)
+│
+└── Mode Slash (En session)
+    ├── /clear (Réinitialiser contexte)
+    ├── /login (Gestion comptes)
+    └── /exit (Quitter)
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Install Native   → curl -fsSL https://claude.ai/install.sh | bash
+claude -p        → Question rapide sans ouvrir de session complète
+claude doctor    → Diagnostic de santé et de connexion
+/clear           → Réinitialiser la mémoire de la session en cours
+```
+
+> **Phrase à retenir** : Privilégiez l'installation native pour bénéficier des mises à jour automatiques et utilisez `claude doctor` au moindre souci de connexion.
