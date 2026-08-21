@@ -340,7 +340,7 @@ Puis exportez la session.
 ```text
 /export premiere-modification-convertisseur.txt
 ```
-![alt text](assets/image-5.png)
+![alt text](assets/image05.png)
 ## Décider si la modification est acceptable
 
 La validation finale ne doit pas être automatique. Vous devez décider si le changement est acceptable. Pour cette première modification, la décision se prend sur des critères simples. Si un seul de ces points échoue, ne validez pas encore : demandez une correction limitée ou annulez le changement.
