@@ -12,8 +12,8 @@ tags:
 categories:
   - "Chapitre 6"
 cours: Claude Code
-chapitre: 06-premiere-session-claude-code
-leçon: 02-continuer-session-bons-environnements
+
+leçon: 05-continuer-session-bons-environnements
 statut: à revoir
 etape_revision: 0
 prochaine_revision:

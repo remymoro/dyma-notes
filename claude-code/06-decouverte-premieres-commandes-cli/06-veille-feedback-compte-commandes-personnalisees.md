@@ -12,8 +12,8 @@ tags:
 categories:
   - "Chapitre 6"
 cours: Claude Code
-chapitre: 06-premiere-session-claude-code
-leçon: 03-veille-compte-feedback-claude-code
+chapitre: 06-decouverte-premieres-commandes-cli
+leçon: 06-veille-feedback-compte-commandes-personnalisees
 statut: à revoir
 etape_revision: 0
 prochaine_revision:
