@@ -32,12 +32,12 @@ Une bonne formulation dit ce qui doit être vrai à la fin. Elle laisse à Claud
     <em>« Ajouter une protection contre les doubles soumissions dans le flux de paiement. »</em>
     
     <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Contraintes :</strong></p>
-    <ul style="margin-top: 0; line-height: 1.6; padding-left: 20px; margin-bottom: 0;">
-      <li>conserver le comportement actuel pour les paiements déjà validés ;</li>
-      <li>réutiliser les composants existants si possible ;</li>
-      <li>ne pas modifier l’API publique sans nécessité ;</li>
-      <li>ajouter ou adapter les tests pertinents ;</li>
-      <li>exécuter les tests ciblés avant de conclure.</li>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>conserver le comportement actuel pour les paiements déjà validés ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>réutiliser les composants existants si possible ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>ne pas modifier l’API publique sans nécessité ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>ajouter ou adapter les tests pertinents ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>exécuter les tests ciblés avant de conclure.</span></li>
     </ul>
   </div>
 </div>
@@ -110,10 +110,10 @@ Le contexte doit pointer vers des sources concrètes : fichier, dossier, log, er
     <em>« Le build échoue depuis la migration vers Vite. »</em>
     
     <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Contexte :</strong></p>
-    <ul style="margin-top: 0; line-height: 1.6; padding-left: 20px; margin-bottom: 15px;">
-      <li>erreur complète : <code>@build.log</code></li>
-      <li>configuration : <code>@vite.config.ts</code></li>
-      <li>scripts disponibles : <code>@package.json</code></li>
+    <ul style="list-style: none; margin: 0 0 15px 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(6,182,212,0.12); border-left: 3px solid #06b6d4; border-radius: 6px; padding: 6px 10px;"><span style="color: #0e7490; font-weight: bold; flex-shrink: 0;">▸</span><span>erreur complète : <code>@build.log</code></span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(6,182,212,0.12); border-left: 3px solid #06b6d4; border-radius: 6px; padding: 6px 10px;"><span style="color: #0e7490; font-weight: bold; flex-shrink: 0;">▸</span><span>configuration : <code>@vite.config.ts</code></span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(6,182,212,0.12); border-left: 3px solid #06b6d4; border-radius: 6px; padding: 6px 10px;"><span style="color: #0e7490; font-weight: bold; flex-shrink: 0;">▸</span><span>scripts disponibles : <code>@package.json</code></span></li>
     </ul>
 
     <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Objectif :</strong></p>
@@ -141,11 +141,11 @@ La vérification doit être formulée explicitement. Elle peut être automatique
   <strong style="font-size: 1.1em;">Exemple de formulation de vérification (bonne pratique) :</strong>
   <div style="margin-top: 15px; padding: 15px; background-color: rgba(255,255,255,0.6); border-radius: 8px; border: 1px dashed #86efac;">
     <p style="margin-top: 0; margin-bottom: 5px;"><strong>Après modification :</strong></p>
-    <ul style="margin-top: 0; line-height: 1.6; padding-left: 20px; margin-bottom: 0;">
-      <li>exécuter les tests ciblés liés à <code>PaymentSession</code> ;</li>
-      <li>exécuter le typecheck ;</li>
-      <li>afficher la liste des fichiers modifiés ;</li>
-      <li>expliquer uniquement les changements fonctionnels et les vérifications effectuées.</li>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>exécuter les tests ciblés liés à <code>PaymentSession</code> ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>exécuter le typecheck ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>afficher la liste des fichiers modifiés ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>expliquer uniquement les changements fonctionnels et les vérifications effectuées.</span></li>
     </ul>
   </div>
 </div>
@@ -189,10 +189,10 @@ Lorsqu’un fichier, un dossier ou une ressource est pertinent, il vaut mieux le
     <p style="margin-top: 0; margin-bottom: 15px;"><em>Ne modifie rien pour l’instant.</em></p>
 
     <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Retour attendu :</strong></p>
-    <ul style="margin-top: 0; line-height: 1.6; padding-left: 20px; margin-bottom: 0;">
-      <li>cause probable ;</li>
-      <li>fichiers impliqués ;</li>
-      <li>test minimal à ajouter avant correction.</li>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>cause probable ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>fichiers impliqués ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>test minimal à ajouter avant correction.</span></li>
     </ul>
   </div>
 </div>
@@ -235,17 +235,17 @@ La vérification transforme le prompt en contrat. Elle donne à la boucle agenti
     <em>« Refactoriser le calcul des remises sans changer le comportement. »</em>
     
     <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Contraintes :</strong></p>
-    <ul style="margin-top: 0; line-height: 1.6; padding-left: 20px; margin-bottom: 15px;">
-      <li>conserver l’API publique de <code>DiscountCalculator</code> ;</li>
-      <li>ne pas modifier les snapshots existants sauf justification ;</li>
-      <li>ajouter un test pour les remises cumulées.</li>
+    <ul style="list-style: none; margin: 0 0 15px 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>conserver l’API publique de <code>DiscountCalculator</code> ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>ne pas modifier les snapshots existants sauf justification ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>ajouter un test pour les remises cumulées.</span></li>
     </ul>
 
     <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Vérification :</strong></p>
-    <ul style="margin-top: 0; line-height: 1.6; padding-left: 20px; margin-bottom: 0;">
-      <li>exécuter le test ciblé de <code>DiscountCalculator</code> ;</li>
-      <li>exécuter le typecheck ;</li>
-      <li>afficher un résumé du diff.</li>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>exécuter le test ciblé de <code>DiscountCalculator</code> ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>exécuter le typecheck ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>afficher un résumé du diff.</span></li>
     </ul>
   </div>
 </div>
@@ -270,20 +270,20 @@ Cette séparation réduit le risque de modifications prématurées. Elle permet 
     <em>« Explore le sous-système d’authentification sans modifier de fichier. »</em>
     
     <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Objectif :</strong></p>
-    <ul style="margin-top: 0; line-height: 1.6; padding-left: 20px; margin-bottom: 15px;">
-      <li>identifier où sont créés, rafraîchis et invalidés les tokens ;</li>
-      <li>repérer les tests existants ;</li>
-      <li>proposer un plan pour ajouter la révocation de session.</li>
+    <ul style="list-style: none; margin: 0 0 15px 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(59,130,246,0.12); border-left: 3px solid #3b82f6; border-radius: 6px; padding: 6px 10px;"><span style="color: #1d4ed8; font-weight: bold; flex-shrink: 0;">🎯</span><span>identifier où sont créés, rafraîchis et invalidés les tokens ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(59,130,246,0.12); border-left: 3px solid #3b82f6; border-radius: 6px; padding: 6px 10px;"><span style="color: #1d4ed8; font-weight: bold; flex-shrink: 0;">🎯</span><span>repérer les tests existants ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(59,130,246,0.12); border-left: 3px solid #3b82f6; border-radius: 6px; padding: 6px 10px;"><span style="color: #1d4ed8; font-weight: bold; flex-shrink: 0;">🎯</span><span>proposer un plan pour ajouter la révocation de session.</span></li>
     </ul>
 
     <p style="margin-top: 0; margin-bottom: 15px;"><em>Ne fais aucune modification.</em></p>
 
     <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Retour attendu :</strong></p>
-    <ul style="margin-top: 0; line-height: 1.6; padding-left: 20px; margin-bottom: 0;">
-      <li>fichiers clés ;</li>
-      <li>flux actuel ;</li>
-      <li>risques ;</li>
-      <li>plan d’implémentation vérifiable.</li>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>fichiers clés ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>flux actuel ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>risques ;</span></li>
+      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>plan d’implémentation vérifiable.</span></li>
     </ul>
   </div>
 </div>
