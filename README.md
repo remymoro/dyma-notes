@@ -6,15 +6,15 @@ Chaque leçon donne lieu à une fiche : un tableau *indices / notes*, une synth�
 
 ## Progression
 
-`███░░░░░░░░░░░░░░░░░`  **20 / 133** fiches rédigées — 15 %
+`███░░░░░░░░░░░░░░░░░`  **21 / 133** fiches rédigées — 16 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
 | Leçons | 133 |
 | Durée cumulée | 26 h 28 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 20 |
-| Fiches à rédiger | 113 |
+| Fiches complètes | 21 |
+| Fiches à rédiger | 112 |
 
 ## Comment lire ce dépôt
 
@@ -58,11 +58,11 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 01 — Introduction à Anthropic et Claude Code
 
-> 3/4 fiches · 38 min
+> 4/4 fiches · 38 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [À l’abordage](claude-code/01-introduction-anthropic-claude-code/01-a-l-abordage.md) | 4 min | ⬜ | 0 | — |
+| 01 | [À l’abordage](claude-code/01-introduction-anthropic-claude-code/01-a-l-abordage.md) | 4 min | ✅ | 0 | 2026-08-15 ⚠️ |
 | 02 | [Histoire d'Anthropic et de Claude](claude-code/01-introduction-anthropic-claude-code/02-histoire-anthropic-et-claude.md) | — | ✅ | 0 | 2026-08-15 ⚠️ |
 | 03 | [Tour d’horizon des produits Anthropic](claude-code/01-introduction-anthropic-claude-code/03-tour-horizon-produits-anthropic.md) | 20 min | ✅ | 1 | 2026-08-15 ⚠️ |
 | 04 | [Histoire de Claude Code](claude-code/01-introduction-anthropic-claude-code/04-histoire-claude-code.md) | 14 min | ✅ | 1 | 2026-08-15 ⚠️ |
@@ -366,6 +366,6 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ---
 
-⚠️ = révision en retard au 2026-08-18.
+⚠️ = révision en retard au 2026-08-21.
 
 *Notes personnelles. Le contenu du cours appartient à [Dyma](https://dyma.fr).*
