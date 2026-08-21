@@ -22,17 +22,17 @@ L’extension est donc une couche de spécialisation, pas une seconde architectu
 
 Chaque mécanisme d’extension répond à une question différente. Si Claude doit toujours connaître une convention, on utilise un fichier d’instructions persistant. S’il doit parfois charger une procédure longue, on utilise une skill. S’il doit accéder à un système externe, on utilise MCP. S’il faut exécuter quelque chose à chaque événement, on utilise un hook. S’il faut préserver le contexte principal, on utilise un subagent. S’il faut partager une configuration complète, on utilise un plugin.
 
-<div style="border: 2px solid #6366f1; border-radius: 12px; padding: 20px; background-color: #eef2ff; color: #3730a3; font-size: 0.95em;">
-  <ul style="list-style-type: none; padding-left: 0; margin: 0; line-height: 1.8;">
-    <li><strong>Convention permanente</strong> &rarr; <code>CLAUDE.md</code> ou <code>.claude/rules/</code></li>
-    <li><strong>Procédure réutilisable</strong> &rarr; <code>Skill</code></li>
-    <li><strong>Système externe</strong> &rarr; <code>MCP</code></li>
-    <li><strong>Navigation sémantique code</strong> &rarr; <code>Code intelligence</code></li>
-    <li><strong>Travail isolé</strong> &rarr; <code>Subagent</code></li>
-    <li><strong>Travail multi-session</strong> &rarr; <code>Agent team</code></li>
-    <li><strong>Automatisation déterministe</strong> &rarr; <code>Hook</code></li>
-    <li><strong>Distribution réutilisable</strong> &rarr; <code>Plugin</code> ou <code>marketplace</code></li>
-  </ul>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
+
+- **Convention permanente** → `CLAUDE.md` ou `.claude/rules/`
+- **Procédure réutilisable** → `Skill`
+- **Système externe** → `MCP`
+- **Navigation sémantique code** → `Code intelligence`
+- **Travail isolé** → `Subagent`
+- **Travail multi-session** → `Agent team`
+- **Automatisation déterministe** → `Hook`
+- **Distribution réutilisable** → `Plugin` ou `marketplace`
+
 </div>
 
 Cette distinction est le fondement de toute configuration sérieuse. Une extension mal placée ajoute du bruit, augmente le coût de contexte et rend le comportement plus difficile à contrôler.
@@ -79,25 +79,20 @@ Une skill peut être une ressource de référence : guide d’API, convention de
 
 Cette distinction change son écriture. Une skill de référence doit être structurée pour être consultée. Une skill d’action doit définir une séquence opératoire, des préconditions, des vérifications et un résultat attendu.
 
-<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; color: #166534; font-size: 0.95em; display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px;">
-  <div style="flex: 1; min-width: 250px;">
-    <strong style="font-size: 1.1em;">Skill de référence :</strong>
-    <ul style="margin-top: 10px; line-height: 1.6; padding-left: 20px; margin-bottom: 0;">
-      <li>explique une convention ;</li>
-      <li>fournit un vocabulaire ;</li>
-      <li>donne des modèles ;</li>
-      <li>aide Claude à raisonner correctement.</li>
-    </ul>
-  </div>
-  <div style="flex: 1; min-width: 250px;">
-    <strong style="font-size: 1.1em;">Skill d’action :</strong>
-    <ul style="margin-top: 10px; line-height: 1.6; padding-left: 20px; margin-bottom: 0;">
-      <li>démarre un flux de travail ;</li>
-      <li>impose une procédure ;</li>
-      <li>utilise des outils ;</li>
-      <li>produit un livrable vérifiable.</li>
-    </ul>
-  </div>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
+
+**Skill de référence :**
+- explique une convention ;
+- fournit un vocabulaire ;
+- donne des modèles ;
+- aide Claude à raisonner correctement.
+
+**Skill d'action :**
+- démarre un flux de travail ;
+- impose une procédure ;
+- utilise des outils ;
+- produit un livrable vérifiable.
+
 </div>
 
 ### Pourquoi ne pas tout mettre dans des skills
@@ -124,13 +119,13 @@ Un serveur MCP peut fournir un outil de requête sur une base. Une skill peut do
 
 ### La surface MCP doit être gouvernée
 
-<div style="background-color: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 20px; color: #991b1b; font-size: 0.95em; margin: 15px 0;">
-  <ul style="list-style-type: none; padding-left: 0; margin: 0; line-height: 1.8;">
-    <li><strong>MCP</strong> fournit la connexion.</li>
-    <li><strong>La skill</strong> fournit la méthode.</li>
-    <li><strong>Le hook</strong> peut contrôler certains événements.</li>
-    <li><strong>Le plugin</strong> peut empaqueter l’ensemble.</li>
-  </ul>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
+
+- **MCP** fournit la connexion.
+- **La skill** fournit la méthode.
+- **Le hook** peut contrôler certains événements.
+- **Le plugin** peut empaqueter l'ensemble.
+
 </div>
 
 Ajouter un serveur MCP augmente les capacités de Claude Code, mais augmente aussi la surface de risque. Un outil externe peut exposer des données sensibles, déclencher des actions réelles ou introduire des comportements non prévus. Il faut donc traiter les serveurs MCP comme des dépendances d’exécution, pas comme de simples aides documentaires.
@@ -217,13 +212,13 @@ La bonne pratique est de réserver la sortie de hook aux informations réellemen
 
 Un plugin regroupe des extensions dans une unité installable. Il peut contenir des skills, des agents, des hooks, des serveurs MCP, des serveurs LSP, des paramètres par défaut ou d’autres composants distribuables.
 
-<div style="background-color: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px; padding: 20px; color: #9a3412; font-size: 0.95em; margin: 15px 0;">
-  <ul style="list-style-type: none; padding-left: 0; margin: 0; line-height: 1.8;">
-    <li>Si Claude doit raisonner &rarr; <strong>Skill</strong></li>
-    <li>Si l’action doit se produire à chaque fois &rarr; <strong>Hook</strong></li>
-    <li>Si la règle doit bloquer une action &rarr; <strong>Hook ou perm</strong></li>
-    <li>Si la règle doit guider une décision &rarr; <strong>Skill ou CLAUDE.md</strong></li>
-  </ul>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
+
+- Si Claude doit raisonner → **Skill**
+- Si l'action doit se produire à chaque fois → **Hook**
+- Si la règle doit bloquer une action → **Hook ou perm**
+- Si la règle doit guider une décision → **Skill ou CLAUDE.md**
+
 </div>
 
 Le plugin devient pertinent lorsque la configuration dépasse le cadre personnel ou expérimental. Si une équipe veut partager les mêmes workflows, agents, hooks, intégrations et conventions sur plusieurs projets, le plugin est le bon mécanisme.
@@ -246,26 +241,21 @@ Il ne faut pas installer un plugin non fiable dans un dépôt sensible. Avant in
 
 Les extensions peuvent exister à plusieurs niveaux : utilisateur, projet, local, géré par organisation ou fourni par plugin. Mais elles ne se superposent pas toutes de la même manière.
 
-<div style="display: flex; gap: 20px; margin: 15px 0; flex-wrap: wrap;">
-  <div style="flex: 1; min-width: 250px; background-color: #faf5ff; border: 1px solid #e9d5ff; border-radius: 12px; padding: 20px; color: #6b21a8;">
-    <strong style="font-size: 1.1em;">.claude/ local :</strong>
-    <ul style="margin-top: 10px; line-height: 1.6; padding-left: 20px;">
-      <li>expérimentation ;</li>
-      <li>configuration personnelle ;</li>
-      <li>usage spécifique à un projet ;</li>
-      <li>noms courts et rapides.</li>
-    </ul>
-  </div>
-  <div style="flex: 1; min-width: 250px; background-color: #fdf4ff; border: 1px solid #f5d0fe; border-radius: 12px; padding: 20px; color: #86198f;">
-    <strong style="font-size: 1.1em;">Plugin :</strong>
-    <ul style="margin-top: 10px; line-height: 1.6; padding-left: 20px;">
-      <li>partage en équipe ;</li>
-      <li>réutilisation multi-projets ;</li>
-      <li>versionnement ;</li>
-      <li>distribution ;</li>
-      <li>espace de noms pour éviter les conflits.</li>
-    </ul>
-  </div>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
+
+**.claude/ local :**
+- expérimentation ;
+- configuration personnelle ;
+- usage spécifique à un projet ;
+- noms courts et rapides.
+
+**Plugin :**
+- partage en équipe ;
+- réutilisation multi-projets ;
+- versionnement ;
+- distribution ;
+- espace de noms pour éviter les conflits.
+
 </div>
 
 Les fichiers `CLAUDE.md` sont additifs : plusieurs fichiers peuvent contribuer simultanément au contexte. Les skills et subagents se remplacent par nom selon une priorité de portée. Les serveurs MCP peuvent également se remplacer par nom selon leur portée. Les hooks, eux, fusionnent : plusieurs hooks peuvent se déclencher sur le même événement.
@@ -292,16 +282,16 @@ Une extension doit donc être évaluée par son utilité et par son coût cognit
 
 La bonne stratégie n’est pas de configurer tout dès le départ. Il faut construire la configuration progressivement, à partir de signaux répétés.
 
-<div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; color: #334155; font-size: 0.95em; margin: 15px 0;">
-  <ul style="list-style-type: none; padding-left: 0; margin: 0; line-height: 1.8;">
-    <li>Claude répète une erreur de convention &rarr; <strong>ajouter à CLAUDE.md</strong></li>
-    <li>Une règle dépend d’un répertoire &rarr; <strong>créer une règle locale</strong></li>
-    <li>Une procédure revient souvent &rarr; <strong>créer une skill</strong></li>
-    <li>Un service externe est consulté sans cesse &rarr; <strong>configurer un serveur MCP</strong></li>
-    <li>Une recherche pollue le contexte principal &rarr; <strong>créer un subagent</strong></li>
-    <li>Un événement doit toujours déclencher une action &rarr; <strong>écrire un hook</strong></li>
-    <li>La configuration sert à plusieurs dépôts &rarr; <strong>empaqueter dans un plugin</strong></li>
-  </ul>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
+
+- Claude répète une erreur de convention → **ajouter à CLAUDE.md**
+- Une règle dépend d'un répertoire → **créer une règle locale**
+- Une procédure revient souvent → **créer une skill**
+- Un service externe est consulté sans cesse → **configurer un serveur MCP**
+- Une recherche pollue le contexte principal → **créer un subagent**
+- Un événement doit toujours déclencher une action → **écrire un hook**
+- La configuration sert à plusieurs dépôts → **empaqueter dans un plugin**
+
 </div>
 
 Cette progression évite les architectures surconfigurées. Une extension doit répondre à un frottement observé, pas à une possibilité abstraite.

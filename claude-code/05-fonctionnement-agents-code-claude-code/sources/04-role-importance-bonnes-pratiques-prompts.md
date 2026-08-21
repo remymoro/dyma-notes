@@ -26,20 +26,19 @@ Il faut distinguer direction et micro-direction. Donner une direction consiste �
 
 Une bonne formulation dit ce qui doit être vrai à la fin. Elle laisse à Claude la charge de déterminer les fichiers à lire, les symboles à suivre, les tests à lancer et les changements minimaux à appliquer.
 
-<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; color: #166534; font-size: 0.95em; margin: 15px 0;">
-  <strong style="font-size: 1.1em;">Exemple de formulation directionnelle (bonne pratique) :</strong>
-  <div style="margin-top: 15px; padding: 15px; background-color: rgba(255,255,255,0.6); border-radius: 8px; border: 1px dashed #86efac;">
-    <em>« Ajouter une protection contre les doubles soumissions dans le flux de paiement. »</em>
-    
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Contraintes :</strong></p>
-    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>conserver le comportement actuel pour les paiements déjà validés ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>réutiliser les composants existants si possible ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>ne pas modifier l’API publique sans nécessité ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>ajouter ou adapter les tests pertinents ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>exécuter les tests ciblés avant de conclure.</span></li>
-    </ul>
-  </div>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
+
+**Exemple de formulation directionnelle (bonne pratique) :**
+
+*« Ajouter une protection contre les doubles soumissions dans le flux de paiement. »*
+
+**Contraintes :**
+- conserver le comportement actuel pour les paiements déjà validés ;
+- réutiliser les composants existants si possible ;
+- ne pas modifier l’API publique sans nécessité ;
+- ajouter ou adapter les tests pertinents ;
+- exécuter les tests ciblés avant de conclure.
+
 </div>
 
 ## Les différents niveaux de prompt
@@ -104,21 +103,19 @@ L’objectif doit être formulé comme un état final attendu. Il ne doit pas se
 
 Le contexte doit pointer vers des sources concrètes : fichier, dossier, log, erreur, sortie de test, capture d’écran, ticket, documentation ou ressource MCP. Il est préférable de fournir l’artefact réel plutôt qu’une paraphrase. Une description humaine d’une erreur perd souvent les détails déterminants.
 
-<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; color: #166534; font-size: 0.95em; margin: 15px 0;">
-  <strong style="font-size: 1.1em;">Exemple d'intégration de sources concrètes (bonne pratique) :</strong>
-  <div style="margin-top: 15px; padding: 15px; background-color: rgba(255,255,255,0.6); border-radius: 8px; border: 1px dashed #86efac;">
-    <em>« Le build échoue depuis la migration vers Vite. »</em>
-    
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Contexte :</strong></p>
-    <ul style="list-style: none; margin: 0 0 15px 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(6,182,212,0.12); border-left: 3px solid #06b6d4; border-radius: 6px; padding: 6px 10px;"><span style="color: #0e7490; font-weight: bold; flex-shrink: 0;">▸</span><span>erreur complète : <code>@build.log</code></span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(6,182,212,0.12); border-left: 3px solid #06b6d4; border-radius: 6px; padding: 6px 10px;"><span style="color: #0e7490; font-weight: bold; flex-shrink: 0;">▸</span><span>configuration : <code>@vite.config.ts</code></span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(6,182,212,0.12); border-left: 3px solid #06b6d4; border-radius: 6px; padding: 6px 10px;"><span style="color: #0e7490; font-weight: bold; flex-shrink: 0;">▸</span><span>scripts disponibles : <code>@package.json</code></span></li>
-    </ul>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
 
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Objectif :</strong></p>
-    <p style="margin-top: 0; margin-bottom: 0;">identifier la cause, proposer la correction minimale, l’appliquer, puis relancer la commande de build ciblée.</p>
-  </div>
+**Exemple d'intégration de sources concrètes (bonne pratique) :**
+
+*« Le build échoue depuis la migration vers Vite. »*
+
+**Contexte :**
+- erreur complète : `@build.log`
+- configuration : `@vite.config.ts`
+- scripts disponibles : `@package.json`
+
+**Objectif :** identifier la cause, proposer la correction minimale, l’appliquer, puis relancer la commande de build ciblée.
+
 </div>
 
 ### Contraintes
@@ -137,17 +134,16 @@ Un exemple interne vaut souvent mieux qu’une description abstraite. Il permet 
 
 La vérification doit être formulée explicitement. Elle peut être automatique ou manuelle, mais elle doit exister. Pour le code, il s’agit souvent d’un test, d’un typecheck, d’un lint, d’un build ou d’une commande ciblée. Pour une interface, il peut s’agir d’une comparaison avec une capture ou d’une liste d’états visuels attendus. Pour une documentation, il peut s’agir d’une structure, d’un public cible et d’un niveau de détail.
 
-<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; color: #166534; font-size: 0.95em; margin: 15px 0;">
-  <strong style="font-size: 1.1em;">Exemple de formulation de vérification (bonne pratique) :</strong>
-  <div style="margin-top: 15px; padding: 15px; background-color: rgba(255,255,255,0.6); border-radius: 8px; border: 1px dashed #86efac;">
-    <p style="margin-top: 0; margin-bottom: 5px;"><strong>Après modification :</strong></p>
-    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>exécuter les tests ciblés liés à <code>PaymentSession</code> ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>exécuter le typecheck ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>afficher la liste des fichiers modifiés ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>expliquer uniquement les changements fonctionnels et les vérifications effectuées.</span></li>
-    </ul>
-  </div>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
+
+**Exemple de formulation de vérification (bonne pratique) :**
+
+**Après modification :**
+- exécuter les tests ciblés liés à `PaymentSession` ;
+- exécuter le typecheck ;
+- afficher la liste des fichiers modifiés ;
+- expliquer uniquement les changements fonctionnels et les vérifications effectuées.
+
 </div>
 
 ### Format de sortie
@@ -178,23 +174,21 @@ Le prompt doit donc être directif sur les invariants, mais délégatif sur les 
 
 Lorsqu’un fichier, un dossier ou une ressource est pertinent, il vaut mieux le référencer directement. La référence avec `@` évite de décrire approximativement un contenu que Claude peut lire lui-même. Elle réduit aussi les risques de mauvaise localisation.
 
-<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; color: #166534; font-size: 0.95em; margin: 15px 0;">
-  <strong style="font-size: 1.1em;">Exemple de ciblage avec les ressources (bonne pratique) :</strong>
-  <div style="margin-top: 15px; padding: 15px; background-color: rgba(255,255,255,0.6); border-radius: 8px; border: 1px dashed #86efac;">
-    <em>« Analyse <code>@src/auth/session.ts</code> et <code>@src/auth/session.test.ts</code>. »</em>
-    
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Objectif :</strong></p>
-    <p style="margin-top: 0; margin-bottom: 15px;">comprendre pourquoi le renouvellement de session échoue après expiration du refresh token.</p>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
 
-    <p style="margin-top: 0; margin-bottom: 15px;"><em>Ne modifie rien pour l’instant.</em></p>
+**Exemple de ciblage avec les ressources (bonne pratique) :**
 
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Retour attendu :</strong></p>
-    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>cause probable ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>fichiers impliqués ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>test minimal à ajouter avant correction.</span></li>
-    </ul>
-  </div>
+*« Analyse `@src/auth/session.ts` et `@src/auth/session.test.ts`. »*
+
+**Objectif :** comprendre pourquoi le renouvellement de session échoue après expiration du refresh token.
+
+*Ne modifie rien pour l’instant.*
+
+**Retour attendu :**
+- cause probable ;
+- fichiers impliqués ;
+- test minimal à ajouter avant correction.
+
 </div>
 
 ### Coller les erreurs et les journaux
@@ -229,25 +223,22 @@ Une bonne demande contient un moyen de vérifier le travail. Pour une correction
 
 La vérification transforme le prompt en contrat. Elle donne à la boucle agentique une condition de progression et d’arrêt.
 
-<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; color: #166534; font-size: 0.95em; margin: 15px 0;">
-  <strong style="font-size: 1.1em;">Exemple de prompt complet avec preuve de réussite (bonne pratique) :</strong>
-  <div style="margin-top: 15px; padding: 15px; background-color: rgba(255,255,255,0.6); border-radius: 8px; border: 1px dashed #86efac;">
-    <em>« Refactoriser le calcul des remises sans changer le comportement. »</em>
-    
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Contraintes :</strong></p>
-    <ul style="list-style: none; margin: 0 0 15px 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>conserver l’API publique de <code>DiscountCalculator</code> ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>ne pas modifier les snapshots existants sauf justification ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; border-radius: 6px; padding: 6px 10px;"><span style="color: #b45309; font-weight: bold; flex-shrink: 0;">⚠</span><span>ajouter un test pour les remises cumulées.</span></li>
-    </ul>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
 
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Vérification :</strong></p>
-    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>exécuter le test ciblé de <code>DiscountCalculator</code> ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>exécuter le typecheck ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(34,197,94,0.12); border-left: 3px solid #22c55e; border-radius: 6px; padding: 6px 10px;"><span style="color: #16a34a; font-weight: bold; flex-shrink: 0;">✓</span><span>afficher un résumé du diff.</span></li>
-    </ul>
-  </div>
+**Exemple de prompt complet avec preuve de réussite (bonne pratique) :**
+
+*« Refactoriser le calcul des remises sans changer le comportement. »*
+
+**Contraintes :**
+- conserver l’API publique de `DiscountCalculator` ;
+- ne pas modifier les snapshots existants sauf justification ;
+- ajouter un test pour les remises cumulées.
+
+**Vérification :**
+- exécuter le test ciblé de `DiscountCalculator` ;
+- exécuter le typecheck ;
+- afficher un résumé du diff.
+
 </div>
 
 ### Éviter le piège de la plausibilité
@@ -264,28 +255,25 @@ Pour les tâches complexes, il est préférable de séparer l’exploration et l
 
 Cette séparation réduit le risque de modifications prématurées. Elle permet à l’utilisateur de corriger l’analyse avant que le disque ne soit touché.
 
-<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; color: #166534; font-size: 0.95em; margin: 15px 0;">
-  <strong style="font-size: 1.1em;">Exemple de prompt d'exploration sans modification (bonne pratique) :</strong>
-  <div style="margin-top: 15px; padding: 15px; background-color: rgba(255,255,255,0.6); border-radius: 8px; border: 1px dashed #86efac;">
-    <em>« Explore le sous-système d’authentification sans modifier de fichier. »</em>
-    
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Objectif :</strong></p>
-    <ul style="list-style: none; margin: 0 0 15px 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(59,130,246,0.12); border-left: 3px solid #3b82f6; border-radius: 6px; padding: 6px 10px;"><span style="color: #1d4ed8; font-weight: bold; flex-shrink: 0;">🎯</span><span>identifier où sont créés, rafraîchis et invalidés les tokens ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(59,130,246,0.12); border-left: 3px solid #3b82f6; border-radius: 6px; padding: 6px 10px;"><span style="color: #1d4ed8; font-weight: bold; flex-shrink: 0;">🎯</span><span>repérer les tests existants ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(59,130,246,0.12); border-left: 3px solid #3b82f6; border-radius: 6px; padding: 6px 10px;"><span style="color: #1d4ed8; font-weight: bold; flex-shrink: 0;">🎯</span><span>proposer un plan pour ajouter la révocation de session.</span></li>
-    </ul>
+<div style="background-color: #f3f4f6; border-radius: 12px; padding: 20px; margin: 15px 0;">
 
-    <p style="margin-top: 0; margin-bottom: 15px;"><em>Ne fais aucune modification.</em></p>
+**Exemple de prompt d'exploration sans modification (bonne pratique) :**
 
-    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Retour attendu :</strong></p>
-    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>fichiers clés ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>flux actuel ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>risques ;</span></li>
-      <li style="display: flex; align-items: flex-start; gap: 8px; background-color: rgba(139,92,246,0.12); border-left: 3px solid #8b5cf6; border-radius: 6px; padding: 6px 10px;"><span style="color: #6d28d9; font-weight: bold; flex-shrink: 0;">➤</span><span>plan d’implémentation vérifiable.</span></li>
-    </ul>
-  </div>
+*« Explore le sous-système d’authentification sans modifier de fichier. »*
+
+**Objectif :**
+- identifier où sont créés, rafraîchis et invalidés les tokens ;
+- repérer les tests existants ;
+- proposer un plan pour ajouter la révocation de session.
+
+*Ne fais aucune modification.*
+
+**Retour attendu :**
+- fichiers clés ;
+- flux actuel ;
+- risques ;
+- plan d’implémentation vérifiable.
+
 </div>
 
 ### Faire produire une spécification avant la session d’implémentation
