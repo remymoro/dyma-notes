@@ -14,8 +14,8 @@ cours: Claude Code
 chapitre: 04-installation-presentation-clients
 leçon: 01-differentes-facons-utiliser-claude
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |

@@ -13,7 +13,7 @@ chapitre: 01-introduction-anthropic-claude-code
 leçon: 02-histoire-anthropic-et-claude
 statut: à revoir
 etape_revision: 0
-prochaine_revision: 2026-08-15
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
