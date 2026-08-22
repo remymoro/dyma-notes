@@ -42,6 +42,8 @@ Le choix d'un modèle d'IA repose sur un arbitrage strict entre la qualité requ
 
 # Les gammes de modèles et leurs performances
 
+**Durée : 18 minutes**
+
 ## Objectif de la leçon
 Comprendre l'arbitrage Qualité-Vitesse-Coût et savoir sélectionner le modèle adapté au cas d'usage technique.
 

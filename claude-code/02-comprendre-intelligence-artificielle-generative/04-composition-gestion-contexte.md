@@ -43,6 +43,8 @@ La fenêtre de contexte agit comme la mémoire de travail (RAM) d'un LLM. Pour �
 
 # Composition et gestion du contexte
 
+**Durée : 13 minutes**
+
 ## Objectif de la leçon
 Comprendre la composition de la fenêtre de contexte, mesurer son taux de remplissage utile et maîtriser les techniques d'optimisation.
 

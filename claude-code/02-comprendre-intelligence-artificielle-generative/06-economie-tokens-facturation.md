@@ -44,6 +44,8 @@ L'économie des LLM repose sur la facturation au million de tokens. Les tokens d
 
 # L’économie des tokens et la facturation
 
+**Durée : 15 minutes**
+
 ## Objectif de la leçon
 Comprendre la tarification de l'API Claude, identifier les leviers d'optimisation financière (Caching & Batching) et anticiper les coûts des agents.
 

@@ -42,6 +42,8 @@ Un LLM ne pense pas de manière consciente : c'est un prédicteur statistique de
 
 # Fonctionnement d’un LLM
 
+**Durée : 21 minutes**
+
 ## Objectif de la leçon
 Comprendre le cycle de traitement de l'information au sein d'un modèle Transformer, de la saisie utilisateur jusqu'à la génération du token final.
 

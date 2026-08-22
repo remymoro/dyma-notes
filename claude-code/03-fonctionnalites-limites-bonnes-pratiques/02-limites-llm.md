@@ -44,6 +44,8 @@ Les LLM sont des générateurs de textes plausibles et non des moteurs de vérit
 
 # Les limites des LLM
 
+**Durée : 18 minutes**
+
 ## Objectif de la leçon
 Identifier les pièges et limites des modèles de langage (hallucinations, sycophantie, limites logiques) pour sécuriser leur usage professionnel.
 

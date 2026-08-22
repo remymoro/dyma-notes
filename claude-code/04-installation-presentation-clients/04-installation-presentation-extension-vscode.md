@@ -42,6 +42,8 @@ L'extension VS Code pour Claude Code offre un environnement de travail graphique
 
 # Installation et présentation de l’extension VS Code
 
+**Durée : 7 minutes**
+
 ## Objectif de la leçon
 Installer l'extension Claude Code pour VS Code, maîtriser le ciblage de contexte par @-mentions et gérer les modifications par diffs interactifs.
 

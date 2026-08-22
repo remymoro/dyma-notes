@@ -42,6 +42,8 @@ Pour maximiser la précision d'un LLM, les prompts doivent être denses (chaque 
 
 # Les bonnes pratiques d'utilisation des LLM
 
+**Durée : 18 minutes**
+
 ## Objectif de la leçon
 Apprendre à concevoir des prompts denses et structurés pour obtenir des réponses précises, reproductibles et adaptées à l'environnement professionnel.
 

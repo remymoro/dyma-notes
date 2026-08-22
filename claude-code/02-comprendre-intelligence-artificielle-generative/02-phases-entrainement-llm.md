@@ -43,6 +43,8 @@ L'entraînement d'un LLM s'effectue en plusieurs phases : la préparation des do
 
 # Les phases d’entraînement d’un LLM
 
+**Durée : 19 minutes**
+
 ## Objectif de la leçon
 Comprendre le cycle complet de création d'un modèle de langage, du corpus de données brutes jusqu'à son déploiement en inférence.
 

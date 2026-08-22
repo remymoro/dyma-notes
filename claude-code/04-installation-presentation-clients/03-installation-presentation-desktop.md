@@ -42,6 +42,8 @@ L'application Desktop Claude unifie la discussion classique (Chat), le travail a
 
 # Installation et présentation de l’application Desktop
 
+**Durée : 9 minutes**
+
 ## Objectif de la leçon
 Installer l'application Claude Desktop, prendre en main les 3 onglets (Chat, Cowork, Code) et valider graphiquement les modifications de code.
 

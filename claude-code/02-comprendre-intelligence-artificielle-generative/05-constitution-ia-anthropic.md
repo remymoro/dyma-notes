@@ -41,6 +41,8 @@ Constitutional AI est la méthode d'alignement propriétaire d'Anthropic. Elle r
 
 # La spécificité Anthropic : la Constitution IA
 
+**Durée : 23 minutes**
+
 ## Objectif de la leçon
 Découvrir les principes majeurs de la Constitutional AI d'Anthropic et comprendre la hiérarchie à 4 niveaux qui régit les décisions et refus de Claude.
 

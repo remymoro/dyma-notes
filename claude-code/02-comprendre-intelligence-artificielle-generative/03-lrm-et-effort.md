@@ -44,6 +44,8 @@ Les modèles de raisonnement (LRM) s'appuient sur le *test-time compute* pour g�
 
 # Les LRM et l'effort
 
+**Durée : 20 minutes**
+
 ## Objectif de la leçon
 Comprendre le fonctionnement des modèles de raisonnement (LRM), le concept de test-time compute et le contrôle de l'effort de réflexion.
 

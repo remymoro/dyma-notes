@@ -42,6 +42,8 @@ L'installation de Claude Code s'effectue idéalement via l'installateur natif (c
 
 # Installation et présentation du CLI
 
+**Durée : 16 minutes**
+
 ## Objectif de la leçon
 Installer correctement Claude Code sur son système d'exploitation et maîtriser les deux modes de commandes (Shell et Slash).
 

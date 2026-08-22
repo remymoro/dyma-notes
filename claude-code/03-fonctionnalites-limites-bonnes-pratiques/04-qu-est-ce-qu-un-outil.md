@@ -43,6 +43,8 @@ Un outil (ou *function calling*) permet à un LLM de dépasser le cadre d'un sim
 
 # Qu'est-ce qu'un outil ?
 
+**Durée : 13 minutes**
+
 ## Objectif de la leçon
 Comprendre le principe du *function calling*, l'échange de messages entre le LLM et l'application hôte, et les garanties de sécurité associées.
 

@@ -42,6 +42,8 @@ L'écosystème d'Anthropic est structuré en plusieurs strates : les modèles (O
 
 # Tour d’horizon des produits Anthropic
 
+**Durée : 20 minutes**
+
 ## Objectif de la leçon
 Identifier les 5 produits majeurs d'Anthropic, comprendre l'écosystème d'extensions (Skills, Connecteurs, Plugins) et savoir choisir l'outil adapté au besoin.
 

@@ -43,6 +43,8 @@ Un agent s'appuie sur le LLM comme cerveau décisionnel pour résoudre des objec
 
 # Qu'est-ce qu'un agent ?
 
+**Durée : 12 minutes**
+
 ## Objectif de la leçon
 Découvrir l'architecture d'un agent autonome, comprendre la boucle d'exécution et savoir intégrer les mécanismes de sécurité et de contrôle humain.
 

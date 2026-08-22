@@ -42,6 +42,8 @@ Claude Code est né d'une expérimentation technique visant à intégrer Claude 
 
 # Histoire de Claude Code
 
+**Durée : 14 minutes**
+
 ## Objectif de la leçon
 Tracer la genèse de Claude Code, comprendre la rupture avec les assistants passifs et connaître les jalons historiques clés de son développement.
 

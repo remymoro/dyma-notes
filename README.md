@@ -1,8 +1,8 @@
 # Dyma Notes — Claude Code
 
-Fiches de révision personnelles du cours **Claude Code** (Dyma), au format **Cornell**, avec un cycle de **répétition espacée**.
+Fiches de révision personnelles du cours **Claude Code** (Dyma), au format **hybride**, avec un cycle de **répétition espacée**.
 
-Chaque leçon donne lieu à une fiche : un tableau *indices / notes*, une synthèse reformulée, un glossaire et des questions d'auto-évaluation.
+Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** (tableau Cornell *indices / notes*, synthèse reformulée, glossaire, questions d'auto-évaluation), puis le **cours retravaillé** (sections thématiques, schémas ASCII, tableau des commandes, top 5, carte mentale, mini fiche et phrase à retenir).
 
 ## Progression
 
@@ -21,13 +21,14 @@ Chaque leçon donne lieu à une fiche : un tableau *indices / notes*, une synth�
 ```
 claude-code/
 └── NN-nom-du-chapitre/
-    ├── NN-nom-de-la-lecon.md    ← la fiche Cornell (le travail retravaillé)
+    ├── NN-nom-de-la-lecon.md    ← la fiche hybride (le travail retravaillé)
     ├── sources/NN-....md         ← le contenu brut de la leçon, archivé
     └── assets/                   ← schémas et captures
 ```
 
-- **La fiche** ne contient jamais de copier-coller : uniquement le tableau Cornell, la synthèse écrite sans regarder les notes, le glossaire et les questions.
-- **La source** sert de référence de relecture quand une réponse est fausse.
+- **La fiche** ne contient jamais de copier-coller. Le bloc de révision se relit à chaque échéance ; le cours retravaillé se relit quand une réponse est fausse.
+- **La source** est l'archive brute de la leçon : ni frontmatter, ni squelette, elle sert d'ultime référence.
+- Le modèle de référence est la fiche [04/05](claude-code/04-installation-presentation-clients/05-execution-locale-remote-cloud-claude-ai-code.md).
 
 ## Cycle de répétition espacée
 
@@ -35,7 +36,7 @@ Le champ `etape_revision` du frontmatter positionne la fiche dans la séquence :
 
 | Étape | Prochaine révision | Nouvelle étape |
 |---|---|---|
-| 0 — jamais révisée | J+1 | 1 |
+| 0 — rédigée, jamais révisée | J+1 | 1 |
 | 1 | J+3 | 2 |
 | 2 | J+7 | 3 |
 | 3 | J+15 | 4 |
@@ -47,7 +48,7 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 | Commande | Rôle |
 |---|---|
-| `./init-fiches.sh` | Crée ou complète le frontmatter et le squelette Cornell des fiches. Idempotent. |
+| `./init-fiches.sh` | Crée ou complète le frontmatter et le squelette de la fiche hybride. Idempotent : ne touche ni aux fiches rédigées, ni aux archives `sources/`. |
 | `/tuteur-dyma` | Travaille une nouvelle leçon ou lance une session de révision. |
 
 ## Légende

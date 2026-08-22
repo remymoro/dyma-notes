@@ -43,6 +43,8 @@ Le code est un domaine de prédilection pour les LLM car sa structure syntaxique
 
 # Pourquoi le code est un cas à part pour les LLM
 
+**Durée : 19 minutes**
+
 ## Objectif de la leçon
 Comprendre le paradoxe de la programmation par IA et exploiter la nature déterministe du code pour créer des boucles d'auto-correction efficaces.
 

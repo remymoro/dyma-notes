@@ -44,6 +44,8 @@ L'intégration de Claude dans le workflow développeur offre plusieurs niveaux d
 
 # Les différentes façons d’utiliser Claude
 
+**Durée : 14 minutes**
+
 ## Objectif de la leçon
 Cartographier les 6 niveaux d'intégration de l'IA dans le développement et choisir l'interface optimale (Chat, Inline, CLI, Cloud).
 

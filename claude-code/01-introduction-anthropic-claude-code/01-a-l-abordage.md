@@ -38,6 +38,8 @@ Cette leçon d'introduction pose les fondations du parcours dédié à Claude Co
 
 # À l’abordage
 
+**Durée : 4 minutes**
+
 ## Objectif de la leçon
 Présenter le cadre de la formation, définir le changement de paradigme apporté par Claude Code et établir la méthodologie de travail utilisée tout au long des leçons.
 
