@@ -6,15 +6,15 @@ Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** 
 
 ## Progression
 
-`██████░░░░░░░░░░░░░░`  **37 / 134** fiches rédigées — 28 %
+`██████░░░░░░░░░░░░░░`  **38 / 134** fiches rédigées — 28 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
 | Leçons | 134 |
 | Durée cumulée | 26 h 49 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 37 |
-| Fiches à rédiger | 97 |
+| Fiches complètes | 38 |
+| Fiches à rédiger | 96 |
 
 ## Comment lire ce dépôt
 
@@ -145,11 +145,11 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 08 — Personnalisation et configuration de l'interface
 
-> 0/6 fiches · 78 min
+> 1/6 fiches · 78 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Portée de la configuration](claude-code/08-personnalisation-configuration-interface/01-portee-configuration.md) | 13 min | ⬜ | 0 | — |
+| 01 | [Portée de la configuration](claude-code/08-personnalisation-configuration-interface/01-portee-configuration.md) | 13 min | ✅ | 0 | 2026-08-23 |
 | 02 | [Liste des configurations — partie 1](claude-code/08-personnalisation-configuration-interface/02-liste-configurations-partie-1.md) | 17 min | ⬜ | 0 | — |
 | 03 | [Liste des configurations — partie 2](claude-code/08-personnalisation-configuration-interface/03-liste-configurations-partie-2.md) | 19 min | ⬜ | 0 | — |
 | 04 | [Configurer le terminal, le thème, les notifications et les retours à la ligne](claude-code/08-personnalisation-configuration-interface/04-terminal-theme-notifications-retours-ligne.md) | 9 min | ⬜ | 0 | — |
