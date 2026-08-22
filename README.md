@@ -6,15 +6,15 @@ Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** 
 
 ## Progression
 
-`███░░░░░░░░░░░░░░░░░`  **21 / 133** fiches rédigées — 16 %
+`██████░░░░░░░░░░░░░░`  **37 / 134** fiches rédigées — 28 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
-| Leçons | 133 |
-| Durée cumulée | 26 h 28 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 21 |
-| Fiches à rédiger | 112 |
+| Leçons | 134 |
+| Durée cumulée | 26 h 49 *(sur 110 leçons renseignées)* |
+| Fiches complètes | 37 |
+| Fiches à rédiger | 97 |
 
 ## Comment lire ce dépôt
 
@@ -108,39 +108,40 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 05 — Fonctionnement des agents de code et de Claude Code
 
-> 0/5 fiches · 84 min
+> 5/5 fiches · 88 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [La boucle agentique de Claude Code](claude-code/05-fonctionnement-agents-code-claude-code/01-boucle-agentique-claude-code.md) | 23 min | ⬜ | 0 | — |
-| 02 | [Les outils de Claude Code](claude-code/05-fonctionnement-agents-code-claude-code/02-outils-claude-code.md) | 18 min | ⬜ | 0 | — |
-| 03 | [Étendre les capacités de Claude Code](claude-code/05-fonctionnement-agents-code-claude-code/03-etendre-capacites-claude-code.md) | 16 min | ⬜ | 0 | — |
-| 04 | [Rôle, importance et bonnes pratiques des prompts](claude-code/05-fonctionnement-agents-code-claude-code/04-role-importance-bonnes-pratiques-prompts.md) | 16 min | ⬜ | 0 | — |
-| 05 | [Espace de travail et accès par Claude Code — /cd et /add-dir](claude-code/05-fonctionnement-agents-code-claude-code/05-espace-travail-acces-cd-add-dir.md) | 11 min | ⬜ | 0 | — |
+| 01 | [La boucle agentique de Claude Code](claude-code/05-fonctionnement-agents-code-claude-code/01-boucle-agentique-claude-code.md) | 23 min | ✅ | 0 | — |
+| 02 | [Les outils de Claude Code](claude-code/05-fonctionnement-agents-code-claude-code/02-outils-claude-code.md) | 18 min | ✅ | 0 | — |
+| 03 | [Étendre les capacités de Claude Code](claude-code/05-fonctionnement-agents-code-claude-code/03-etendre-capacites-claude-code.md) | 16 min | ✅ | 0 | — |
+| 04 | [Rôle, importance et bonnes pratiques des prompts](claude-code/05-fonctionnement-agents-code-claude-code/04-role-importance-bonnes-pratiques-prompts.md) | 16 min | ✅ | 0 | — |
+| 05 | [Ce que Claude Code peut voir](claude-code/05-fonctionnement-agents-code-claude-code/05-ce-que-claude-code-peut-voir.md) | 15 min | ✅ | 0 | — |
 
 ### 06 — Découverte et premières commandes du CLI
 
-> 0/6 fiches · 98 min
+> 7/7 fiches · 98 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Entrer dans le CLI et vérifier que la session est saine](claude-code/06-decouverte-premieres-commandes-cli/01-entrer-cli-verifier-session.md) | 22 min | ⬜ | 0 | — |
-| 02 | [Mise en place de la dictée vocale](claude-code/06-decouverte-premieres-commandes-cli/02-mise-en-place-dictee-vocale.md) | 15 min | ⬜ | 0 | — |
-| 03 | [Formuler les premières demandes : exploration vague et demande précise](claude-code/06-decouverte-premieres-commandes-cli/03-premieres-demandes-exploration-vague-demande-precise.md) | 17 min | ⬜ | 0 | — |
-| 04 | [Première modification de code et boucle de vérification](claude-code/06-decouverte-premieres-commandes-cli/04-premiere-modification-code-boucle-verification.md) | 20 min | ⬜ | 0 | — |
-| 05 | [Continuer la session dans les bons environnements](claude-code/06-decouverte-premieres-commandes-cli/05-continuer-session-bons-environnements.md) | 18 min | ⬜ | 0 | — |
-| 06 | [Veille, feedback, compte et premières commandes personnalisées](claude-code/06-decouverte-premieres-commandes-cli/06-veille-feedback-compte-commandes-personnalisees.md) | 6 min | ⬜ | 0 | — |
+| 01 | [Entrer dans le CLI et vérifier que la session est saine](claude-code/06-decouverte-premieres-commandes-cli/01-entrer-cli-verifier-session.md) | 22 min | ✅ | 1 | 2026-08-22 |
+| 02 | [Mise en place de la dictée vocale](claude-code/06-decouverte-premieres-commandes-cli/02-mise-en-place-dictee-vocale.md) | 15 min | ✅ | 1 | 2026-08-22 |
+| 03 | [Formuler les premières demandes : exploration vague et demande précise](claude-code/06-decouverte-premieres-commandes-cli/03-premieres-demandes-exploration-vague-demande-precise.md) | 17 min | ✅ | 1 | 2026-08-22 |
+| 04 | [Première modification de code et boucle de vérification](claude-code/06-decouverte-premieres-commandes-cli/04-premiere-modification-code-boucle-verification.md) | 20 min | ✅ | 1 | 2026-08-22 |
+| 05 | [Continuer la session dans les bons environnements](claude-code/06-decouverte-premieres-commandes-cli/05-continuer-session-bons-environnements.md) | 18 min | ✅ | 0 | — |
+| 06 | [Veille, feedback, compte et premières commandes personnalisées](claude-code/06-decouverte-premieres-commandes-cli/06-veille-feedback-compte-commandes-personnalisees.md) | 6 min | ✅ | 0 | — |
+| 07 | [Glossaire et carte mentale des commandes](claude-code/06-decouverte-premieres-commandes-cli/07-glossaire-carte-mentale-commandes.md) | — | ✅ | 0 | — |
 
 ### 07 — Raccourcis clavier et optimisations du CLI
 
-> 0/4 fiches · 39 min
+> 4/4 fiches · 56 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Les raccourcis clavier généraux](claude-code/07-raccourcis-clavier-optimisations-cli/01-raccourcis-clavier-generaux.md) | 18 min | ⬜ | 0 | — |
-| 02 | [Activer le rendu plein écran, réduire le scintillement et régler le défilement](claude-code/07-raccourcis-clavier-optimisations-cli/02-plein-ecran-scintillement-defilement.md) | 9 min | ⬜ | 0 | — |
-| 03 | [Le transcript viewer](claude-code/07-raccourcis-clavier-optimisations-cli/03-transcript-viewer.md) | 7 min | ⬜ | 0 | — |
-| 04 | [Les raccourcis clavier pour l’édition du prompt](claude-code/07-raccourcis-clavier-optimisations-cli/04-raccourcis-edition-prompt.md) | 5 min | ⬜ | 0 | — |
+| 01 | [Les raccourcis clavier généraux](claude-code/07-raccourcis-clavier-optimisations-cli/01-raccourcis-clavier-generaux.md) | 18 min | ✅ | 0 | — |
+| 02 | [Activer le rendu plein écran, réduire le scintillement et utiliser /focus](claude-code/07-raccourcis-clavier-optimisations-cli/02-rendu-plein-ecran-scintillement-focus.md) | 18 min | ✅ | 0 | — |
+| 03 | [Comprendre la recherche en mode TUI](claude-code/07-raccourcis-clavier-optimisations-cli/03-recherche-transcription-tui.md) | 15 min | ✅ | 0 | — |
+| 04 | [Les raccourcis clavier pour l’édition du prompt](claude-code/07-raccourcis-clavier-optimisations-cli/04-raccourcis-edition-prompt.md) | 5 min | ✅ | 0 | — |
 
 ### 08 — Personnalisation et configuration de l'interface
 
