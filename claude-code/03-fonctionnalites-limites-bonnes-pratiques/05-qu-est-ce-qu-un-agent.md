@@ -14,8 +14,8 @@ cours: Claude Code
 chapitre: 03-fonctionnalites-limites-bonnes-pratiques
 leçon: 05-qu-est-ce-qu-un-agent
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -42,6 +42,8 @@ Un agent s'appuie sur le LLM comme cerveau décisionnel pour résoudre des objec
 4. Quels risques financiers une boucle agentique mal encadrée présente-t-elle ?
 
 # Qu'est-ce qu'un agent ?
+
+**Durée : 12 minutes**
 
 ## Objectif de la leçon
 Découvrir l'architecture d'un agent autonome, comprendre la boucle d'exécution et savoir intégrer les mécanismes de sécurité et de contrôle humain.

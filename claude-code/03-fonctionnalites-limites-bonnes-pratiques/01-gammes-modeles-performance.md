@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 03-fonctionnalites-limites-bonnes-pratiques
 leçon: 01-gammes-modeles-performance
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ Le choix d'un modèle d'IA repose sur un arbitrage strict entre la qualité requ
 4. Quelle est la fonction propre d'un modèle d'embedding par rapport à un LLM conversationnel ?
 
 # Les gammes de modèles et leurs performances
+
+**Durée : 18 minutes**
 
 ## Objectif de la leçon
 Comprendre l'arbitrage Qualité-Vitesse-Coût et savoir sélectionner le modèle adapté au cas d'usage technique.

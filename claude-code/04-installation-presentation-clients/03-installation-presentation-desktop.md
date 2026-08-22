@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 04-installation-presentation-clients
 leçon: 03-installation-presentation-desktop
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ L'application Desktop Claude unifie la discussion classique (Chat), le travail a
 4. L'application Desktop et le CLI partagent-ils les mêmes configurations et serveurs MCP ?
 
 # Installation et présentation de l’application Desktop
+
+**Durée : 9 minutes**
 
 ## Objectif de la leçon
 Installer l'application Claude Desktop, prendre en main les 3 onglets (Chat, Cowork, Code) et valider graphiquement les modifications de code.

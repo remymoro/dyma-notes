@@ -16,9 +16,11 @@ Les fiches vivent dans `dyma-notes/<nom-du-cours>/<NN-chapitre>/<NN-lecon>.md`, 
 ## Format d'entrée & Archivage des sources
 
 1. L'utilisateur fournit le contenu d'une leçon (texte collé, extrait, PDF).
-2. **Archiver la source brute** : Convertis le texte en Markdown propre et écris-le dans `<NN-chapitre>/sources/<NN-lecon>.md`.
-   - Les éléments non textuels (images, schémas, captures) sont annotés en italique : `*[Schéma: description]*`.
-3. **Fiche retravaillée** : Écris la fiche hybride dans `<NN-chapitre>/<NN-lecon>.md`. Ne fais jamais un simple copier-coller de la source.
+2. **Archiver la source brute** : Convertis le texte en Markdown propre et écris-le dans `<NN-chapitre>/sources/<NN-lecon>.md`. Ce fichier est une archive : il ne porte **jamais** de frontmatter ni de squelette de fiche, il commence directement par son `# Titre`.
+   - Image réellement fournie → l'enregistrer dans `<NN-chapitre>/assets/<nom-parlant>.jpg` et l'appeler depuis la source : `![Légende](../assets/<nom>.jpg)`.
+   - Visuel décrit mais non fourni → l'annoter en italique : `*[Schéma: description]*`.
+   - Pas de LaTeX : écrire `≠`, `→`, `≈` directement, jamais `$\ne$` (non rendu par GitHub ni Front Matter CMS).
+3. **Fiche retravaillée** : Complète la fiche hybride dans `<NN-chapitre>/<NN-lecon>.md`. Ne fais jamais un simple copier-coller de la source. Le `# Titre` et la ligne `**Durée : N minutes**` du squelette sont conservés tels quels.
 
 ## Déroulé systématique pour chaque leçon
 
@@ -27,13 +29,20 @@ Les fiches vivent dans `dyma-notes/<nom-du-cours>/<NN-chapitre>/<NN-lecon>.md`, 
 3. **Questions de contrôle AVANT la correction** : Pose 2 à 4 questions de réflexion (pas de QCM). Attends la réponse de l'utilisateur avant de donner la correction ou d'écrire la fiche.
 4. **Ancrage sur sa stack** : Relie chaque notion abstraite aux projets concrets de l'utilisateur.
 5. **Le « pourquoi » avant le « comment »** : Explique le problème résolu avant la syntaxe/procédure.
-6. **Rédaction de la Fiche Hybride complète**.
+6. **Rédaction de la Fiche Hybride complète**, en complétant le squelette déjà en place.
+7. **Mise à jour de l'index** (`README.md`) : c'est la dernière étape, jamais optionnelle. Voir « Tenir le README à jour ».
 
 ---
 
 ## Modèle Officiel de la Fiche Hybride (à écrire dans le fichier `.md`)
 
-```markdown
+La fiche se lit en deux blocs successifs dans un seul fichier :
+**bloc 1, la fiche de révision** (titres en `##`) — ce qu'on relit à chaque échéance ;
+**bloc 2, le cours retravaillé** (titres en `#`) — ce qu'on relit quand une réponse est fausse.
+
+Référence vivante : `claude-code/04-installation-presentation-clients/05-execution-locale-remote-cloud-claude-ai-code.md`.
+
+````markdown
 ---
 title: "Titre de la leçon"
 description: "Résumé synthétique de la leçon"
@@ -54,45 +63,46 @@ prochaine_revision: YYYY-MM-DD
 
 | Indices / questions clés | Notes détaillées |
 |---|---|
-| ... | ... |
+| Question courte ? | Réponse dense, termes techniques en gras. |
 
 ## Synthèse
 (2-3 phrases dans mes propres mots, écrites sans regarder la colonne "Notes")
 
 ## Glossaire
-- terme : définition
+- **terme** : définition
 
 ## Questions d'auto-évaluation
-1. ...
+1. Question de raisonnement (« pourquoi », « qu'est-ce qui se passerait si »), jamais un QCM.
 
 # Titre de la leçon
 
+**Durée : N minutes**
+
 ## Objectif de la leçon
-(Objectifs, frictions évitées, fil rouge projet)
+(Ce que la leçon enseigne concrètement, la friction qu'elle évite, le lien avec le fil rouge)
 
 ---
 
 # 1. Première section thématique
-(Explications structurées)
-
-# 2. Deuxième section thématique
-(Explications + Schémas ASCII de comparaison / architecture)
 
 ```text
-┌──────────────────────────────────────────────────┐
-│              SCHÉMA EXPLICATIF ASCII             │
-└──────────────────────────────────────────────────┘
+Schéma ASCII : mécanisme, comparaison ou architecture
 ```
 
-# 3. Procédures / Méthodes pas à pas
-(Méthode 1 vs Méthode 2)
+---
+
+# 2. Deuxième section thématique
+
+```text
+Schéma ASCII
+```
 
 ---
 
 # Résumé & Schéma global
 
 ```text
-Visualisation synthétique des flux / commandes
+Vue synthétique des flux
 ```
 
 # Tableau des commandes à retenir
@@ -103,19 +113,20 @@ Visualisation synthétique des flux / commandes
 
 # Les 5 points les plus importants
 
-## 1. ...
-## 2. ...
-## 3. ...
-## 4. ...
-## 5. ...
+1. **Idée forte** : explication en une ligne.
+2. ...
+3. ...
+4. ...
+5. ...
 
 ---
 
 # Carte mentale
 
 ```text
-Arborescence ASCII
+Racine
 ├── Branche 1
+│   └── Sous-branche
 └── Branche 2
 ```
 
@@ -124,17 +135,28 @@ Arborescence ASCII
 # Mini fiche de révision
 
 ```text
-Cheat sheet express
+Notion  → définition express
+Notion  → définition express
 ```
 
-## Phrase à retenir
+> **Phrase à retenir** : la règle d'or de la leçon.
+````
 
-> Phrase/Règle d'or de la leçon
-```
+### Règles de forme non négociables
+
+- Bloc 1 en `##`, bloc 2 en `#` : c'est ce qui permet de replier la fiche de révision.
+- Tout schéma va dans un bloc ```` ```text ````, jamais en ASCII nu (sinon le rendu casse).
+- `---` entre les grandes sections du bloc 2.
+- La fiche se termine **toujours** par la « Phrase à retenir ».
+- Nombre de sections numérotées : autant que la leçon en demande, mais au moins une.
 
 ---
 
 ## Répétition espacée
+
+**Rédiger une fiche ne consomme pas d'étape.** À la création, la fiche reste à
+`etape_revision: 0` avec `prochaine_revision` fixée à J+1. L'étape ne passe à 1
+qu'après la **première session de révision réellement effectuée**.
 
 Chaque fiche possède un champ `etape_revision` (0 à 4) :
 
@@ -148,6 +170,22 @@ Chaque fiche possède un champ `etape_revision` (0 à 4) :
 
 ---
 
+## Tenir le README à jour
+
+Le `README.md` est l'index du dépôt : il porte la progression, l'état de chaque
+fiche et les échéances. Il ne se met pas à jour tout seul — après **chaque**
+fiche rédigée ou révisée, mettre à jour, dans cet ordre :
+
+1. La ligne de la leçon : `⬜` → `✅`, puis les colonnes `Étape` et
+   `Prochaine révision`, recopiées depuis le frontmatter. Une échéance dépassée
+   est suffixée ` ⚠️`.
+2. L'en-tête du chapitre : `> n/m fiches · X min`.
+3. Le bloc **Progression** : barre de 20 caractères (`█`/`░`), `n / 133`,
+   pourcentage, puis les lignes `Fiches complètes` et `Fiches à rédiger`.
+4. La date de référence en pied de page : `⚠️ = révision en retard au AAAA-MM-JJ`.
+
+Une fiche est comptée ✅ dès qu'elle ne contient plus le gabarit `| ... | ... |`.
+
 ## Règles de feedback
 
 - **Pas de complaisance** : Signaler clairement les erreurs ou approximations.
@@ -158,4 +196,7 @@ Chaque fiche possède un champ `etape_revision` (0 à 4) :
 
 - Ne jamais donner la correction avant la tentative de l'utilisateur.
 - Ne pas écraser une fiche existante contenant déjà des notes sans confirmation (sauf s'il s'agit du squelette vide avec `...`).
+- Ne jamais écrire de frontmatter ni de squelette de fiche dans `sources/`.
+- Ne jamais supprimer le `# Titre` ni la ligne `**Durée : N minutes**` d'une fiche.
+- Ne jamais clore une leçon sans avoir mis le README à jour.
 - Ne jamais faire de simples résumés superficiels.

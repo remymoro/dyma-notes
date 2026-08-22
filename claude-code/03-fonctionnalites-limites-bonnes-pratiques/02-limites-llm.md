@@ -14,8 +14,8 @@ cours: Claude Code
 chapitre: 03-fonctionnalites-limites-bonnes-pratiques
 leçon: 02-limites-llm
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -43,6 +43,8 @@ Les LLM sont des générateurs de textes plausibles et non des moteurs de vérit
 4. Quels risques juridiques existent lors de l'injection de données clients brutes dans un prompt ?
 
 # Les limites des LLM
+
+**Durée : 18 minutes**
 
 ## Objectif de la leçon
 Identifier les pièges et limites des modèles de langage (hallucinations, sycophantie, limites logiques) pour sécuriser leur usage professionnel.

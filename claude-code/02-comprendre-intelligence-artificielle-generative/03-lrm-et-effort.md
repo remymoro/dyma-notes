@@ -14,8 +14,8 @@ cours: Claude Code
 chapitre: 02-comprendre-intelligence-artificielle-generative
 leçon: 03-lrm-et-effort
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-15
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -43,6 +43,8 @@ Les modèles de raisonnement (LRM) s'appuient sur le *test-time compute* pour g�
 4. Quel paramètre permet de brider la consommation de tokens lors des étapes de réflexion d'un LRM ?
 
 # Les LRM et l'effort
+
+**Durée : 20 minutes**
 
 ## Objectif de la leçon
 Comprendre le fonctionnement des modèles de raisonnement (LRM), le concept de test-time compute et le contrôle de l'effort de réflexion.

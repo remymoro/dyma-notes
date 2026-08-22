@@ -14,8 +14,8 @@ cours: Claude Code
 chapitre: 04-installation-presentation-clients
 leçon: 01-differentes-facons-utiliser-claude
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -43,6 +43,8 @@ L'intégration de Claude dans le workflow développeur offre plusieurs niveaux d
 4. Dans quel cas l'autocomplétion simple reste-t-elle l'outil le plus rapide et le moins intrusif ?
 
 # Les différentes façons d’utiliser Claude
+
+**Durée : 14 minutes**
 
 ## Objectif de la leçon
 Cartographier les 6 niveaux d'intégration de l'IA dans le développement et choisir l'interface optimale (Chat, Inline, CLI, Cloud).

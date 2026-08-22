@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 01-introduction-anthropic-claude-code
 leçon: 04-histoire-claude-code
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-15
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ Claude Code est né d'une expérimentation technique visant à intégrer Claude 
 4. Quel enseignement l'incident du source map de 2026 a-t-il apporté à la communauté des développeurs ?
 
 # Histoire de Claude Code
+
+**Durée : 14 minutes**
 
 ## Objectif de la leçon
 Tracer la genèse de Claude Code, comprendre la rupture avec les assistants passifs et connaître les jalons historiques clés de son développement.

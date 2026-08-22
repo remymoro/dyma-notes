@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 02-comprendre-intelligence-artificielle-generative
 leçon: 04-composition-gestion-contexte
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-15
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -42,6 +42,8 @@ La fenêtre de contexte agit comme la mémoire de travail (RAM) d'un LLM. Pour �
 4. Quelle est la différence entre la capacité brute de la fenêtre et la précision de récupération (retrieval) ?
 
 # Composition et gestion du contexte
+
+**Durée : 13 minutes**
 
 ## Objectif de la leçon
 Comprendre la composition de la fenêtre de contexte, mesurer son taux de remplissage utile et maîtriser les techniques d'optimisation.

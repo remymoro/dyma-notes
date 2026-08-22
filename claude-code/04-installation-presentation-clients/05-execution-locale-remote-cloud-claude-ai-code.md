@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 04-installation-presentation-clients
 leçon: 05-execution-locale-remote-cloud-claude-ai-code
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ Les trois modes d'exécution de Claude Code (Local, Remote Control, Cloud) déte
 4. Quel est l'intérêt du mode `--permission-mode plan` pour analyser une tâche avant de lui laisser modifier des fichiers ?
 
 # Exécution locale, remote et cloud et présentation de claude.ai/code
+
+**Durée : 15 minutes**
 
 ## Objectif de la leçon
 Distinguer les 3 topologies d'exécution (Local, Remote Control, Cloud) et utiliser `claude.ai/code` pour rapatrier des sessions via la téléportation.
@@ -93,7 +95,7 @@ Distinguer les 3 topologies d'exécution (Local, Remote Control, Cloud) et utili
 
 # Les 5 points les plus importants
 
-1. **Remote Control $\ne$ Cloud** : Remote Control pilote votre PC local depuis le web.
+1. **Remote Control ≠ Cloud** : Remote Control pilote votre PC local depuis le web.
 2. **L'extinction ou la mise en veille du PC** arrête les sessions Remote Control mais pas le Cloud.
 3. **Le mode Cloud requiert une intégration GitHub** et un dépôt distant accessible.
 4. **La téléportation (`claude --teleport`)** ramène une session Cloud sur votre terminal local.

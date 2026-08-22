@@ -14,8 +14,8 @@ cours: Claude Code
 chapitre: 02-comprendre-intelligence-artificielle-generative
 leçon: 06-economie-tokens-facturation
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-15
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -43,6 +43,8 @@ L'économie des LLM repose sur la facturation au million de tokens. Les tokens d
 4. Dans quel cas d'usage professionnel le Batch Processing est-il particulièrement recommandé ?
 
 # L’économie des tokens et la facturation
+
+**Durée : 15 minutes**
 
 ## Objectif de la leçon
 Comprendre la tarification de l'API Claude, identifier les leviers d'optimisation financière (Caching & Batching) et anticiper les coûts des agents.

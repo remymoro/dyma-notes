@@ -12,8 +12,8 @@ cours: Claude Code
 chapitre: 01-introduction-anthropic-claude-code
 leçon: 03-tour-horizon-produits-anthropic
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-15
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ L'écosystème d'Anthropic est structuré en plusieurs strates : les modèles (O
 4. Quels sont les 3 modèles fondamentaux qui motorisent les produits Anthropic ?
 
 # Tour d’horizon des produits Anthropic
+
+**Durée : 20 minutes**
 
 ## Objectif de la leçon
 Identifier les 5 produits majeurs d'Anthropic, comprendre l'écosystème d'extensions (Skills, Connecteurs, Plugins) et savoir choisir l'outil adapté au besoin.

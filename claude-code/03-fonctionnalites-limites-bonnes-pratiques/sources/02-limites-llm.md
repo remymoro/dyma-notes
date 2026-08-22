@@ -29,7 +29,7 @@ Les limites des LLM se situent à trois niveaux principaux :
 
 | Catégorie | Types de limites | Exemples |
 |---|---|---|
-| **Du modèle lui-même** | - Plausible $\ne$ vrai<br>- Hallucinations<br>- Connaissance datée<br>- Erreurs de raisonnement | - Citations scientifiques inventées.<br>- Données après le *knowledge cutoff*.<br>- Calculs mathématiques erronés. |
+| **Du modèle lui-même** | - Plausible ≠ vrai<br>- Hallucinations<br>- Connaissance datée<br>- Erreurs de raisonnement | - Citations scientifiques inventées.<br>- Données après le *knowledge cutoff*.<br>- Calculs mathématiques erronés. |
 | **Du dialogue** | - Contexte vague ou trop long<br>- Ambiguïté linguistique/d'objectif<br>- Consignes oubliées<br>- Variabilité des réponses | - Oubli d'une règle dans un prompt dense.<br>- Incompréhension de mots polysémiques.<br>- Variation de réponse selon la *température*. |
 | **De l'usage** | - Biais et sycophantie<br>- Domaines sensibles (médical, juridique)<br>- Confidentialité et RGPD<br>- Propriété intellectuelle | - Fuite de données personnelles.<br>- Recopie de code ou textes protégés.<br>- Flatterie excessive (*sycophantie*). |
 
@@ -74,7 +74,7 @@ Les hallucinations sont particulièrement fréquentes sur :
 
 - **Le Knowledge Cutoff (Date limite de connaissances)** : C'est la date de gel de la base d'entraînement du modèle. Après cette date, le modèle ignore les événements récents, les changements de lois, de prix ou de versions logicielles.
 - **Pas d’accès automatique au temps réel** : Sans outil de recherche web (RAG) activé, le modèle répond uniquement d'après ses connaissances internes.
-- **Connaissance générale $\ne$ Connaissance du cas particulier** : Le modèle peut expliquer le droit des contrats en général, mais il ignorera tout des intentions des parties, du contexte relationnel ou des avenants non fournis par l'utilisateur.
+- **Connaissance générale ≠ Connaissance du cas particulier** : Le modèle peut expliquer le droit des contrats en général, mais il ignorera tout des intentions des parties, du contexte relationnel ou des avenants non fournis par l'utilisateur.
 
 ---
 

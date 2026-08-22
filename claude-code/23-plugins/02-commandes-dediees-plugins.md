@@ -34,12 +34,55 @@ prochaine_revision:
 
 **Durée : non renseignée**
 
-**Commandes :** `/plugin` et `/reload-plugins`
+## Objectif de la leçon
+(Ce que la leçon enseigne concrètement, la friction qu'elle évite, le lien avec le fil rouge)
 
-## Notes
+---
 
+# 1. Première section thématique
 
-## Points clés
+```text
+Schéma ASCII : mécanisme, comparaison ou architecture
+```
 
-- 
+---
 
+# Résumé & Schéma global
+
+```text
+Vue synthétique des flux
+```
+
+# Tableau des commandes à retenir
+
+| Commande / raccourci | Rôle |
+|---|---|
+| ... | ... |
+
+# Les 5 points les plus importants
+
+1. ...
+2. ...
+3. ...
+4. ...
+5. ...
+
+---
+
+# Carte mentale
+
+```text
+Racine
+├── Branche 1
+└── Branche 2
+```
+
+---
+
+# Mini fiche de révision
+
+```text
+Aide-mémoire express, aligné sur →
+```
+
+> **Phrase à retenir** : la règle d'or de la leçon.

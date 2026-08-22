@@ -14,7 +14,7 @@ chapitre: 01-introduction-anthropic-claude-code
 leçon: 01-a-l-abordage
 statut: à revoir
 etape_revision: 0
-prochaine_revision: 2026-08-15
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -37,6 +37,8 @@ Cette leçon d'introduction pose les fondations du parcours dédié à Claude Co
 3. Comment la méthode des fiches hybrides garantit-elle la rétention des compétences techniques ?
 
 # À l’abordage
+
+**Durée : 4 minutes**
 
 ## Objectif de la leçon
 Présenter le cadre de la formation, définir le changement de paradigme apporté par Claude Code et établir la méthodologie de travail utilisée tout au long des leçons.

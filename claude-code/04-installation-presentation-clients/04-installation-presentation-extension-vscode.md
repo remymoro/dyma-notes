@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 04-installation-presentation-clients
 leçon: 04-installation-presentation-extension-vscode
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ L'extension VS Code pour Claude Code offre un environnement de travail graphique
 4. Quel raccourci permet de placer du code sélectionné dans le panneau Claude Code sans copier-coller ?
 
 # Installation et présentation de l’extension VS Code
+
+**Durée : 7 minutes**
 
 ## Objectif de la leçon
 Installer l'extension Claude Code pour VS Code, maîtriser le ciblage de contexte par @-mentions et gérer les modifications par diffs interactifs.

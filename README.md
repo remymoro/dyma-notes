@@ -1,33 +1,34 @@
 # Dyma Notes — Claude Code
 
-Fiches de révision personnelles du cours **Claude Code** (Dyma), au format **Cornell**, avec un cycle de **répétition espacée**.
+Fiches de révision personnelles du cours **Claude Code** (Dyma), au format **hybride**, avec un cycle de **répétition espacée**.
 
-Chaque leçon donne lieu à une fiche : un tableau *indices / notes*, une synthèse reformulée, un glossaire et des questions d'auto-évaluation.
+Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** (tableau Cornell *indices / notes*, synthèse reformulée, glossaire, questions d'auto-évaluation), puis le **cours retravaillé** (sections thématiques, schémas ASCII, tableau des commandes, top 5, carte mentale, mini fiche et phrase à retenir).
 
 ## Progression
 
-`███░░░░░░░░░░░░░░░░░`  **20 / 133** fiches rédigées — 15 %
+`███░░░░░░░░░░░░░░░░░`  **21 / 133** fiches rédigées — 16 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
 | Leçons | 133 |
 | Durée cumulée | 26 h 28 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 20 |
-| Fiches à rédiger | 113 |
+| Fiches complètes | 21 |
+| Fiches à rédiger | 112 |
 
 ## Comment lire ce dépôt
 
 ```
 claude-code/
 └── NN-nom-du-chapitre/
-    ├── NN-nom-de-la-lecon.md    ← la fiche Cornell (le travail retravaillé)
+    ├── NN-nom-de-la-lecon.md    ← la fiche hybride (le travail retravaillé)
     ├── sources/NN-....md         ← le contenu brut de la leçon, archivé
     └── assets/                   ← schémas et captures
 ```
 
-- **La fiche** ne contient jamais de copier-coller : uniquement le tableau Cornell, la synthèse écrite sans regarder les notes, le glossaire et les questions.
-- **La source** sert de référence de relecture quand une réponse est fausse.
+- **La fiche** ne contient jamais de copier-coller. Le bloc de révision se relit à chaque échéance ; le cours retravaillé se relit quand une réponse est fausse.
+- **La source** est l'archive brute de la leçon : ni frontmatter, ni squelette, elle sert d'ultime référence.
+- Le modèle de référence est la fiche [04/05](claude-code/04-installation-presentation-clients/05-execution-locale-remote-cloud-claude-ai-code.md).
 
 ## Cycle de répétition espacée
 
@@ -35,7 +36,7 @@ Le champ `etape_revision` du frontmatter positionne la fiche dans la séquence :
 
 | Étape | Prochaine révision | Nouvelle étape |
 |---|---|---|
-| 0 — jamais révisée | J+1 | 1 |
+| 0 — rédigée, jamais révisée | J+1 | 1 |
 | 1 | J+3 | 2 |
 | 2 | J+7 | 3 |
 | 3 | J+15 | 4 |
@@ -47,7 +48,7 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 | Commande | Rôle |
 |---|---|
-| `./init-fiches.sh` | Crée ou complète le frontmatter et le squelette Cornell des fiches. Idempotent. |
+| `./init-fiches.sh` | Crée ou complète le frontmatter et le squelette de la fiche hybride. Idempotent : ne touche ni aux fiches rédigées, ni aux archives `sources/`. |
 | `/tuteur-dyma` | Travaille une nouvelle leçon ou lance une session de révision. |
 
 ## Légende
@@ -58,14 +59,14 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 01 — Introduction à Anthropic et Claude Code
 
-> 3/4 fiches · 38 min
+> 4/4 fiches · 38 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [À l’abordage](claude-code/01-introduction-anthropic-claude-code/01-a-l-abordage.md) | 4 min | ⬜ | 0 | — |
-| 02 | [Histoire d'Anthropic et de Claude](claude-code/01-introduction-anthropic-claude-code/02-histoire-anthropic-et-claude.md) | — | ✅ | 0 | 2026-08-15 ⚠️ |
-| 03 | [Tour d’horizon des produits Anthropic](claude-code/01-introduction-anthropic-claude-code/03-tour-horizon-produits-anthropic.md) | 20 min | ✅ | 1 | 2026-08-15 ⚠️ |
-| 04 | [Histoire de Claude Code](claude-code/01-introduction-anthropic-claude-code/04-histoire-claude-code.md) | 14 min | ✅ | 1 | 2026-08-15 ⚠️ |
+| 01 | [À l’abordage](claude-code/01-introduction-anthropic-claude-code/01-a-l-abordage.md) | 4 min | ✅ | 0 | 2026-08-23 |
+| 02 | [Histoire d'Anthropic et de Claude](claude-code/01-introduction-anthropic-claude-code/02-histoire-anthropic-et-claude.md) | — | ✅ | 0 | 2026-08-23 |
+| 03 | [Tour d’horizon des produits Anthropic](claude-code/01-introduction-anthropic-claude-code/03-tour-horizon-produits-anthropic.md) | 20 min | ✅ | 0 | 2026-08-23 |
+| 04 | [Histoire de Claude Code](claude-code/01-introduction-anthropic-claude-code/04-histoire-claude-code.md) | 14 min | ✅ | 0 | 2026-08-23 |
 
 ### 02 — Comprendre l'intelligence artificielle générative
 
@@ -73,12 +74,12 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Fonctionnement d’un LLM](claude-code/02-comprendre-intelligence-artificielle-generative/01-fonctionnement-llm.md) | 21 min | ✅ | 1 | 2026-08-15 ⚠️ |
-| 02 | [Les phases d’entraînement d’un LLM](claude-code/02-comprendre-intelligence-artificielle-generative/02-phases-entrainement-llm.md) | 19 min | ✅ | 1 | 2026-08-15 ⚠️ |
-| 03 | [Les LRM et l'effort](claude-code/02-comprendre-intelligence-artificielle-generative/03-lrm-et-effort.md) | 20 min | ✅ | 1 | 2026-08-15 ⚠️ |
-| 04 | [Composition et gestion du contexte](claude-code/02-comprendre-intelligence-artificielle-generative/04-composition-gestion-contexte.md) | 13 min | ✅ | 1 | 2026-08-15 ⚠️ |
-| 05 | [La spécificité Anthropic : la Constitution IA](claude-code/02-comprendre-intelligence-artificielle-generative/05-constitution-ia-anthropic.md) | 23 min | ✅ | 1 | 2026-08-15 ⚠️ |
-| 06 | [L’économie des tokens et la facturation](claude-code/02-comprendre-intelligence-artificielle-generative/06-economie-tokens-facturation.md) | 15 min | ✅ | 1 | 2026-08-15 ⚠️ |
+| 01 | [Fonctionnement d’un LLM](claude-code/02-comprendre-intelligence-artificielle-generative/01-fonctionnement-llm.md) | 21 min | ✅ | 0 | 2026-08-23 |
+| 02 | [Les phases d’entraînement d’un LLM](claude-code/02-comprendre-intelligence-artificielle-generative/02-phases-entrainement-llm.md) | 19 min | ✅ | 0 | 2026-08-23 |
+| 03 | [Les LRM et l'effort](claude-code/02-comprendre-intelligence-artificielle-generative/03-lrm-et-effort.md) | 20 min | ✅ | 0 | 2026-08-23 |
+| 04 | [Composition et gestion du contexte](claude-code/02-comprendre-intelligence-artificielle-generative/04-composition-gestion-contexte.md) | 13 min | ✅ | 0 | 2026-08-23 |
+| 05 | [La spécificité Anthropic : la Constitution IA](claude-code/02-comprendre-intelligence-artificielle-generative/05-constitution-ia-anthropic.md) | 23 min | ✅ | 0 | 2026-08-23 |
+| 06 | [L’économie des tokens et la facturation](claude-code/02-comprendre-intelligence-artificielle-generative/06-economie-tokens-facturation.md) | 15 min | ✅ | 0 | 2026-08-23 |
 
 ### 03 — Fonctionnalités, limites et bonnes pratiques
 
@@ -86,12 +87,12 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Les gammes de modèles et leurs performances](claude-code/03-fonctionnalites-limites-bonnes-pratiques/01-gammes-modeles-performance.md) | 18 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 02 | [Les limites des LLM](claude-code/03-fonctionnalites-limites-bonnes-pratiques/02-limites-llm.md) | 18 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 03 | [Les bonnes pratiques d'utilisation des LLM](claude-code/03-fonctionnalites-limites-bonnes-pratiques/03-bonnes-pratiques-utilisation-llm.md) | 18 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 04 | [Qu'est-ce qu'un outil ?](claude-code/03-fonctionnalites-limites-bonnes-pratiques/04-qu-est-ce-qu-un-outil.md) | 13 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 05 | [Qu'est-ce qu'un agent ?](claude-code/03-fonctionnalites-limites-bonnes-pratiques/05-qu-est-ce-qu-un-agent.md) | 12 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 06 | [Pourquoi le code est un cas à part pour les LLM](claude-code/03-fonctionnalites-limites-bonnes-pratiques/06-code-cas-a-part-pour-llm.md) | 19 min | ✅ | 1 | 2026-08-16 ⚠️ |
+| 01 | [Les gammes de modèles et leurs performances](claude-code/03-fonctionnalites-limites-bonnes-pratiques/01-gammes-modeles-performance.md) | 18 min | ✅ | 0 | 2026-08-23 |
+| 02 | [Les limites des LLM](claude-code/03-fonctionnalites-limites-bonnes-pratiques/02-limites-llm.md) | 18 min | ✅ | 0 | 2026-08-23 |
+| 03 | [Les bonnes pratiques d'utilisation des LLM](claude-code/03-fonctionnalites-limites-bonnes-pratiques/03-bonnes-pratiques-utilisation-llm.md) | 18 min | ✅ | 0 | 2026-08-23 |
+| 04 | [Qu'est-ce qu'un outil ?](claude-code/03-fonctionnalites-limites-bonnes-pratiques/04-qu-est-ce-qu-un-outil.md) | 13 min | ✅ | 0 | 2026-08-23 |
+| 05 | [Qu'est-ce qu'un agent ?](claude-code/03-fonctionnalites-limites-bonnes-pratiques/05-qu-est-ce-qu-un-agent.md) | 12 min | ✅ | 0 | 2026-08-23 |
+| 06 | [Pourquoi le code est un cas à part pour les LLM](claude-code/03-fonctionnalites-limites-bonnes-pratiques/06-code-cas-a-part-pour-llm.md) | 19 min | ✅ | 0 | 2026-08-23 |
 
 ### 04 — Installation et présentation des clients
 
@@ -99,11 +100,11 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Les différentes façons d’utiliser Claude](claude-code/04-installation-presentation-clients/01-differentes-facons-utiliser-claude.md) | 14 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 02 | [Installation et présentation du CLI](claude-code/04-installation-presentation-clients/02-installation-presentation-cli.md) | 16 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 03 | [Installation et présentation de l’application Desktop](claude-code/04-installation-presentation-clients/03-installation-presentation-desktop.md) | 9 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 04 | [Installation et présentation de l’extension VS Code](claude-code/04-installation-presentation-clients/04-installation-presentation-extension-vscode.md) | 7 min | ✅ | 1 | 2026-08-16 ⚠️ |
-| 05 | [Exécution locale, remote et cloud et présentation de claude.ai/code](claude-code/04-installation-presentation-clients/05-execution-locale-remote-cloud-claude-ai-code.md) | 15 min | ✅ | 1 | 2026-08-16 ⚠️ |
+| 01 | [Les différentes façons d’utiliser Claude](claude-code/04-installation-presentation-clients/01-differentes-facons-utiliser-claude.md) | 14 min | ✅ | 0 | 2026-08-23 |
+| 02 | [Installation et présentation du CLI](claude-code/04-installation-presentation-clients/02-installation-presentation-cli.md) | 16 min | ✅ | 0 | 2026-08-23 |
+| 03 | [Installation et présentation de l’application Desktop](claude-code/04-installation-presentation-clients/03-installation-presentation-desktop.md) | 9 min | ✅ | 0 | 2026-08-23 |
+| 04 | [Installation et présentation de l’extension VS Code](claude-code/04-installation-presentation-clients/04-installation-presentation-extension-vscode.md) | 7 min | ✅ | 0 | 2026-08-23 |
+| 05 | [Exécution locale, remote et cloud et présentation de claude.ai/code](claude-code/04-installation-presentation-clients/05-execution-locale-remote-cloud-claude-ai-code.md) | 15 min | ✅ | 0 | 2026-08-23 |
 
 ### 05 — Fonctionnement des agents de code et de Claude Code
 
@@ -366,6 +367,6 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ---
 
-⚠️ = révision en retard au 2026-08-18.
+⚠️ = révision en retard au 2026-08-22.
 
 *Notes personnelles. Le contenu du cours appartient à [Dyma](https://dyma.fr).*

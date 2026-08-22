@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 02-comprendre-intelligence-artificielle-generative
 leçon: 05-constitution-ia-anthropic
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-15
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -40,6 +40,8 @@ Constitutional AI est la méthode d'alignement propriétaire d'Anthropic. Elle r
 3. Comment la méthode RLAIF évite-t-elle l'épuisement des annotateurs humains du RLHF traditionnel ?
 
 # La spécificité Anthropic : la Constitution IA
+
+**Durée : 23 minutes**
 
 ## Objectif de la leçon
 Découvrir les principes majeurs de la Constitutional AI d'Anthropic et comprendre la hiérarchie à 4 niveaux qui régit les décisions et refus de Claude.

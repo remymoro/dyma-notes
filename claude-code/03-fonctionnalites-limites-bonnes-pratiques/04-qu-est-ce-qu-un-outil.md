@@ -14,8 +14,8 @@ cours: Claude Code
 chapitre: 03-fonctionnalites-limites-bonnes-pratiques
 leçon: 04-qu-est-ce-qu-un-outil
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -42,6 +42,8 @@ Un outil (ou *function calling*) permet à un LLM de dépasser le cadre d'un sim
 4. Quels risques de sécurité existent si un outil permet de modifier arbitrairement des fichiers système ?
 
 # Qu'est-ce qu'un outil ?
+
+**Durée : 13 minutes**
 
 ## Objectif de la leçon
 Comprendre le principe du *function calling*, l'échange de messages entre le LLM et l'application hôte, et les garanties de sécurité associées.

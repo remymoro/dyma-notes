@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 03-fonctionnalites-limites-bonnes-pratiques
 leçon: 03-bonnes-pratiques-utilisation-llm
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ Pour maximiser la précision d'un LLM, les prompts doivent être denses (chaque 
 4. En quoi le *Few-Shot Prompting* améliore-t-il la conformité des formats de sortie (comme du JSON ou un tableau) ?
 
 # Les bonnes pratiques d'utilisation des LLM
+
+**Durée : 18 minutes**
 
 ## Objectif de la leçon
 Apprendre à concevoir des prompts denses et structurés pour obtenir des réponses précises, reproductibles et adaptées à l'environnement professionnel.

@@ -13,8 +13,8 @@ cours: Claude Code
 chapitre: 04-installation-presentation-clients
 leçon: 02-installation-presentation-cli
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-16
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ L'installation de Claude Code s'effectue idéalement via l'installateur natif (c
 4. Quel outil système devez-vous exécuter en cas de blocage d'authentification ou de réseau ?
 
 # Installation et présentation du CLI
+
+**Durée : 16 minutes**
 
 ## Objectif de la leçon
 Installer correctement Claude Code sur son système d'exploitation et maîtriser les deux modes de commandes (Shell et Slash).

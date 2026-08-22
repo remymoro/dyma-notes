@@ -12,8 +12,8 @@ cours: Claude Code
 chapitre: 02-comprendre-intelligence-artificielle-generative
 leçon: 01-fonctionnement-llm
 statut: à revoir
-etape_revision: 1
-prochaine_revision: 2026-08-15
+etape_revision: 0
+prochaine_revision: 2026-08-23
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -41,6 +41,8 @@ Un LLM ne pense pas de manière consciente : c'est un prédicteur statistique de
 4. Pourquoi les hallucinations se produisent-elles et comment les éviter ?
 
 # Fonctionnement d’un LLM
+
+**Durée : 21 minutes**
 
 ## Objectif de la leçon
 Comprendre le cycle de traitement de l'information au sein d'un modèle Transformer, de la saisie utilisateur jusqu'à la génération du token final.
