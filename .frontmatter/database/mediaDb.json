@@ -1,1 +1,8 @@
-{"claude-code":{"02-comprendre-intelligence-artificielle-generative":{}}}
+{
+  "claude-code": {
+    "02-comprendre-intelligence-artificielle-generative": {},
+    "03-fonctionnalites-limites-bonnes-pratiques": {},
+    "05-fonctionnement-agents-code-claude-code": {},
+    "06-decouverte-premieres-commandes-cli": {}
+  }
+}
