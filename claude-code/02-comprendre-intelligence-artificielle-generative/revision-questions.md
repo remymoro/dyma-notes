@@ -1,3 +1,22 @@
+---
+title: "Questions de révision — Chapitre 2"
+description: "Annexe : les questions posées lors de la session de révision du chapitre 2, et les points identifiés comme à retravailler."
+date: 2026-08-24
+draft: true
+tags:
+  - claude-code
+  - revision
+  - questions
+categories:
+  - "Chapitre 2"
+cours: Claude Code
+chapitre: 02-comprendre-intelligence-artificielle-generative
+leçon: revision-questions
+statut: référence
+etape_revision: 0
+prochaine_revision:
+---
+
 # Révision — Chapitre 2 : Comprendre l'intelligence artificielle générative
 
 ---

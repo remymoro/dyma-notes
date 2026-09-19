@@ -2,7 +2,7 @@
 title: "Les outils de Claude Code"
 description: "Découvrir les outils dont dispose Claude Code pour agir sur un projet."
 date: 2026-08-14
-draft: false
+draft: true
 tags:
   - claude-code
   - outils

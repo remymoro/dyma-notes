@@ -2,7 +2,7 @@
 title: "Étendre les capacités de Claude Code"
 description: "Comprendre les différents mécanismes permettant de spécialiser et d’étendre Claude Code."
 date: 2026-08-14
-draft: false
+draft: true
 tags:
   - claude-code
   - extensions

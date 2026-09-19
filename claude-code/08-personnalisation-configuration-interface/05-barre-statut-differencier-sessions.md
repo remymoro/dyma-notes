@@ -206,5 +206,7 @@ Règle d'or absolue : Le script de statut doit s'exécuter instantanément.
 
 # Annexes Visuelles
 
-![Tableau de configuration de la barre de statut](../assets/status-table.png)
-![Aperçu de la barre de statut](../assets/status-preview.png)
+> **Captures manquantes.** Deux illustrations étaient prévues ici (tableau de configuration
+> et aperçu de la barre de statut) mais n'ont jamais été archivées dans `assets/`.
+> À recapturer depuis la leçon d'origine, puis à replacer sous
+> `08-personnalisation-configuration-interface/assets/`.

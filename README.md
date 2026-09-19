@@ -6,15 +6,17 @@ Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** 
 
 ## Progression
 
-`██████░░░░░░░░░░░░░░`  **38 / 134** fiches rédigées — 28 %
+`█████████░░░░░░░░░░░`  **63 / 134** fiches rédigées — 47 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
 | Leçons | 134 |
+| Fiches rédigées | 63 |
+| Fiches à rédiger | 71 |
 | Durée cumulée | 26 h 49 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 38 |
-| Fiches à rédiger | 96 |
+| Travaillé | 14 h 20 de cours |
+| Restant | 12 h 29 de cours |
 
 ## Comment lire ce dépôt
 
@@ -89,6 +91,8 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 | 05 | [La spécificité Anthropic : la Constitution IA](claude-code/02-comprendre-intelligence-artificielle-generative/05-constitution-ia-anthropic.md) | 23 min | ✅ | 0 | 2026-08-23 |
 | 06 | [L’économie des tokens et la facturation](claude-code/02-comprendre-intelligence-artificielle-generative/06-economie-tokens-facturation.md) | 15 min | ✅ | 0 | 2026-08-23 |
 
+> Annexe · [Questions de révision — Chapitre 2](claude-code/02-comprendre-intelligence-artificielle-generative/revision-questions.md) — hors cycle de révision (`statut: référence`).
+
 ### 03 — Fonctionnalités, limites et bonnes pratiques
 
 > 6/6 fiches · 98 min
@@ -153,64 +157,64 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 08 — Personnalisation et configuration de l'interface
 
-> 1/6 fiches · 78 min
+> 6/6 fiches · 78 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
 | 01 | [Portée de la configuration](claude-code/08-personnalisation-configuration-interface/01-portee-configuration.md) | 13 min | ✅ | 0 | 2026-08-23 |
-| 02 | [Liste des configurations — partie 1](claude-code/08-personnalisation-configuration-interface/02-liste-configurations-partie-1.md) | 17 min | ⬜ | 0 | — |
-| 03 | [Liste des configurations — partie 2](claude-code/08-personnalisation-configuration-interface/03-liste-configurations-partie-2.md) | 19 min | ⬜ | 0 | — |
-| 04 | [Configurer le terminal, le thème, les notifications et les retours à la ligne](claude-code/08-personnalisation-configuration-interface/04-terminal-theme-notifications-retours-ligne.md) | 9 min | ⬜ | 0 | — |
-| 05 | [Construire une barre de statut utile et différencier les sessions](claude-code/08-personnalisation-configuration-interface/05-barre-statut-differencier-sessions.md) | 12 min | ⬜ | 0 | — |
-| 06 | [Adapter les raccourcis clavier](claude-code/08-personnalisation-configuration-interface/06-adapter-raccourcis-clavier.md) | 8 min | ⬜ | 0 | — |
+| 02 | [Liste des configurations — partie 1](claude-code/08-personnalisation-configuration-interface/02-liste-configurations-partie-1.md) | 17 min | ✅ | 0 | — |
+| 03 | [Liste des configurations — partie 2](claude-code/08-personnalisation-configuration-interface/03-liste-configurations-partie-2.md) | 19 min | ✅ | 0 | — |
+| 04 | [Configurer le terminal, le thème, les notifications et les retours à la ligne](claude-code/08-personnalisation-configuration-interface/04-terminal-theme-notifications-retours-ligne.md) | 9 min | ✅ | 0 | — |
+| 05 | [Construire une barre de statut utile et différencier les sessions](claude-code/08-personnalisation-configuration-interface/05-barre-statut-differencier-sessions.md) | 12 min | ✅ | 0 | — |
+| 06 | [Adapter les raccourcis clavier](claude-code/08-personnalisation-configuration-interface/06-adapter-raccourcis-clavier.md) | 8 min | ✅ | 0 | — |
 
 ### 09 — Gestion des sessions et du contexte
 
-> 0/5 fiches · 58 min
+> 5/5 fiches · 58 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Comprendre les sources de contexte dans Claude Code](claude-code/09-gestion-sessions-contexte/01-sources-contexte-claude-code.md) | 15 min | ⬜ | 0 | — |
-| 02 | [Nettoyer, compacter ou repartir sur une nouvelle tâche](claude-code/09-gestion-sessions-contexte/02-nettoyer-compacter-nouvelle-tache.md) | 14 min | ⬜ | 0 | — |
-| 03 | [Reprendre, continuer et renommer les sessions](claude-code/09-gestion-sessions-contexte/03-reprendre-continuer-renommer-sessions.md) | 9 min | ⬜ | 0 | — |
-| 04 | [Brancher une session pour tester une variante](claude-code/09-gestion-sessions-contexte/04-brancher-session-tester-variante.md) | 7 min | ⬜ | 0 | — |
-| 05 | [Interrompre tôt et rembobiner avec les checkpoints](claude-code/09-gestion-sessions-contexte/05-interrompre-rembobiner-checkpoints.md) | 13 min | ⬜ | 0 | — |
+| 01 | [Comprendre les sources de contexte dans Claude Code](claude-code/09-gestion-sessions-contexte/01-comprendre-sources-contexte.md) | 15 min | ✅ | 0 | — |
+| 02 | [Nettoyer, compacter ou repartir sur une nouvelle tâche](claude-code/09-gestion-sessions-contexte/02-nettoyer-compacter-nouvelle-tache.md) | 14 min | ✅ | 0 | — |
+| 03 | [Reprendre, continuer et renommer les sessions](claude-code/09-gestion-sessions-contexte/03-reprendre-continuer-renommer-sessions.md) | 9 min | ✅ | 0 | — |
+| 04 | [Brancher une session pour tester une variante](claude-code/09-gestion-sessions-contexte/04-brancher-session-tester-variante.md) | 7 min | ✅ | 0 | — |
+| 05 | [Interrompre tôt et rembobiner avec les checkpoints](claude-code/09-gestion-sessions-contexte/05-interrompre-rembobiner-checkpoints.md) | 13 min | ✅ | 0 | — |
 
 ### 10 — Modèles, coûts et usage
 
-> 0/5 fiches · 43 min
+> 5/5 fiches · 43 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Choisir le modèle](claude-code/10-modeles-couts-usage/01-choisir-modele.md) | 15 min | ⬜ | 0 | — |
-| 02 | [Régler l’effort, ultrathink et ultracode](claude-code/10-modeles-couts-usage/02-regler-effort-ultrathink-ultracode.md) | 6 min | ⬜ | 0 | — |
-| 03 | [Accélérer les tâches simples](claude-code/10-modeles-couts-usage/03-accelerer-taches-simples.md) | 5 min | ⬜ | 0 | — |
-| 04 | [Suivre les coûts, les limites et les statistiques](claude-code/10-modeles-couts-usage/04-suivre-couts-limites-statistiques.md) | 7 min | ⬜ | 0 | — |
-| 05 | [Maîtriser les coûts dans les workflows longs](claude-code/10-modeles-couts-usage/05-maitriser-couts-workflows-longs.md) | 10 min | ⬜ | 0 | — |
+| 01 | [Choisir le modèle](claude-code/10-modeles-couts-usage/01-choisir-modele.md) | 15 min | ✅ | 0 | — |
+| 02 | [Régler l’effort, ultrathink et ultracode](claude-code/10-modeles-couts-usage/02-regler-effort-ultrathink-ultracode.md) | 6 min | ✅ | 0 | — |
+| 03 | [Accélérer les tâches simples](claude-code/10-modeles-couts-usage/03-accelerer-taches-simples.md) | 5 min | ✅ | 0 | — |
+| 04 | [Suivre les coûts, les limites et les statistiques](claude-code/10-modeles-couts-usage/04-suivre-couts-limites-statistiques.md) | 7 min | ✅ | 0 | — |
+| 05 | [Maîtriser les coûts dans les workflows longs](claude-code/10-modeles-couts-usage/05-maitriser-couts-workflows-longs.md) | 10 min | ✅ | 0 | — |
 
 ### 11 — Permissions, contrôle et sécurité
 
-> 0/7 fiches · 91 min
+> 7/7 fiches · 91 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Comprendre le modèle de permissions allow, ask, deny](claude-code/11-permissions-controle-securite/01-modele-permissions-allow-ask-deny.md) | 14 min | ⬜ | 0 | — |
-| 02 | [Choisir un mode de permission](claude-code/11-permissions-controle-securite/02-choisir-mode-permission.md) | 18 min | ⬜ | 0 | — |
-| 03 | [Configurer les règles avec /permissions et les fichiers settings](claude-code/11-permissions-controle-securite/03-configurer-regles-permissions-settings.md) | 16 min | ⬜ | 0 | — |
-| 04 | [Isoler l’exécution avec /sandbox, Docker, devcontainers et données fictives](claude-code/11-permissions-controle-securite/04-isoler-execution-sandbox-docker-devcontainers.md) | 18 min | ⬜ | 0 | — |
-| 05 | [Contrôler les répertoires de travail et les chemins protégés](claude-code/11-permissions-controle-securite/05-controler-repertoires-chemins-proteges.md) | 7 min | ⬜ | 0 | — |
-| 06 | [Cadrer les sessions non interactives et les intégrations MCP](claude-code/11-permissions-controle-securite/06-sessions-non-interactives-integrations-mcp.md) | 9 min | ⬜ | 0 | — |
-| 07 | [Transformer les habitudes en politiques avec hooks, settings et allowlists](claude-code/11-permissions-controle-securite/07-habitudes-politiques-hooks-settings-allowlists.md) | 9 min | ⬜ | 0 | — |
+| 01 | [Comprendre le modèle de permissions allow, ask, deny](claude-code/11-permissions-controle-securite/01-modele-permissions-allow-ask-deny.md) | 14 min | ✅ | 0 | — |
+| 02 | [Choisir un mode de permission](claude-code/11-permissions-controle-securite/02-choisir-mode-permission.md) | 18 min | ✅ | 0 | — |
+| 03 | [Configurer les règles avec /permissions et les fichiers settings](claude-code/11-permissions-controle-securite/03-configurer-regles-permissions-settings.md) | 16 min | ✅ | 0 | — |
+| 04 | [Isoler l’exécution avec /sandbox, Docker, devcontainers et données fictives](claude-code/11-permissions-controle-securite/04-isoler-execution-sandbox-docker-devcontainers.md) | 18 min | ✅ | 0 | — |
+| 05 | [Contrôler les répertoires de travail et les chemins protégés](claude-code/11-permissions-controle-securite/05-controler-repertoires-chemins-proteges.md) | 7 min | ✅ | 0 | — |
+| 06 | [Cadrer les sessions non interactives et les intégrations MCP](claude-code/11-permissions-controle-securite/06-sessions-non-interactives-integrations-mcp.md) | 9 min | ✅ | 0 | — |
+| 07 | [Transformer les habitudes en politiques avec hooks, settings et allowlists](claude-code/11-permissions-controle-securite/07-habitudes-politiques-hooks-settings-allowlists.md) | 9 min | ✅ | 0 | — |
 
 ### 12 — Mémoire, CLAUDE.md et auto-mémoire
 
-> 0/6 fiches · 82 min
+> 3/6 fiches · 82 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Comprendre CLAUDE.md : la mémoire de projet et les instructions persistantes](claude-code/12-memoire-claude-md-auto-memoire/01-comprendre-claude-md-memoire-projet.md) | 17 min | ⬜ | 0 | — |
-| 02 | [Initialiser, rédiger et faire évoluer CLAUDE.md avec /init](claude-code/12-memoire-claude-md-auto-memoire/02-initialiser-rediger-faire-evoluer-claude-md.md) | 10 min | ⬜ | 0 | — |
-| 03 | [Choisir le bon emplacement pour chaque mémoire](claude-code/12-memoire-claude-md-auto-memoire/03-choisir-emplacement-memoire.md) | 13 min | ⬜ | 0 | — |
+| 01 | [Comprendre CLAUDE.md : la mémoire de projet et les instructions persistantes](claude-code/12-memoire-claude-md-auto-memoire/01-comprendre-claude-md-memoire-projet.md) | 17 min | ✅ | 0 | — |
+| 02 | [Initialiser, rédiger et faire évoluer CLAUDE.md avec /init](claude-code/12-memoire-claude-md-auto-memoire/02-generer-maintenir-claude-md-init.md) | 10 min | ✅ | 0 | — |
+| 03 | [Choisir le bon emplacement pour chaque mémoire](claude-code/12-memoire-claude-md-auto-memoire/03-choisir-emplacement-memoire.md) | 13 min | ✅ | 0 | — |
 | 04 | [Structurer les instructions avec .claude/rules/ et les imports @path](claude-code/12-memoire-claude-md-auto-memoire/04-structurer-instructions-rules-imports.md) | 25 min | ⬜ | 0 | — |
 | 05 | [Auditer, nettoyer et maîtriser l’auto-mémoire avec /memory](claude-code/12-memoire-claude-md-auto-memoire/05-auditer-nettoyer-auto-memoire.md) | 9 min | ⬜ | 0 | — |
 | 06 | [Capitaliser les retours d’expérience : transformer les corrections en mémoire durable](claude-code/12-memoire-claude-md-auto-memoire/06-transformer-corrections-memoire-durable.md) | 8 min | ⬜ | 0 | — |
@@ -373,9 +377,3 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 | 01 | [Présentation des artéfacts](claude-code/25-artefacts/01-presentation-artefacts.md) | — | ⬜ | 0 | — |
 | 02 | [Création de trois artéfacts](claude-code/25-artefacts/02-creation-trois-artefacts.md) | — | ⬜ | 0 | — |
 | 03 | [Gestion des artéfacts](claude-code/25-artefacts/03-gestion-artefacts.md) | — | ⬜ | 0 | — |
-
----
-
-⚠️ = révision en retard au 2026-08-22.
-
-*Notes personnelles. Le contenu du cours appartient à [Dyma](https://dyma.fr).*
