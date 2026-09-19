@@ -30,6 +30,14 @@ claude-code/
 - **La source** est l'archive brute de la leçon : ni frontmatter, ni squelette, elle sert d'ultime référence.
 - Le modèle de référence est la fiche [04/05](claude-code/04-installation-presentation-clients/05-execution-locale-remote-cloud-claude-ai-code.md).
 
+### Fiches transversales
+
+Rangées à la racine de `claude-code/`, elles ne correspondent à aucune leçon et portent `statut: référence` — elles ne sont donc pas comptées dans la progression et ne rentrent pas dans le cycle de répétition espacée.
+
+| Fiche | Couverture |
+|---|---|
+| [Socle Claude Code — chapitres 01 à 12](claude-code/revision-socle-01-12.md) | Toutes les grandes notions des chapitres 01 à 12, groupées par thème, avec les 7 fils rouges transversaux. |
+
 ## Cycle de répétition espacée
 
 Le champ `etape_revision` du frontmatter positionne la fiche dans la séquence :
