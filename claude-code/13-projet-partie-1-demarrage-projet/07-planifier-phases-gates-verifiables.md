@@ -12,10 +12,10 @@ categories:
   - "Chapitre 13"
 cours: Claude Code
 chapitre: 13-projet-partie-1-demarrage-projet
-leçon: 07-planifier-par-phases-gates
+leçon: 07-planifier-phases-gates-verifiables
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-10-03
 ---
 
 | Indices / questions clés | Notes détaillées |

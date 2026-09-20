@@ -6,15 +6,15 @@ Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** 
 
 ## Progression
 
-`██████████░░░░░░░░░░`  **66 / 134** fiches rédigées — 49 %
+`████████████░░░░░░░░`  **81 / 134** fiches rédigées — 60 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
 | Leçons | 134 |
-| Durée cumulée | 28 h 06 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 66 |
-| Fiches à rédiger | 68 |
+| Durée cumulée | 28 h 58 *(sur 110 leçons renseignées)* |
+| Fiches complètes | 81 |
+| Fiches à rédiger | 53 |
 
 ## Comment lire ce dépôt
 
@@ -50,7 +50,7 @@ Le champ `etape_revision` du frontmatter positionne la fiche dans la séquence :
 | 3 | J+15 | 4 |
 | 4 | aucune | reste à 4, `statut: acquis` |
 
-**Rattrapage en cours** : toutes les échéances avaient expiré. Les 65 fiches entrant dans le cycle (les 66 rédigées, moins le glossaire 06/07 en `statut: référence`) ont été replanifiées à raison d'**un chapitre par jour**, du 2026-09-21 au 2026-10-02, sans consommer d'étape — aucune révision n'ayant réellement eu lieu, `etape_revision` est resté inchangé.
+**Rattrapage en cours** : toutes les échéances avaient expiré. Les 80 fiches entrant dans le cycle (les 81 rédigées, moins le glossaire 06/07 en `statut: référence`) ont été replanifiées à raison d'**un chapitre par jour**, du 2026-09-21 au 2026-10-04, sans consommer d'étape — aucune révision n'ayant réellement eu lieu, `etape_revision` est resté inchangé.
 
 Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **avant** de corriger, archive la source, puis met à jour `etape_revision`, `prochaine_revision` et `statut`.
 
@@ -219,32 +219,32 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 13 — Projet (partie 1) — Démarrage du projet
 
-> 0/9 fiches · 171 min
+> 9/9 fiches · 200 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Workflow de création de projet à l’ère de l’IA](claude-code/13-projet-partie-1-demarrage-projet/01-workflow-creation-projet-ere-ia.md) | 30 min | ⬜ | 0 | — |
-| 02 | [Cadrer l’idée, la stack et l’architecture avec Claude Code](claude-code/13-projet-partie-1-demarrage-projet/02-cadrer-idee-stack-architecture-design-doc.md) | 32 min | ⬜ | 0 | — |
-| 03 | [Créer le projet depuis zéro et obtenir une base vérifiable](claude-code/13-projet-partie-1-demarrage-projet/03-creer-projet-base-verifiable.md) | 18 min | ⬜ | 0 | — |
-| 04 | [Comprendre le dépôt avant de modifier](claude-code/13-projet-partie-1-demarrage-projet/04-comprendre-depot-avant-modifier.md) | 16 min | ⬜ | 0 | — |
-| 05 | [Cadrer la mémoire projet avec CLAUDE.md et .claude/rules/](claude-code/13-projet-partie-1-demarrage-projet/05-cadrer-memoire-projet-claude-md-rules.md) | 20 min | ⬜ | 0 | — |
-| 06 | [Cadrer les permissions et la surface d’action](claude-code/13-projet-partie-1-demarrage-projet/06-cadrer-permissions-surface-action.md) | 17 min | ⬜ | 0 | — |
-| 07 | [Planifier par phases avec des gates vérifiables](claude-code/13-projet-partie-1-demarrage-projet/07-planifier-phases-gates-verifiables.md) | 26 min | ⬜ | 0 | — |
-| 08 | [Implémenter sous contrôle et fermer chaque gate](claude-code/13-projet-partie-1-demarrage-projet/08-implementer-fermer-chaque-gate.md) | 6 min | ⬜ | 0 | — |
-| 09 | [Vérifier, récupérer et capitaliser](claude-code/13-projet-partie-1-demarrage-projet/09-verifier-recuperer-capitaliser.md) | 6 min | ⬜ | 0 | — |
+| 01 | [Workflow de création de projet à l'ère de l'IA](claude-code/13-projet-partie-1-demarrage-projet/01-workflow-creation-projet-ere-ia.md) | 25 min | ✅ | 0 | 2026-10-03 |
+| 02 | [Cadrer l'idée, la stack et l'architecture avec Claude Code](claude-code/13-projet-partie-1-demarrage-projet/02-cadrer-idee-stack-architecture-design-doc.md) | 20 min | ✅ | 0 | 2026-10-03 |
+| 03 | [Créer le projet depuis zéro et obtenir une base vérifiable](claude-code/13-projet-partie-1-demarrage-projet/03-creer-projet-base-verifiable.md) | 20 min | ✅ | 0 | 2026-10-03 |
+| 04 | [Comprendre le dépôt avant de modifier](claude-code/13-projet-partie-1-demarrage-projet/04-comprendre-depot-avant-modifier.md) | 15 min | ✅ | 0 | 2026-10-03 |
+| 05 | [Cadrer la mémoire projet avec CLAUDE.md et .claude/rules](claude-code/13-projet-partie-1-demarrage-projet/05-cadrer-memoire-projet-claude-md-rules.md) | 20 min | ✅ | 0 | 2026-10-03 |
+| 06 | [Cadrer les permissions et la surface d'action](claude-code/13-projet-partie-1-demarrage-projet/06-cadrer-permissions-surface-action.md) | 20 min | ✅ | 0 | 2026-10-03 |
+| 07 | [Planifier par phases avec des gates vérifiables](claude-code/13-projet-partie-1-demarrage-projet/07-planifier-phases-gates-verifiables.md) | 25 min | ✅ | 0 | 2026-10-03 |
+| 08 | [Implémenter sous contrôle et fermer chaque gate](claude-code/13-projet-partie-1-demarrage-projet/08-implementer-fermer-chaque-gate.md) | 30 min | ✅ | 0 | 2026-10-03 |
+| 09 | [Vérifier, récupérer et capitaliser](claude-code/13-projet-partie-1-demarrage-projet/09-verifier-recuperer-capitaliser.md) | 25 min | ✅ | 0 | 2026-10-03 |
 
 ### 14 — Compétences (Skills)
 
-> 0/6 fiches · 97 min
+> 6/6 fiches · 120 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Situer les skills dans l’écosystème Claude Code](claude-code/14-competences-skills/01-situer-skills-ecosysteme-claude-code.md) | 14 min | ⬜ | 0 | — |
-| 02 | [Présentation des skills embarqués](claude-code/14-competences-skills/02-presentation-skills-embarques.md) | 18 min | ⬜ | 0 | — |
-| 03 | [Présentation de /simplify et /code-review](claude-code/14-competences-skills/03-presentation-simplify-code-review.md) | 19 min | ⬜ | 0 | — |
-| 04 | [Analyse d’un skill personnalisé](claude-code/14-competences-skills/04-analyse-skill-personnalise.md) | 18 min | ⬜ | 0 | — |
-| 05 | [Les différentes catégories de skills et les bonnes pratiques](claude-code/14-competences-skills/05-categories-skills-bonnes-pratiques.md) | 11 min | ⬜ | 0 | — |
-| 06 | [Installer des skills et présentation de skills.sh](claude-code/14-competences-skills/06-installer-skills-skills-sh.md) | 17 min | ⬜ | 0 | — |
+| 01 | [Situer les skills dans l’écosystème Claude Code](claude-code/14-competences-skills/01-situer-skills-ecosysteme-claude-code.md) | 20 min | ✅ | 0 | 2026-10-04 |
+| 02 | [Présentation des skills embarquées](claude-code/14-competences-skills/02-presentation-skills-embarques.md) | 15 min | ✅ | 0 | 2026-10-04 |
+| 03 | [Présentation de /simplify et /code-review](claude-code/14-competences-skills/03-presentation-simplify-code-review.md) | 20 min | ✅ | 0 | 2026-10-04 |
+| 04 | [Analyse d'un skill personnalisé](claude-code/14-competences-skills/04-analyse-skill-personnalise.md) | 25 min | ✅ | 0 | 2026-10-04 |
+| 05 | [Les différentes catégories de skills et les bonnes pratiques](claude-code/14-competences-skills/05-categories-skills-bonnes-pratiques.md) | 20 min | ✅ | 0 | 2026-10-04 |
+| 06 | [Installer des skills et présentation de skills.sh](claude-code/14-competences-skills/06-installer-skills-skills-sh.md) | 20 min | ✅ | 0 | 2026-10-04 |
 
 ### 15 — MCP — Connecter Claude Code à des outils
 

@@ -15,7 +15,7 @@ chapitre: 13-projet-partie-1-demarrage-projet
 leçon: 04-comprendre-depot-avant-modifier
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-10-03
 ---
 
 | Indices / questions clés | Notes détaillées |
