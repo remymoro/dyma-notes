@@ -37,6 +37,7 @@ Rangées à la racine de `claude-code/`, elles ne correspondent à aucune leçon
 | Fiche | Couverture |
 |---|---|
 | [Socle Claude Code — chapitres 01 à 12](claude-code/revision-socle-01-12.md) | Toutes les grandes notions des chapitres 01 à 12, groupées par thème, avec les 7 fils rouges transversaux. |
+| [Révision — chapitre 02](claude-code/revision-questions-02.md) | La banque de questions d'auto-évaluation du chapitre 02, avec le relevé des points à retravailler. |
 
 ## Cycle de répétition espacée
 

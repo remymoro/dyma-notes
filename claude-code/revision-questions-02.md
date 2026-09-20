@@ -1,3 +1,23 @@
+---
+title: "Révision — Chapitre 02 : Comprendre l'intelligence artificielle générative"
+description: "Référence transversale : la banque de questions d'auto-évaluation du chapitre 02, avec le relevé des points à retravailler."
+date: 2026-09-20
+draft: true
+tags:
+  - claude-code
+  - revision
+  - questions
+  - reference
+categories:
+  - "Transversal"
+cours: Claude Code
+chapitre: transversal
+leçon: revision-questions-02
+statut: référence
+etape_revision: 0
+prochaine_revision:
+---
+
 # Révision — Chapitre 2 : Comprendre l'intelligence artificielle générative
 
 ---

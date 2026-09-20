@@ -201,10 +201,3 @@ Règle d'or absolue : Le script de statut doit s'exécuter instantanément.
 ```
 
 > **Phrase à retenir** : La couleur annonce l'intention de la session, la barre de statut confirme son contexte objectif.
-
----
-
-# Annexes Visuelles
-
-![Tableau de configuration de la barre de statut](../assets/status-table.png)
-![Aperçu de la barre de statut](../assets/status-preview.png)
