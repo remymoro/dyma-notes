@@ -6,15 +6,15 @@ Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** 
 
 ## Progression
 
-`█████████░░░░░░░░░░░`  **63 / 134** fiches rédigées — 47 %
+`██████████░░░░░░░░░░`  **66 / 134** fiches rédigées — 49 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
 | Leçons | 134 |
-| Durée cumulée | 28 h 10 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 63 |
-| Fiches à rédiger | 71 |
+| Durée cumulée | 28 h 06 *(sur 110 leçons renseignées)* |
+| Fiches complètes | 66 |
+| Fiches à rédiger | 68 |
 
 ## Comment lire ce dépôt
 
@@ -50,7 +50,7 @@ Le champ `etape_revision` du frontmatter positionne la fiche dans la séquence :
 | 3 | J+15 | 4 |
 | 4 | aucune | reste à 4, `statut: acquis` |
 
-**Rattrapage en cours** : toutes les échéances avaient expiré. Les 62 fiches entrant dans le cycle (les 63 rédigées, moins le glossaire 06/07 en `statut: référence`) ont été replanifiées à raison d'**un chapitre par jour**, du 2026-09-21 au 2026-10-02, sans consommer d'étape — aucune révision n'ayant réellement eu lieu, `etape_revision` est resté inchangé.
+**Rattrapage en cours** : toutes les échéances avaient expiré. Les 65 fiches entrant dans le cycle (les 66 rédigées, moins le glossaire 06/07 en `statut: référence`) ont été replanifiées à raison d'**un chapitre par jour**, du 2026-09-21 au 2026-10-02, sans consommer d'étape — aucune révision n'ayant réellement eu lieu, `etape_revision` est resté inchangé.
 
 Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **avant** de corriger, archive la source, puis met à jour `etape_revision`, `prochaine_revision` et `statut`.
 
@@ -206,16 +206,16 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 12 — Mémoire, CLAUDE.md et auto-mémoire
 
-> 3/6 fiches · 90 min
+> 6/6 fiches · 86 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
 | 01 | [Comprendre CLAUDE.md : la mémoire de projet et les instructions persistantes](claude-code/12-memoire-claude-md-auto-memoire/01-comprendre-claude-md-memoire-projet.md) | 15 min | ✅ | 0 | 2026-10-02 |
 | 02 | [Générer et maintenir CLAUDE.md avec /init](claude-code/12-memoire-claude-md-auto-memoire/02-generer-maintenir-claude-md-init.md) | 20 min | ✅ | 0 | 2026-10-02 |
 | 03 | [Choisir le bon emplacement pour chaque mémoire](claude-code/12-memoire-claude-md-auto-memoire/03-choisir-emplacement-memoire.md) | 13 min | ✅ | 0 | 2026-10-02 |
-| 04 | [Structurer les instructions avec .claude/rules/ et les imports @path](claude-code/12-memoire-claude-md-auto-memoire/04-structurer-instructions-rules-imports.md) | 25 min | ⬜ | 0 | — |
-| 05 | [Auditer, nettoyer et maîtriser l’auto-mémoire avec /memory](claude-code/12-memoire-claude-md-auto-memoire/05-auditer-nettoyer-auto-memoire.md) | 9 min | ⬜ | 0 | — |
-| 06 | [Capitaliser les retours d’expérience : transformer les corrections en mémoire durable](claude-code/12-memoire-claude-md-auto-memoire/06-transformer-corrections-memoire-durable.md) | 8 min | ⬜ | 0 | — |
+| 04 | [Structurer les instructions : rules et imports](claude-code/12-memoire-claude-md-auto-memoire/04-structurer-instructions-rules-imports.md) | 15 min | ✅ | 0 | 2026-10-02 |
+| 05 | [Auditer et nettoyer l'auto-mémoire](claude-code/12-memoire-claude-md-auto-memoire/05-auditer-nettoyer-auto-memoire.md) | 15 min | ✅ | 0 | 2026-10-02 |
+| 06 | [Transformer les corrections en mémoire durable](claude-code/12-memoire-claude-md-auto-memoire/06-transformer-corrections-memoire-durable.md) | 8 min | ✅ | 0 | 2026-10-02 |
 
 ### 13 — Projet (partie 1) — Démarrage du projet
 
