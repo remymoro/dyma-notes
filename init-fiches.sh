@@ -100,6 +100,21 @@ Aide-mémoire express, aligné sur →
 EOF
 }
 
+# Vrai si le corps du fichier (frontmatter exclu) est vide, ou exactement le
+# squelette que fiche_skeleton produirait pour ce titre et cette durée.
+corps_est_squelette() {
+  local file="$1" titre="$2" duree="$3" debut=1 fin corps
+  [ -s "$file" ] || return 0
+  if head -n 1 "$file" | grep -q '^---$'; then
+    fin=$(awk 'NR > 1 && /^---$/ { print NR; exit }' "$file")
+    [ -n "$fin" ] || return 1
+    debut=$((fin + 1))
+  fi
+  corps=$(tail -n +"$debut" "$file")
+  [ -z "$(printf '%s' "$corps" | tr -d '[:space:]')" ] && return 0
+  diff -q <(fiche_skeleton "$titre" "$duree") <(printf '%s\n' "$corps") >/dev/null 2>&1
+}
+
 # Titre lisible dérivé du slug, si le fichier n'a pas encore de H1.
 titre_depuis_slug() {
   echo "$1" | sed -E 's/^[0-9]+-//; s/-/ /g'
@@ -109,22 +124,18 @@ while IFS= read -r -d '' file; do
   chapitre=$(basename "$(dirname "$file")")
   lecon=$(basename "$file" .md)
 
-  # Le squelette du corps n'est (re)généré que si la fiche n'a pas été rédigée.
-  has_fiche=false
-  grep -Fq '# Mini fiche de révision' "$file" && has_fiche=true
-  is_vierge=false
-  { [ ! -s "$file" ] || grep -Fq '| ... | ... |' "$file"; } && is_vierge=true
-
-  if ! $has_fiche && ! $is_vierge && [ -s "$file" ]; then
-    echo "Gardé (contenu rédigé, squelette non appliqué) : $file"
-    count_garde=$((count_garde + 1))
-    continue
-  fi
-
   # Titre et durée déjà présents : on ne les perd jamais.
   titre=$(grep -m1 '^# ' "$file" 2>/dev/null | sed 's/^# //' || true)
   [ -z "$titre" ] && titre=$(titre_depuis_slug "$lecon")
   duree=$(grep -m1 '^\*\*Durée' "$file" 2>/dev/null || true)
+
+  # Le squelette du corps n'est (re)généré que si le corps EST encore le
+  # squelette. Tout le reste est du travail rédigé et se préserve, quel que
+  # soit le style des titres — c'est la seule façon de ne pas perdre de vue
+  # les fiches dont la mise en forme a évolué.
+  has_fiche=true
+  corps_est_squelette "$file" "$titre" "$duree" && has_fiche=false
+  $has_fiche && count_garde=$((count_garde + 1))
 
   if [ -s "$file" ] && head -n 1 "$file" | grep -q '^---$'; then
     frontmatter_end=$(awk 'NR > 1 && /^---$/ { print NR; exit }' "$file")
@@ -141,15 +152,26 @@ while IFS= read -r -d '' file; do
     has_etape=false;     grep -q '^etape_revision:' <<<"$frontmatter" && has_etape=true
     has_prochaine=false; grep -q '^prochaine_revision:' <<<"$frontmatter" && has_prochaine=true
 
+    # `chapitre` et `leçon` se déduisent du chemin : une valeur qui le
+    # contredit est une scorie de renommage, pas une métadonnée à préserver.
+    chemin_a_corriger=false
+    $has_chapitre && [ "$(sed -n 's/^chapitre: *//p' <<<"$frontmatter" | head -n1)" != "$chapitre" ] \
+      && chemin_a_corriger=true
+    $has_lecon && [ "$(sed -n 's/^leçon: *//p' <<<"$frontmatter" | head -n1)" != "$lecon" ] \
+      && chemin_a_corriger=true
+
+    # La réparation du frontmatter ne dépend plus de l'état du corps : une
+    # fiche rédigée y a droit comme un squelette.
     if $has_cours && $has_chapitre && $has_lecon && $has_statut && \
-       $has_etape && $has_prochaine && $has_fiche; then
+       $has_etape && $has_prochaine && ! $chemin_a_corriger; then
       echo "Skip (déjà à jour) : $file"
       count_skip=$((count_skip + 1))
       continue
     fi
 
     tmp=$(mktemp)
-    head -n $((frontmatter_end - 1)) "$file" > "$tmp"
+    head -n $((frontmatter_end - 1)) "$file" \
+      | sed -e "s|^chapitre: .*|chapitre: $chapitre|" -e "s|^leçon: .*|leçon: $lecon|" > "$tmp"
     $has_cours || echo "cours: $COURS_NOM" >> "$tmp"
     $has_chapitre || echo "chapitre: $chapitre" >> "$tmp"
     $has_lecon || echo "leçon: $lecon" >> "$tmp"
@@ -190,4 +212,4 @@ EOF
   count_rempli=$((count_rempli + 1))
 done < <(find "$ROOT" -mindepth 2 -maxdepth 2 -type f -name '[0-9][0-9]-*.md' -print0 | sort -z)
 
-echo "Terminé. $count_rempli fiche(s) mise(s) à jour, $count_skip déjà à jour, $count_garde préservée(s)."
+echo "Terminé. $count_rempli mise(s) à jour, $count_skip déjà à jour, $count_garde fiche(s) rédigée(s) préservée(s)."

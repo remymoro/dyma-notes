@@ -12,7 +12,7 @@ tags:
 categories:
   - "Chapitre 6"
 cours: Claude Code
-
+chapitre: 06-decouverte-premieres-commandes-cli
 leçon: 05-continuer-session-bons-environnements
 statut: à revoir
 etape_revision: 0
