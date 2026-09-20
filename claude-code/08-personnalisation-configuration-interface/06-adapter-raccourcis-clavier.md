@@ -14,7 +14,7 @@ chapitre: 08-personnalisation-configuration-interface
 leçon: 06-adapter-raccourcis-clavier
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-28
 ---
 
 | Indices / questions clés | Notes détaillées |

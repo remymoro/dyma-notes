@@ -15,7 +15,7 @@ chapitre: 07-raccourcis-clavier-optimisations-cli
 leçon: 03-recherche-transcription-tui
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-27
 ---
 
 | Indices / questions clés                                    | Notes détaillées                                                                                                                             |

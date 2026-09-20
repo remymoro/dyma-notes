@@ -15,7 +15,7 @@ chapitre: 04-installation-presentation-clients
 leçon: 01-differentes-facons-utiliser-claude
 statut: à revoir
 etape_revision: 0
-prochaine_revision: 2026-08-23
+prochaine_revision: 2026-09-24
 ---
 
 | Indices / questions clés | Notes détaillées |

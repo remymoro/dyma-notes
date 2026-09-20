@@ -14,7 +14,7 @@ chapitre: 10-modeles-couts-usage
 leçon: 03-accelerer-taches-simples
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-30
 ---
 
 | Indices / questions clés | Notes détaillées |

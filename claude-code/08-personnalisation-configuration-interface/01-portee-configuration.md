@@ -14,7 +14,7 @@ chapitre: 08-personnalisation-configuration-interface
 leçon: 01-portee-configuration
 statut: à revoir
 etape_revision: 0
-prochaine_revision: 2026-08-23
+prochaine_revision: 2026-09-28
 ---
 
 | Indices / questions clés | Notes détaillées |

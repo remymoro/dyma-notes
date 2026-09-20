@@ -16,7 +16,7 @@ cours: Claude Code
 leçon: 05-continuer-session-bons-environnements
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-26
 ---
 
 | Indices / questions clés                                     | Notes détaillées                                                                                                                  |

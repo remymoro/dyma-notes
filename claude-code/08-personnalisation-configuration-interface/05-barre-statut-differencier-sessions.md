@@ -14,7 +14,7 @@ chapitre: 08-personnalisation-configuration-interface
 leçon: 05-barre-statut-differencier-sessions
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-28
 ---
 
 | Indices / questions clés | Notes détaillées |

@@ -14,7 +14,7 @@ chapitre: 03-fonctionnalites-limites-bonnes-pratiques
 leçon: 03-bonnes-pratiques-utilisation-llm
 statut: à revoir
 etape_revision: 0
-prochaine_revision: 2026-08-23
+prochaine_revision: 2026-09-23
 ---
 
 | Indices / questions clés | Notes détaillées |

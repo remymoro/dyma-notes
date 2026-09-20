@@ -14,7 +14,7 @@ chapitre: 09-gestion-sessions-contexte
 leçon: 03-reprendre-continuer-renommer-sessions
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-29
 ---
 
 | Indices / questions clés | Notes détaillées |

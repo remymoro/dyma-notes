@@ -15,7 +15,7 @@ chapitre: 07-raccourcis-clavier-optimisations-cli
 leçon: 01-raccourcis-clavier-generaux
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-27
 ---
 
 | Indices / questions clés                                   | Notes détaillées                                                                                                                          |
