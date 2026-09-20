@@ -117,7 +117,7 @@ Définition de terminé :
 - tu indiques exactement ce qui a été vérifié et ce qui ne l'a pas été.
 ```
 
-![alt text](image.png) ![alt text](image-1.png) ![alt text](image-2.png)
+![alt text](assets/image-1.png) ![alt text](assets/image-2.png)
 
 ## Demander le résultat de la modification
 
@@ -143,7 +143,7 @@ Avant de valider quoi que ce soit, regardez le diff vous-même. C'est le réflex
 ```bash
 git diff
 ```
-![alt text](image-3.png)![alt text](image-4.png)
+![alt text](assets/image-3.png)![alt text](assets/image-4.png)
 
 Le diff doit être court et limité à `src/main.js`. Si d'autres fichiers ont été modifiés, arrêtez-vous et demandez une explication :
 
