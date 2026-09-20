@@ -29,7 +29,7 @@ prochaine_revision: 2026-10-01
 ## Synthèse
 Le modèle de sécurité de Claude Code sépare la réflexion du modèle de l'exécution système via un mécanisme de permissions basé sur les outils. Trois décisions structurent cette frontière : `deny` pour protéger strictement, `ask` pour conserver l'arbitrage humain sur des actions ambiguës, et `allow` pour fluidifier les actions répétitives et sûres (afin d'éviter la fatigue de validation). L'ordre d'évaluation est inflexible (`deny` l'emporte toujours sur `allow`). Surtout, une permission bien calibrée n'est pas qu'un blocage : c'est un moyen de réorienter la réflexion de l'agent vers une stratégie autorisée, sans stopper brutalement la session.
 
-## Fiche finale — Distinctions et pièges (À revoir)
+## Glossaire — Distinctions et pièges (À revoir)
 
 | Notion | Distinction / Piège à éviter |
 |---|---|

@@ -29,7 +29,7 @@ prochaine_revision: 2026-09-30
 ## Synthèse
 Le mode rapide (`/fast`) n'est pas un modèle économique, mais une version accélérée (et plus coûteuse) de Claude Opus conçue pour réduire le temps d'attente entre les tours. Il est idéal pour le débogage interactif en direct ou les tâches simples urgentes. Étant facturé plus cher, il est déconseillé pour les longs traitements autonomes. Attention : le désactiver (`/fast off`) ne vous ramène pas automatiquement à votre modèle précédent ; vous restez sur Opus jusqu'à ce que vous changiez explicitement avec `/model`.
 
-## Fiche finale — /fast
+## Glossaire — /fast
 
 | Catégorie | Notion | Rôle |
 |---|---|---|

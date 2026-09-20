@@ -29,7 +29,7 @@ prochaine_revision: 2026-10-01
 ## Synthèse
 Les modes de permission ne remplacent pas les règles (`allow/deny`) : ils définissent la "posture" d'autonomie générale de votre session. Dans un dépôt inconnu ou sensible, on commence toujours en `default` pour observer, ou en `plan` pour exiger une stratégie claire. Une fois en phase d'implémentation (avec un diff lisible et des tests), on peut basculer sur `acceptEdits` ou `auto` pour réduire la friction. Enfin, les modes `dontAsk` et `bypassPermissions` sont réservés à des cas très spécifiques : l'automatisation stricte pour le premier, et les environnements virtuels jetables pour le second. On augmente l'autonomie uniquement quand la vérification reste sous contrôle.
 
-## Fiche finale — Distinctions et pièges (À revoir)
+## Glossaire — Distinctions et pièges (À revoir)
 
 | Notion | Distinction / Piège à éviter |
 |---|---|
