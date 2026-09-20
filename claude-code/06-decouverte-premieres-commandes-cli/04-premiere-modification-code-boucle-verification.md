@@ -14,7 +14,7 @@ chapitre: 06-decouverte-premieres-commandes-cli
 leçon: 04-premiere-modification-code-boucle-verification
 statut: à revoir
 etape_revision: 1
-prochaine_revision: 2026-08-22
+prochaine_revision: 2026-09-26
 ---
 
 | Indices / questions clés | Notes détaillées |

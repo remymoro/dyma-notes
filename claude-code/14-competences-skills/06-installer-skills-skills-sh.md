@@ -12,10 +12,10 @@ categories:
   - "Chapitre 14"
 cours: Claude Code
 chapitre: 14-competences-skills
-leçon: 06-installer-skills-presentation-skills-sh
+leçon: 06-installer-skills-skills-sh
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-10-04
 ---
 
 | Indices / questions clés | Notes détaillées |

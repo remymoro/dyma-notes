@@ -15,7 +15,7 @@ chapitre: 11-permissions-controle-securite
 leçon: 07-habitudes-politiques-hooks-settings-allowlists
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-10-01
 ---
 
 | Indices / questions clés | Notes détaillées |

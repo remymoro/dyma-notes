@@ -14,7 +14,7 @@ chapitre: 10-modeles-couts-usage
 leçon: 02-regler-effort-ultrathink-ultracode
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-30
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -32,7 +32,7 @@ prochaine_revision:
 ## Synthèse
 Le modèle définit ce dont Claude est capable, mais l'effort dicte la **profondeur de son raisonnement**. Vous pouvez ajuster cette profondeur globalement (`/effort`), demander une réflexion intense sur un seul tour pour un besoin ponctuel (`ultrathink`), ou déclencher un workflow dynamique multi-phases pour un travail lourd (`ultracode`). Quel que soit le niveau choisi, gardez en tête qu'un effort maximal a un coût et ne remplacera jamais la vérification externe (tests, build) pour apporter la preuve d'un résultat fiable.
 
-## Fiche finale — /effort, ultrathink, ultracode
+## Glossaire — /effort, ultrathink, ultracode
 
 | Catégorie | Notion | Rôle principal |
 |---|---|---|

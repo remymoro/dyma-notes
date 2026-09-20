@@ -14,7 +14,7 @@ chapitre: 08-personnalisation-configuration-interface
 leçon: 02-liste-configurations-partie-1
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-28
 ---
 
 | Indices / questions clés | Notes détaillées |

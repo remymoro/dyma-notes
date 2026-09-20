@@ -16,7 +16,7 @@ chapitre: 06-decouverte-premieres-commandes-cli
 leçon: 06-veille-feedback-compte-commandes-personnalisees
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-26
 ---
 
 | Indices / questions clés                                                          | Notes détaillées                                                                                                                                |

@@ -14,7 +14,7 @@ chapitre: 10-modeles-couts-usage
 leçon: 05-maitriser-couts-workflows-longs
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-30
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -29,7 +29,7 @@ prochaine_revision:
 ## Synthèse
 Le coût d'une session dépend de sa trajectoire (nombre de tours et contexte accumulé), qui agit comme un multiplicateur. Pour maîtriser un workflow dynamique, il est vital de définir un "budget" clair avant de lancer l'orchestration : limiter le périmètre, brider les outils et encadrer le nombre d'agents. Les sous-agents protègent le contexte parent mais génèrent leur propre coût. Si la tâche dérape, un simple ajout de crédits ne règle rien : il vaut mieux nettoyer le contexte (`/clear`) ou désactiver les outils superflus (`/mcp`, `plugins`).
 
-## Fiche finale — Distinctions essentielles (À revoir)
+## Glossaire — Distinctions essentielles (À revoir)
 
 | Notion | Distinction |
 |---|---|

@@ -14,7 +14,7 @@ chapitre: 09-gestion-sessions-contexte
 leçon: 05-interrompre-rembobiner-checkpoints
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-29
 ---
 
 | Indices / questions clés | Notes détaillées |

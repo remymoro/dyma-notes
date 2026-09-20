@@ -12,10 +12,10 @@ categories:
   - "Chapitre 14"
 cours: Claude Code
 chapitre: 14-competences-skills
-leçon: 01-situer-skills-ecosysteme
+leçon: 01-situer-skills-ecosysteme-claude-code
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-10-04
 ---
 
 | Indices / questions clés | Notes détaillées |

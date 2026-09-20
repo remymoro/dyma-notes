@@ -14,7 +14,7 @@ chapitre: 08-personnalisation-configuration-interface
 leçon: 05-barre-statut-differencier-sessions
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-28
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -201,10 +201,3 @@ Règle d'or absolue : Le script de statut doit s'exécuter instantanément.
 ```
 
 > **Phrase à retenir** : La couleur annonce l'intention de la session, la barre de statut confirme son contexte objectif.
-
----
-
-# Annexes Visuelles
-
-![Tableau de configuration de la barre de statut](../assets/status-table.png)
-![Aperçu de la barre de statut](../assets/status-preview.png)

@@ -15,7 +15,7 @@ chapitre: 02-comprendre-intelligence-artificielle-generative
 leçon: 06-economie-tokens-facturation
 statut: à revoir
 etape_revision: 0
-prochaine_revision: 2026-08-23
+prochaine_revision: 2026-09-22
 ---
 
 | Indices / questions clés | Notes détaillées |

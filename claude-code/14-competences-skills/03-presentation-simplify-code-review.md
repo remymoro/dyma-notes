@@ -15,7 +15,7 @@ chapitre: 14-competences-skills
 leçon: 03-presentation-simplify-code-review
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-10-04
 ---
 
 | Indices / questions clés | Notes détaillées |

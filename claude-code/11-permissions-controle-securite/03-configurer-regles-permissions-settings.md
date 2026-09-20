@@ -14,7 +14,7 @@ chapitre: 11-permissions-controle-securite
 leçon: 03-configurer-regles-permissions-settings
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-10-01
 ---
 
 | Indices / questions clés | Notes détaillées |

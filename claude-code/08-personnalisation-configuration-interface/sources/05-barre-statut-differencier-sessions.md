@@ -418,6 +418,3 @@ Signes d’une barre surchargée :
 5. elle ralentit l’interface.
 
 Retirez tout ce qui ne sert pas à prendre une décision.
-
-![Tableau de configuration de la barre de statut](../assets/status-table.png)
-![Aperçu de la barre de statut](../assets/status-preview.png)

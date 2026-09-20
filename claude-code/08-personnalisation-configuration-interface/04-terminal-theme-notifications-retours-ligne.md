@@ -15,14 +15,9 @@ chapitre: 08-personnalisation-configuration-interface
 leçon: 04-terminal-theme-notifications-retours-ligne
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-28
 ---
 
-| Indices / questions clés | Notes détaillées |
-|---|---|
-| ... | ... |
-
-## Synthèse
 | Indices / questions clés | Notes détaillées |
 |---|---|
 | **Retour à la ligne multiligne ?** | L'appui sur `Entrée` soumet le prompt. `Shift+Enter` dépend du terminal. `Ctrl+J` ou l'échappement `\` + `Entrée` sont des méthodes de repli garanties. |

@@ -14,7 +14,7 @@ chapitre: 06-decouverte-premieres-commandes-cli
 leçon: 03-premieres-demandes-exploration-vague-demande-precise
 statut: à revoir
 etape_revision: 1
-prochaine_revision: 2026-08-22
+prochaine_revision: 2026-09-26
 ---
 
 | Indices / questions clés | Notes détaillées |

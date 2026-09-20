@@ -13,7 +13,7 @@ chapitre: 05-fonctionnement-agents-code-claude-code
 leçon: 02-outils-claude-code
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-25
 ---
 
 | Indices / questions clés                            | Notes détaillées                                                                                                                                                                    |

@@ -14,7 +14,7 @@ chapitre: 10-modeles-couts-usage
 leçon: 04-suivre-couts-limites-statistiques
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-30
 ---
 
 | Indices / questions clés | Notes détaillées |
@@ -29,7 +29,7 @@ prochaine_revision:
 ## Synthèse
 Dans Claude Code, la gestion des coûts ne se fait pas à la fin du mois, mais se pilote en direct grâce à `/usage`. Cette commande affiche l'estimation des coûts, l'état des limites du plan et les statistiques de la session. Un coût qui dérape provient généralement d'un contexte non nettoyé (fichiers inutiles, serveurs MCP activés pour rien) qui est facturé à chaque tour. Enfin, là où `/usage` donne des chiffres immédiats, `/insights` génère un rapport qualitatif sur vos habitudes pour vous aider à être plus efficace sur le long terme.
 
-## Fiche finale — Les commandes à mémoriser
+## Glossaire — Les commandes à mémoriser
 
 | Commande | Rôle | Formule mentale |
 |---|---|---|

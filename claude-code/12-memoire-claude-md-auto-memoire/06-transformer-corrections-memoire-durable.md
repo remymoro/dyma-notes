@@ -14,7 +14,7 @@ chapitre: 12-memoire-claude-md-auto-memoire
 leçon: 06-transformer-corrections-memoire-durable
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-10-02
 ---
 
 | Indices / questions clés | Notes détaillées |

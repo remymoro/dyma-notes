@@ -11,10 +11,10 @@ categories:
   - "Chapitre 5"
 cours: Claude Code
 chapitre: 05-fonctionnement-agents-code-claude-code
-leçon: 04-prompts-claude-code
+leçon: 04-role-importance-bonnes-pratiques-prompts
 statut: à revoir
 etape_revision: 0
-prochaine_revision:
+prochaine_revision: 2026-09-25
 ---
 
 | Indices / questions clés                               | Notes détaillées                                                                                                                          |
