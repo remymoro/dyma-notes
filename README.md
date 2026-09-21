@@ -38,6 +38,7 @@ Rangées à la racine de `claude-code/`, elles ne correspondent à aucune leçon
 |---|---|
 | [Socle Claude Code — chapitres 01 à 12](claude-code/revision-socle-01-12.md) | Toutes les grandes notions des chapitres 01 à 12, groupées par thème, avec les 7 fils rouges transversaux. |
 | [Révision — chapitre 02](claude-code/revision-questions-02.md) | La banque de questions d'auto-évaluation du chapitre 02, avec le relevé des points à retravailler. |
+| [Les 5 mécanismes de pilotage](claude-code/revision-5-mecanismes-pilotage.md) | `CLAUDE.md`, `.claude/rules/`, skills, permissions et hooks : quand chacun se charge, ce qu'il coûte en contexte, et pourquoi une intention n'est jamais une frontière. Croise les chapitres 12, 13/05, 13/06, 14 et 22. |
 
 ## Cycle de répétition espacée
 
