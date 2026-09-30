@@ -249,16 +249,16 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 15 — MCP — Connecter Claude Code à des outils
 
-> 0/6 fiches · 78 min
+> 6/6 fiches · 78 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Comprendre MCP dans Claude Code](claude-code/15-mcp-connecter-claude-code-outils/01-comprendre-mcp-claude-code.md) | 17 min | ⬜ | 0 | — |
-| 02 | [Panorama des MCP courants et critères de choix](claude-code/15-mcp-connecter-claude-code-outils/02-panorama-mcp-criteres-choix.md) | 14 min | ⬜ | 0 | — |
-| 03 | [Installer et gérer un premier serveur MCP](claude-code/15-mcp-connecter-claude-code-outils/03-installer-gerer-premier-serveur-mcp.md) | 13 min | ⬜ | 0 | — |
-| 04 | [Tester le convertisseur avec Playwright MCP](claude-code/15-mcp-connecter-claude-code-outils/04-tester-convertisseur-playwright-mcp.md) | 11 min | ⬜ | 0 | — |
-| 05 | [Connecter le dépôt avec GitHub MCP](claude-code/15-mcp-connecter-claude-code-outils/05-connecter-depot-github-mcp.md) | 11 min | ⬜ | 0 | — |
-| 06 | [Configurer et sécuriser les MCP du projet](claude-code/15-mcp-connecter-claude-code-outils/06-configurer-securiser-mcp-projet.md) | 12 min | ⬜ | 0 | — |
+| 01 | [Comprendre MCP dans Claude Code](claude-code/15-mcp-connecter-claude-code-outils/01-comprendre-mcp-claude-code.md) | 17 min | ✅ | 0 | — |
+| 02 | [Panorama des MCP courants et critères de choix](claude-code/15-mcp-connecter-claude-code-outils/02-panorama-mcp-criteres-choix.md) | 14 min | ✅ | 0 | — |
+| 03 | [Installer et gérer un premier serveur MCP](claude-code/15-mcp-connecter-claude-code-outils/03-installer-gerer-premier-serveur-mcp.md) | 13 min | ✅ | 0 | — |
+| 04 | [Tester le convertisseur avec Playwright MCP](claude-code/15-mcp-connecter-claude-code-outils/04-tester-convertisseur-playwright-mcp.md) | 11 min | ✅ | 0 | — |
+| 05 | [Connecter le dépôt avec GitHub MCP](claude-code/15-mcp-connecter-claude-code-outils/05-connecter-depot-github-mcp.md) | 11 min | ✅ | 0 | — |
+| 06 | [Configurer et sécuriser les MCP du projet](claude-code/15-mcp-connecter-claude-code-outils/06-configurer-securiser-mcp-projet.md) | 12 min | ✅ | 0 | — |
 
 ### 16 — Projet (partie 2) — Skills et MCP
 
