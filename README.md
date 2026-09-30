@@ -6,15 +6,15 @@ Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** 
 
 ## Progression
 
-`██████████████░░░░░░`  **92 / 134** fiches rédigées — 69 %
+`██████████████░░░░░░`  **96 / 134** fiches rédigées — 71 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
 | Leçons | 134 |
 | Durée cumulée | 28 h 58 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 92 |
-| Fiches à rédiger | 42 |
+| Fiches complètes | 96 |
+| Fiches à rédiger | 38 |
 
 ## Comment lire ce dépôt
 
@@ -274,14 +274,14 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 17 — Travail parallèle, sous-agents et équipes
 
-> 0/8 fiches · 90 min
+> 4/8 fiches · 90 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
-| 01 | [Introduction au travail en parallèle](claude-code/17-travail-parallele-sous-agents-equipes/01-introduction-travail-parallele.md) | 12 min | ⬜ | 0 | — |
-| 02 | [Fonctionnement des worktrees](claude-code/17-travail-parallele-sous-agents-equipes/02-fonctionnement-worktrees.md) | 14 min | ⬜ | 0 | — |
-| 03 | [Sessions en parallèle et agent view](claude-code/17-travail-parallele-sous-agents-equipes/03-sessions-parallele-agent-view.md) | 13 min | ⬜ | 0 | — |
-| 04 | [Présentation des commandes /advisor et /fork](claude-code/17-travail-parallele-sous-agents-equipes/04-commandes-advisor-fork.md) | 6 min | ⬜ | 0 | — |
+| 01 | [Introduction au travail en parallèle](claude-code/17-travail-parallele-sous-agents-equipes/01-introduction-travail-parallele.md) | 12 min | ✅ | 0 | — |
+| 02 | [Fonctionnement des worktrees](claude-code/17-travail-parallele-sous-agents-equipes/02-fonctionnement-worktrees.md) | 14 min | ✅ | 0 | — |
+| 03 | [Sessions en parallèle et agent view](claude-code/17-travail-parallele-sous-agents-equipes/03-sessions-parallele-agent-view.md) | 13 min | ✅ | 0 | — |
+| 04 | [Présentation des commandes /advisor et /fork](claude-code/17-travail-parallele-sous-agents-equipes/04-commandes-advisor-fork.md) | 6 min | ✅ | 0 | — |
 | 05 | [Créer des profils d’agents](claude-code/17-travail-parallele-sous-agents-equipes/05-creer-profils-agents.md) | 16 min | ⬜ | 0 | — |
 | 06 | [Utiliser un sous-agent](claude-code/17-travail-parallele-sous-agents-equipes/06-utiliser-sous-agent.md) | 11 min | ⬜ | 0 | — |
 | 07 | [Les équipes d’agents](claude-code/17-travail-parallele-sous-agents-equipes/07-equipes-agents.md) | 11 min | ⬜ | 0 | — |
