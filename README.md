@@ -6,15 +6,15 @@ Chaque leçon donne lieu à une fiche en deux blocs : la **fiche de révision** 
 
 ## Progression
 
-`██████████████░░░░░░`  **91 / 134** fiches rédigées — 68 %
+`██████████████░░░░░░`  **92 / 134** fiches rédigées — 69 %
 
 | | |
 |---|---|
 | Chapitres | 25 |
 | Leçons | 134 |
 | Durée cumulée | 28 h 58 *(sur 110 leçons renseignées)* |
-| Fiches complètes | 91 |
-| Fiches à rédiger | 43 |
+| Fiches complètes | 92 |
+| Fiches à rédiger | 42 |
 
 ## Comment lire ce dépôt
 
@@ -262,7 +262,7 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 
 ### 16 — Projet (partie 2) — Skills et MCP
 
-> 4/5 fiches · 77 min
+> 5/5 fiches · 77 min
 
 | | Leçon | Durée | Fiche | Étape | Prochaine révision |
 |---|---|---|---|---|---|
@@ -270,7 +270,7 @@ Le skill `.claude/skills/tuteur-dyma` pilote ce cycle : il pose les questions **
 | 02 | [Création d’un skill permettant de créer des règles](claude-code/16-projet-partie-2-skills-mcp/02-creer-skill-creation-regles.md) | 21 min | ✅ | 0 | — |
 | 03 | [Création d’une nouvelle règle avec le skill new-rule](claude-code/16-projet-partie-2-skills-mcp/03-creer-regle-skill-new-rule.md) | 11 min | ✅ | 0 | — |
 | 04 | [Création d’une seconde règle](claude-code/16-projet-partie-2-skills-mcp/04-creer-seconde-regle.md) | 15 min | ✅ | 0 | — |
-| 05 | [Nouvelle fonctionnalité : scan d’un dépôt GitHub](claude-code/16-projet-partie-2-skills-mcp/05-scan-depot-github.md) | 15 min | ⬜ | 0 | — |
+| 05 | [Nouvelle fonctionnalité : scan d’un dépôt GitHub](claude-code/16-projet-partie-2-skills-mcp/05-scan-depot-github.md) | 15 min | ✅ | 0 | — |
 
 ### 17 — Travail parallèle, sous-agents et équipes
 
